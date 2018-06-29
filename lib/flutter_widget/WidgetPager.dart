@@ -101,7 +101,7 @@ class WidgetStudyState extends State<WidgetStudy> {
     return Container(
       width: 600.0,
       height: 88.0,
-      color: Colors.blueGrey,
+      color: Colors.white,
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -124,60 +124,77 @@ class WidgetStudyState extends State<WidgetStudy> {
                         children: <Widget>[
                           new Icon(
                             Icons.widgets,
-                            color: Colors.white,
+                            color:  Color(0xFF00796B),
                           ),
                           new Text('小部件',
                               style: new TextStyle(
-                                  color: Colors.white, fontSize: 12.0))
+                                  color:  Color(0xFF00796B), fontSize: 12.0))
                         ],
                       ),
                       margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
                     ),
-                    disabledColor: Colors.blueGrey,
+                    disabledColor: Colors.white,
+                    color: Colors.white,
                   ),
                   padding: new EdgeInsets.all(13.0),
                   decoration: new BoxDecoration(color: Colors.white),
                 ),
                 new Container(
                   child: new RaisedButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.of(context).push(new PageRouteBuilder(
+                        opaque: false,
+                        pageBuilder: (BuildContext context, _, __) {
+                          return new SmallWidget();
+                        },
+                      )); //页面跳转
+                    },
                     child: new Container(
                       child: new Column(
                         children: <Widget>[
                           new Icon(
                             Icons.move_to_inbox,
-                            color: Colors.white,
+                            color:  Color(0xFF00796B),
                           ),
-                          new Text('部件摆放',
+                          new Text('布局摆放',
                               style: new TextStyle(
-                                  color: Colors.white, fontSize: 12.0))
+                                  color:  Color(0xFF00796B), fontSize: 12.0))
                         ],
                       ),
                       margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
                     ),
-                    disabledColor: Colors.blueGrey,
+                    disabledColor: Colors.white,
+                    color: Colors.white,
                   ),
                   padding: new EdgeInsets.all(13.0),
                   decoration: new BoxDecoration(color: Colors.white),
                 ),
                 new Container(
                   child: new RaisedButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.of(context).push(new PageRouteBuilder(
+                        opaque: false,
+                        pageBuilder: (BuildContext context, _, __) {
+                          return new SmallWidget();
+                        },
+                      )); //页面跳转
+                    },
                     child: new Container(
                       child: new Column(
                         children: <Widget>[
                           new Icon(
-                            Icons.exit_to_app,
-                            color: Colors.white,
+                            Icons.widgets,
+                            color:  Color(0xFF00796B),
                           ),
                           new Text('案例们',
                               style: new TextStyle(
-                                  color: Colors.white, fontSize: 12.0))
+                                  color:  Color(0xFF00796B), fontSize: 12.0))
                         ],
                       ),
                       margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
                     ),
-                    disabledColor: Colors.blueGrey,
+                    disabledColor: Colors.white,
+                    color: Colors.white,
                   ),
                   padding: new EdgeInsets.all(13.0),
                   decoration: new BoxDecoration(color: Colors.white),

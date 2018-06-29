@@ -65,7 +65,7 @@ void main() {
   runApp(
     new MaterialApp(
       title: 'app',
-      theme: new ThemeData(primaryColor: Colors.blueGrey),
+      theme: new ThemeData(primaryColor: Color(0xFF00796B)),
       home: new MyHomePager(),
     ),
   );
@@ -160,9 +160,9 @@ class _TaboxcState extends State<TapboxC> {
         height: 50.0,
         //盒子来了，变色
         decoration: new BoxDecoration(
-          color: widget.active ? Colors.teal : Colors.blueGrey,
+          color: widget.active ? Color(0xFF00796B): Colors.tealAccent,
           border: _hightList
-              ? new Border.all(color: Colors.cyan[700], width: 10.0)
+              ? new Border.all(color: Colors.tealAccent[700], width: 10.0)
               : null,
         ),
         //这里是边框变化
@@ -416,7 +416,7 @@ class _MyHomePageState extends State<MyHomePager>
               ),
               width: 600.0,
               height: 60.0,
-              color: Colors.blueGrey,
+              color:  Color(0xFF00796B),
               padding: new EdgeInsets.only(top: 5.0),
             ),
           ],
