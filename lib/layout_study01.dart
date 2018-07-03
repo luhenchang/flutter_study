@@ -625,9 +625,16 @@ class ImageWidgetState1 extends State<ImageAnimal1>
   }
 }
 
+class MyAppsss extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppssss();
+  }
 
+}
 //TODO 顶部
-class MyAppsss extends StatelessWidget {
+class MyAppssss extends State<MyAppsss> {
   @override
   Widget build(BuildContext context) {
     //TODO 第二个布局

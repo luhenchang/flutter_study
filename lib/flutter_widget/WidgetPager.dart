@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/flutter_widget/small_widget/RowAndColumWidget.dart';
+import 'package:flutter_app/flutter_widget/small_widget/SimpleWidgets.dart';
 import 'package:flutter_app/flutter_widget/small_widget/SmallWidget.dart';
+import 'package:flutter_app/layout_study01.dart';
 
 //TODO 1.0--------------------开始------------------------------------
 //这里是给第一个图片加一个动画。从00到它展开
@@ -19,7 +22,7 @@ class AnimalWidgets extends AnimatedWidget {
     final Animation<double> animation = listenable;
     return Container(
       margin: new EdgeInsets.symmetric(vertical: 1.0),
-      height: (animation.value/3)>130.0?150.0:animation.value/3,
+      height: (animation.value / 3) > 30.0 ? 150.0 : animation.value / 3,
       width: animation.value,
       child: Image.asset(
         'images/long_wuman1.jpg',
@@ -86,8 +89,9 @@ class ImageWidgetState extends State<ImageAnimal>
 //TODO 1.0--------------------结束------------------------------------
 
 //TODO 2.0--------------------开始-----------------------------------------
+
 //这里分模块学习Flutter
-//TODO 2.0--------------------开始-----------------------------------------
+//TODO 2.0--------------------结束-----------------------------------------
 class WidgetStudy extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -100,7 +104,7 @@ class WidgetStudyState extends State<WidgetStudy> {
   Widget build(BuildContext context) {
     return Container(
       width: 600.0,
-      height: 88.0,
+      height: 188.0,
       color: Colors.white,
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,10 +116,69 @@ class WidgetStudyState extends State<WidgetStudy> {
                 new Container(
                   child: new RaisedButton(
                     onPressed: () {
+                      Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (_) {
+                          return new SmallWidget();
+                        },
+                      )); //页面跳转
+                    },
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.widgets,
+                            color: Color(0xFF00796B),
+                          ),
+                          new Text('小部件',
+                              style: new TextStyle(
+                                  color: Color(0xFF00796B), fontSize: 12.0))
+                        ],
+                      ),
+                      margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    ),
+                    disabledColor: Colors.white,
+                    color: Colors.white,
+                  ),
+                  padding: new EdgeInsets.only(left: 31.0),
+                  decoration: new BoxDecoration(color: Colors.white),
+                ),
+                new Container(
+                  child: new RaisedButton(
+                    onPressed: () {
                       Navigator.of(context).push(new PageRouteBuilder(
                             opaque: false,
                             pageBuilder: (BuildContext context, _, __) {
-                              return new SmallWidget();
+                              return new RowAndColumWidget(index: 0,);
+                            },
+                          )); //页面跳转
+                    },
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.move_to_inbox,
+                            color: Color(0xFF00796B),
+                          ),
+                          new Text('布局摆放',
+                              style: new TextStyle(
+                                  color: Color(0xFF00796B), fontSize: 12.0))
+                        ],
+                      ),
+                      margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    ),
+                    disabledColor: Colors.white,
+                    color: Colors.white,
+                  ),
+                  padding: new EdgeInsets.all(8.0),
+                  decoration: new BoxDecoration(color: Colors.white),
+                ),
+                new Container(
+                  child: new RaisedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(new PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (BuildContext context, _, __) {
+                              return new SimpleWidgets(index: 2,title:'案例一');
                             },
                           )); //页面跳转
                     },
@@ -124,11 +187,11 @@ class WidgetStudyState extends State<WidgetStudy> {
                         children: <Widget>[
                           new Icon(
                             Icons.widgets,
-                            color:  Color(0xFF00796B),
+                            color: Color(0xFF00796B),
                           ),
-                          new Text('小部件',
+                          new Text('案例一',
                               style: new TextStyle(
-                                  color:  Color(0xFF00796B), fontSize: 12.0))
+                                  color: Color(0xFF00796B), fontSize: 12.0))
                         ],
                       ),
                       margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -136,59 +199,39 @@ class WidgetStudyState extends State<WidgetStudy> {
                     disabledColor: Colors.white,
                     color: Colors.white,
                   ),
-                  padding: new EdgeInsets.all(13.0),
+                  padding: new EdgeInsets.all(8.0),
                   decoration: new BoxDecoration(color: Colors.white),
                 ),
+              ],
+            ),
+            width: 700.0,
+            padding: new EdgeInsets.only(left: 8.0),
+            decoration: new BoxDecoration(color: Colors.white),
+          ),
+          new Container(
+            child: new Row(
+              //第一行
+              children: <Widget>[
                 new Container(
                   child: new RaisedButton(
                     onPressed: () {
                       Navigator.of(context).push(new PageRouteBuilder(
-                        opaque: false,
-                        pageBuilder: (BuildContext context, _, __) {
-                          return new SmallWidget();
-                        },
-                      )); //页面跳转
-                    },
-                    child: new Container(
-                      child: new Column(
-                        children: <Widget>[
-                          new Icon(
-                            Icons.move_to_inbox,
-                            color:  Color(0xFF00796B),
-                          ),
-                          new Text('布局摆放',
-                              style: new TextStyle(
-                                  color:  Color(0xFF00796B), fontSize: 12.0))
-                        ],
-                      ),
-                      margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    ),
-                    disabledColor: Colors.white,
-                    color: Colors.white,
-                  ),
-                  padding: new EdgeInsets.all(13.0),
-                  decoration: new BoxDecoration(color: Colors.white),
-                ),
-                new Container(
-                  child: new RaisedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(new PageRouteBuilder(
-                        opaque: false,
-                        pageBuilder: (BuildContext context, _, __) {
-                          return new SmallWidget();
-                        },
-                      )); //页面跳转
+                            opaque: false,
+                            pageBuilder: (BuildContext context, _, __) {
+                              return new SimpleWidgets(index:3,title:'案例二');
+                            },
+                          )); //页面跳转
                     },
                     child: new Container(
                       child: new Column(
                         children: <Widget>[
                           new Icon(
                             Icons.widgets,
-                            color:  Color(0xFF00796B),
+                            color: Color(0xFF00796B),
                           ),
-                          new Text('案例们',
+                          new Text('案例二',
                               style: new TextStyle(
-                                  color:  Color(0xFF00796B), fontSize: 12.0))
+                                  color: Color(0xFF00796B), fontSize: 12.0))
                         ],
                       ),
                       margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -196,13 +239,75 @@ class WidgetStudyState extends State<WidgetStudy> {
                     disabledColor: Colors.white,
                     color: Colors.white,
                   ),
-                  padding: new EdgeInsets.all(13.0),
+                  padding: new EdgeInsets.only(left: 31.0),
+                  decoration: new BoxDecoration(color: Colors.white),
+                ),
+                new Container(
+                  child: new RaisedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(new PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (BuildContext context, _, __) {
+                              return new SimpleWidgets(index:4,title:'最终案例');
+
+                            },
+                          )); //页面跳转
+                    },
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.move_to_inbox,
+                            color: Color(0xFF00796B),
+                          ),
+                          new Text('大杂烩',
+                              style: new TextStyle(
+                                  color: Color(0xFF00796B), fontSize: 12.0))
+                        ],
+                      ),
+                      margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    ),
+                    disabledColor: Colors.white,
+                    color: Colors.white,
+                  ),
+                  padding: new EdgeInsets.all(8.0),
+                  decoration: new BoxDecoration(color: Colors.white),
+                ),
+                new Container(
+                  child: new RaisedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(new PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (BuildContext context, _, __) {
+                              return new SimpleWidgets(index:5,title:'更新中..');
+
+                            },
+                          )); //页面跳转
+                    },
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.widgets,
+                            color: Color(0xFF00796B),
+                          ),
+                          new Text('更新..',
+                              style: new TextStyle(
+                                  color: Color(0xFF00796B), fontSize: 12.0))
+                        ],
+                      ),
+                      margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    ),
+                    disabledColor: Colors.white,
+                    color: Colors.white,
+                  ),
+                  padding: new EdgeInsets.all(8.0),
                   decoration: new BoxDecoration(color: Colors.white),
                 ),
               ],
             ),
             width: 700.0,
-            padding: new EdgeInsets.only(left: 3.0),
+            padding: new EdgeInsets.only(left: 8.0),
             decoration: new BoxDecoration(color: Colors.white),
           ),
         ],
@@ -223,7 +328,7 @@ class FirstPageState extends State<WidgetPager> {
   Widget build(BuildContext context) {
     //TODO 第二个布局
     Widget titleSection = new Container(
-      //距离每个边缘四周32像素
+      //距离每个边缘四周31像素
       margin: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 1.0),
       child: new Card(
         //最外层为一行包裹里面的
@@ -233,7 +338,7 @@ class FirstPageState extends State<WidgetPager> {
             //TODO 第一个子控件里面两行字体,让其占用多余的控件，这样右边的控件所占之外的所有控件都被他所占用这样展开的更长不然右边控件会往左边跑。
             new Container(
               margin: new EdgeInsets.only(
-                  left: 15.0, top: 8.0, right: 45.0, bottom: 5.0),
+                  left: 18.0, top: 8.0, right: 48.0, bottom: 8.0),
               //这个列里面装两行文字
               child: new Column(
                 //文字从这个左边开始
@@ -267,11 +372,7 @@ class FirstPageState extends State<WidgetPager> {
     );
     return MaterialApp(
       theme: new ThemeData(primaryColor: Colors.blueGrey),
-      routes: <String, WidgetBuilder>{
-        '/flutter_widget/small_widget/SmallWidget': (BuildContext context) {
-          return new SmallWidget();
-        }
-      },
+
       home: new Scaffold(
         appBar: new AppBar(
           title: new Center(child: new Text('三天搞定Flutter')),
