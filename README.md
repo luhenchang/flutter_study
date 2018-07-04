@@ -1,6 +1,6 @@
 # flutter_study
 
-Flutter学习三天搞定项目
+Flutter学习三---一天搞定这个项目：一有时间后面会持续更新的哦
 
 一，Flutter:
 
