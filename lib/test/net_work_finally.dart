@@ -5,8 +5,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/animation.dart';
-import 'package:flutter_app/flutter_intent.dart';
-import 'package:flutter_app/layout_study01.dart';
+import 'package:flutter_app/test/flutter_intent.dart';
+import 'package:flutter_app/test/layout_study01.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 

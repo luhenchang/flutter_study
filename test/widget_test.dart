@@ -5,7 +5,7 @@
 // are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/layout_study02_gridview.dart';
+import 'package:flutter_app/test/layout_study02_gridview.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 

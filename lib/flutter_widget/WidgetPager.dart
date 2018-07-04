@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/flutter_widget/small_widget/RowAndColumWidget.dart';
 import 'package:flutter_app/flutter_widget/small_widget/SimpleWidgets.dart';
 import 'package:flutter_app/flutter_widget/small_widget/SmallWidget.dart';
-import 'package:flutter_app/layout_study01.dart';
+import 'package:flutter_app/test/layout_study01.dart';
 
 //TODO 1.0--------------------开始------------------------------------
 //这里是给第一个图片加一个动画。从00到它展开
