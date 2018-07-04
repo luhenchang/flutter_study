@@ -11,9 +11,16 @@ Flutter和“ReactNative”，我想很多作为android和前端或者ios开发�
 写了一天半Demon如下图所示： 
 当我注重看Flutter框架设计时候，官方网站提供了bottomNavigationBar但是发现设置路由进入子页面之后它没法消失，百度了很多至今没有一个人写个原始的Flutter应用程序框架。这里只好自己写了，当然了思路都一样，用下面点击事件去记录index然后替换显示三个对应的页面就可以了。对于生命传值路由我希望大家可以去看官方网站比较需要理解，而且很好理解的，动态和静态如果设置路由，如何传值这些都是分分钟的事情。Flutter官网连接.
 这里写图片描述
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/aaaaa.png?raw=true)
-
-
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/Flutter_1234556.gif?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/1.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/3.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/4.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/5.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/6.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/7.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/8.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/9.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/10.png?raw=true)
 项目会一直完善的，我github上传失败了，改天上传希望可以帮助你学习。有什么意见和建议的多多留言，我会尽自己最大的可能提供帮助。
 
 ## Getting Started
