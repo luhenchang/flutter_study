@@ -2,6 +2,15 @@
 
 Flutter学习三---一天搞定这个项目：一有时间后面会持续更新的哦
 
+**2018年，7月9日更新**
+
+**登录和首页改变**
+一，添加了登录界面，这里登录密码和手机号，都是123456，点击登录进入主页。
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/genxin2.png?raw=true)
+二，主页面根据美团来写的。目前有时间会一直更新的。轮播图，列表嵌套等。
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/genxin1.png?raw=true)
+
+
 **一，Flutter:**
 
 Flutter和“ReactNative”，我想很多作为android和前端或者ios开发人员都听说过，我们可以JavaScript和React获得一致的开发体验，但是RN在实际平台上还需要适配和桥接差异性，这个过程其实很痛苦的。而Flutter则是依靠Flutter Engine虚拟机在iOS和Android上运行，开发人员可以通过Flutter框架和API在内部进行交互。Flutter Engine使用C/C++编写，具有低延迟输入和高帧速率的特点。除此之外，Flutter提供了自己的小部件集合，可以直接在OS平台提供的画布上描绘控件。可以说实际意义上的一个语言实现多平台运行。
