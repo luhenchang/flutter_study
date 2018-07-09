@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter_app/flutter_intent/SecondPager.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -758,6 +759,24 @@ class _MyHomePageState extends State<MyHomePager>
     });*/
   }
 
+  Widget getItemWidget(String url) {
+    return new Image.asset(
+      url,
+      fit: BoxFit.cover,
+      width: 80.0,
+      height: 80.0,
+    );
+  }
+
+  List<Widget> _ItemList() {
+    List<Widget> widgetList = new List();
+    widgetList.add(getItemWidget('images/item1.png'));
+    widgetList.add(getItemWidget('images/item2.png'));
+    widgetList.add(getItemWidget('images/item3.png'));
+    widgetList.add(getItemWidget('images/item4.png'));
+    return widgetList;
+  }
+
   void initData() async {
     setState(() {
       inforData
@@ -835,7 +854,7 @@ class _MyHomePageState extends State<MyHomePager>
                                       height: 30.0,
                                       width: 200.0,
                                       decoration: BoxDecoration(
-                                          color: Colors.black12,
+                                          color: Color(0xFFEEEEEE),
                                           borderRadius: BorderRadius.all(
                                               const Radius.circular(58.0))),
                                       child: Row(
@@ -844,7 +863,6 @@ class _MyHomePageState extends State<MyHomePager>
                                             Icons.search,
                                             size: 20.0,
                                             color: Colors.black54,
-
                                           ),
                                           Container(
                                             child: Container(
@@ -864,10 +882,11 @@ class _MyHomePageState extends State<MyHomePager>
                                 child: Icon(Icons.search),
                                 padding: new EdgeInsets.only(left: 5.0),
                               ),*/
-                                                      hintText: '请输入喜好',
+                                                      hintText: '杨米宇黄焖鸡米饭...',
                                                       hintStyle: TextStyle(
+                                                          fontSize: 13.0,
                                                           color:
-                                                              Colors.black12),
+                                                              Colors.black45),
                                                       //contentPadding: new EdgeInsets.only(left: 1.0,top: 16.0),
                                                       //isDense: false,
                                                       filled: false,
@@ -907,10 +926,268 @@ class _MyHomePageState extends State<MyHomePager>
                 ),
               )
             : new AppBar(
-                title: new Center(
-                  child: index == 0
-                      ? new Container()
-                      : new Text(index == 1 ? 'Flutter-交互' : 'Flutter--系统调用'),
+                titleSpacing: 0.0,
+                automaticallyImplyLeading: false,
+                title: new Container(
+                  width: 600.0,
+                  child: index == 1
+                      ? new Container(
+                          child: new Card(
+                            child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  new Container(
+                                    child: Column(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.map,
+                                          size: 20.0,
+                                        ),
+                                        Container(
+                                          child: Text(
+                                            '27*',
+                                            style: TextStyle(
+                                                fontSize: 11.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black45),
+                                          ),
+                                          margin:
+                                              new EdgeInsets.only(left: 4.0),
+                                        ),
+                                      ],
+                                    ),
+                                    margin: new EdgeInsets.only(
+                                        left: 15.0, top: 12.0, bottom: 2.0),
+                                  ),
+                                  new SizedBox(
+                                    width:MediaQuery.of(context).size.width/3-10,
+                                    child: Container(
+                                      child: Text(
+                                        '万科金奥国际',
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black45),
+                                        maxLines: 1,
+                                        overflow:TextOverflow.ellipsis,
+                                      ),
+                                      margin: new EdgeInsets.only(left: 11.0),
+                                    ),
+                                  ),
+                                  new Icon(Icons.expand_more,color: Colors.black45),
+                                  new Container(
+                                      margin: new EdgeInsets.only(left: 10.0),
+                                      padding: new EdgeInsets.only(left: 10.0),
+                                      height: 30.0,
+                                      width: 150.0,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFFEEEEEE),
+                                          borderRadius: BorderRadius.all(
+                                              const Radius.circular(5.0))),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.search,
+                                            size: 20.0,
+                                            color: Colors.black54,
+                                          ),
+                                          Container(
+                                            child: Container(
+                                              padding: new EdgeInsets.only(
+                                                  left: 10.0),
+                                              child: Center(
+                                                child: Form(
+                                                  autovalidate: false,
+                                                  child: TextFormField(
+                                                    style: new TextStyle(
+                                                        color: Colors.teal),
+                                                    textAlign: TextAlign.start,
+                                                    decoration: InputDecoration
+                                                        .collapsed(
+                                                      fillColor: Colors.white,
+                                                      /*prefixIcon: Container(
+                                child: Icon(Icons.search),
+                                padding: new EdgeInsets.only(left: 5.0),
+                              ),*/
+                                                      hintText: '找附近吃喝玩乐...',
+                                                      hintStyle: TextStyle(
+                                                          fontSize: 13.0,
+                                                          color:
+                                                              Colors.black45),
+                                                      //contentPadding: new EdgeInsets.only(left: 1.0,top: 16.0),
+                                                      //isDense: false,
+                                                      filled: false,
+                                                      /*border: new OutlineInputBorder(
+
+                                borderRadius: BorderRadius.all(Radius.circular(44.0)),
+                                borderSide:  BorderSide(
+                                    color: Colors.white,
+                                    style: BorderStyle.none),
+                              ),*/
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            width: 80.0,
+                                            height: 35.0,
+                                          ),
+                                        ],
+                                      )),
+                                ],
+                              ),
+                              width: 600.0,
+                              height: 55.0,
+                            ),
+                            margin: new EdgeInsets.only(top: 1.0, bottom: 2.0),
+                          ),
+                        )
+                      : new AppBar(
+                          titleSpacing: 0.0,
+                          automaticallyImplyLeading: false,
+                          title: new Container(
+                            width: 600.0,
+                            child: index == 2
+                                ? new Container(
+                                    child: new Card(
+                                      child: Container(
+                                        child: Row(
+                                          children: <Widget>[
+                                            new Container(
+                                              child: Column(
+                                                children: <Widget>[
+                                                  Icon(
+                                                    Icons.beach_access,
+                                                    size: 20.0,
+                                                  ),
+                                                  Container(
+                                                    child: Text(
+                                                      '27*',
+                                                      style: TextStyle(
+                                                          fontSize: 11.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color:
+                                                              Colors.black45),
+                                                    ),
+                                                    margin: new EdgeInsets.only(
+                                                        left: 4.0),
+                                                  ),
+                                                ],
+                                              ),
+                                              margin: new EdgeInsets.only(
+                                                  left: 15.0,
+                                                  top: 12.0,
+                                                  bottom: 2.0),
+                                            ),
+                                            new Container(
+                                              child: Container(
+                                                child: Text(
+                                                  '天津',
+                                                  style: TextStyle(
+                                                      fontSize: 16.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black),
+                                                ),
+                                                margin: new EdgeInsets.only(
+                                                    left: 11.0),
+                                              ),
+                                            ),
+                                            new Container(
+                                                margin: new EdgeInsets.only(
+                                                    left: 10.0),
+                                                padding: new EdgeInsets.only(
+                                                    left: 10.0),
+                                                height: 30.0,
+                                                width: 200.0,
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xFFEEEEEE),
+                                                    borderRadius: BorderRadius
+                                                        .all(const Radius
+                                                            .circular(58.0))),
+                                                child: Row(
+                                                  children: <Widget>[
+                                                    Icon(
+                                                      Icons.search,
+                                                      size: 20.0,
+                                                      color: Colors.black54,
+                                                    ),
+                                                    Container(
+                                                      child: Container(
+                                                        padding:
+                                                            new EdgeInsets.only(
+                                                                left: 10.0),
+                                                        child: Center(
+                                                          child: Form(
+                                                            autovalidate: false,
+                                                            child:
+                                                                TextFormField(
+                                                              style: new TextStyle(
+                                                                  color: Colors
+                                                                      .teal),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .start,
+                                                              decoration:
+                                                                  InputDecoration
+                                                                      .collapsed(
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                /*prefixIcon: Container(
+                                child: Icon(Icons.search),
+                                padding: new EdgeInsets.only(left: 5.0),
+                              ),*/
+                                                                hintText:
+                                                                    '杨米宇黄焖鸡米饭...',
+                                                                hintStyle: TextStyle(
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    color: Colors
+                                                                        .black45),
+                                                                //contentPadding: new EdgeInsets.only(left: 1.0,top: 16.0),
+                                                                //isDense: false,
+                                                                filled: false,
+                                                                /*border: new OutlineInputBorder(
+
+                                borderRadius: BorderRadius.all(Radius.circular(44.0)),
+                                borderSide:  BorderSide(
+                                    color: Colors.white,
+                                    style: BorderStyle.none),
+                              ),*/
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      width: 130.0,
+                                                      height: 35.0,
+                                                    ),
+                                                  ],
+                                                )),
+                                            new Container(
+                                              child: Icon(
+                                                Icons.add,
+                                                size: 28.0,
+                                              ),
+                                              padding: new EdgeInsets.only(
+                                                  left: 10.0),
+                                            ),
+                                          ],
+                                        ),
+                                        width: 600.0,
+                                        height: 55.0,
+                                      ),
+                                      margin: new EdgeInsets.only(
+                                          top: 1.0, bottom: 2.0),
+                                    ),
+                                  )
+                                : new Text(index == 1
+                                    ? 'Flutter-交互'
+                                    : 'Flutter--系统调用'),
+                          ),
+                        ),
                 ),
               ),
         body: new Column(
@@ -927,6 +1204,7 @@ class _MyHomePageState extends State<MyHomePager>
                           FocusScope.of(context).requestFocus(new FocusNode());
                         },
                         child: new ListView(
+                          padding: new EdgeInsets.all(1.0),
                           scrollDirection: Axis.vertical,
                           children: <Widget>[
                             // new ImageAnimal(),
@@ -1087,6 +1365,21 @@ class _MyHomePageState extends State<MyHomePager>
                                 margin: new EdgeInsets.all(4.0),
                               ),
                             ),
+                            //网格布局
+                            new Container(
+                                color: Colors.white,
+                                height:
+                                    MediaQuery.of(context).size.width / 2 + 15,
+                                width: MediaQuery.of(context).size.width,
+                                child: new GridView.count(
+                                  childAspectRatio: 2.0,
+                                  primary: false,
+                                  padding: const EdgeInsets.all(10.0),
+                                  crossAxisSpacing: 10.0,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 6.0,
+                                  children: _ItemList(),
+                                )),
                             WidgetPagers(),
                             new WidgetStudy(),
                             new WidgetText(),
@@ -1098,7 +1391,7 @@ class _MyHomePageState extends State<MyHomePager>
                       )
                     : index == 1
                         ? new Container(
-                            child: FragmentPagerSecond(),
+                            child: SecondPager(),
                             color: Colors.black12,
                           )
                         : new systemPager(),
