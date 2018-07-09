@@ -844,6 +844,7 @@ class _MyHomePageState extends State<MyHomePager>
                                             Icons.search,
                                             size: 20.0,
                                             color: Colors.black54,
+
                                           ),
                                           Container(
                                             child: Container(
