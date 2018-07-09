@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/animation.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class SimpleWidgets extends StatefulWidget {
   SimpleWidgets({Key key, this.title, this.index}) : super(key: key);
@@ -515,25 +516,25 @@ class SimpleWidgetState extends State<SimpleWidgets> {
               children: <Widget>[
                 new Expanded(
                     child: new Image.asset(
-                      'images/lonnv6.jpg',
-                      width: 600.0,
-                      height: 120.0,
-                      fit: BoxFit.cover,
-                    )),
+                  'images/lonnv6.jpg',
+                  width: 600.0,
+                  height: 120.0,
+                  fit: BoxFit.cover,
+                )),
                 new Expanded(
                     child: new Image.asset(
-                      'images/lonnv10.jpg',
-                      width: 600.0,
-                      height: 120.0,
-                      fit: BoxFit.cover,
-                    )),
+                  'images/lonnv10.jpg',
+                  width: 600.0,
+                  height: 120.0,
+                  fit: BoxFit.cover,
+                )),
                 new Expanded(
                     child: new Image.asset(
-                      'images/lonnv8.jpg',
-                      width: 600.0,
-                      height: 120.0,
-                      fit: BoxFit.cover,
-                    )),
+                  'images/lonnv8.jpg',
+                  width: 600.0,
+                  height: 120.0,
+                  fit: BoxFit.cover,
+                )),
               ],
             ),
           ),
@@ -549,7 +550,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
         children: [
           new Container(
             margin:
-            EdgeInsets.only(left: 0.0, top: 5.0, right: 0.0, bottom: 10.0),
+                EdgeInsets.only(left: 0.0, top: 5.0, right: 0.0, bottom: 10.0),
             padding: EdgeInsets.only(left: 10.0),
             width: 600.0,
             height: 50.0,
@@ -568,9 +569,10 @@ class SimpleWidgetState extends State<SimpleWidgets> {
               new Expanded(
                 child: new Container(
                   decoration: new BoxDecoration(
-                    border: new Border.all(width: 11.0, color: Colors.redAccent),
+                    border:
+                        new Border.all(width: 11.0, color: Colors.redAccent),
                     borderRadius:
-                    const BorderRadius.all(const Radius.circular(10.0)),
+                        const BorderRadius.all(const Radius.circular(10.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: new Image.asset(
@@ -584,9 +586,10 @@ class SimpleWidgetState extends State<SimpleWidgets> {
               new Expanded(
                 child: new Container(
                   decoration: new BoxDecoration(
-                    border: new Border.all(width: 11.0, color: Colors.redAccent),
+                    border:
+                        new Border.all(width: 11.0, color: Colors.redAccent),
                     borderRadius:
-                    const BorderRadius.all(const Radius.circular(10.0)),
+                        const BorderRadius.all(const Radius.circular(10.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: new Image.asset(
@@ -604,9 +607,10 @@ class SimpleWidgetState extends State<SimpleWidgets> {
               new Expanded(
                 child: new Container(
                   decoration: new BoxDecoration(
-                    border: new Border.all(width: 11.0, color: Colors.redAccent),
+                    border:
+                        new Border.all(width: 11.0, color: Colors.redAccent),
                     borderRadius:
-                    const BorderRadius.all(const Radius.circular(10.0)),
+                        const BorderRadius.all(const Radius.circular(10.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: new Image.asset(
@@ -620,9 +624,10 @@ class SimpleWidgetState extends State<SimpleWidgets> {
               new Expanded(
                 child: new Container(
                   decoration: new BoxDecoration(
-                    border: new Border.all(width: 11.0, color: Colors.redAccent),
+                    border:
+                        new Border.all(width: 11.0, color: Colors.redAccent),
                     borderRadius:
-                    const BorderRadius.all(const Radius.circular(10.0)),
+                        const BorderRadius.all(const Radius.circular(10.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: new Image.asset(
@@ -837,10 +842,19 @@ class SimpleWidgetState extends State<SimpleWidgets> {
             new Expanded(
               child: leftColumn,
             ),
-            new Expanded(
-              child: new Image.asset(
-                'images/lonnv6.jpg',
-                height: 100.0,
+            new Card(
+              margin: new EdgeInsets.all(11.0),
+              child: Container(
+                width: 110.0,
+                height: 82.0,
+                child: new FadeInImage.memoryNetwork(
+                    //让图片慢慢出现网络加载。
+                    placeholder: kTransparentImage,
+                    image:
+                        'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+                    width: 100.0,
+                    height: 80.0),
+                padding: new EdgeInsets.all(5.0),
               ),
             ),
           ],
@@ -889,7 +903,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
                   'images/haha.png',
                   width: 700.0,
                   height: 200.0,
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -922,47 +936,92 @@ class SimpleWidgetState extends State<SimpleWidgets> {
       color: Colors.teal,
       theme: new ThemeData(primaryColor: Colors.teal),
       home: new Scaffold(
+        backgroundColor: Colors.teal,
+        appBar: new AppBar(
           backgroundColor: Colors.teal,
-          appBar: new AppBar(
-            backgroundColor: Colors.teal,
-            title: new Center(
-              child: new Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  new IconButton(
-                    icon: new Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  new Container(
-                    child: Text(title),
-                    margin: new EdgeInsets.only(left: 70.0),
-                  ),
-                ],
-              ),
+          title: new Center(
+            child: new Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new IconButton(
+                  icon: new Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                new Container(
+                  child: Text(title),
+                  margin: new EdgeInsets.only(left: 70.0),
+                ),
+              ],
             ),
           ),
-          body: new Container(
-            color: Colors.teal,
-            //第一个界面首页可能放的东西比较多，所以这里我用了android原生里面的ScrollView同样的小部件ListView
-            child: index == 2
-                ? getListSimple1()
-                : index == 3
-                    ? getSimple2()
-                    : index == 4
-                        ? getSimple3()
-                        : index == 5
-                            ? new Container(
-                                child: new Text(
-                                  '如果广大开发者有所需求布局之类的嵌套可以评论，我会持续更新的.....',
-                                  style: new TextStyle(color: Colors.white),
-                                ),
-                                margin: new EdgeInsets.all(20.0),
-                              )
-                            : new Text('haha'),
-          )),
+        ),
+        body: new Container(
+          //第一个界面首页可能放的东西比较多，所以这里我用了android原生里面的ScrollView同样的小部件ListView
+          child: index == 2
+              ? getListSimple1()
+              : index == 3
+                  ? getSimple2()
+                  : index == 4
+                      ? getSimple3()
+                      : index == 5
+                          ? new Container(
+                              child: ListView(
+                                children: <Widget>[
+                                  new Container(
+                                    height: 180.0,
+                                    child: new Column(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: ListView(
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.horizontal,
+                                            children: <Widget>[
+                                              new Container(
+                                                width: 160.0,
+                                                color: Colors.red,
+                                              ),
+                                              new Container(
+                                                width: 160.0,
+                                                color: Colors.blue,
+                                              ),
+                                              new Container(
+                                                width: 160.0,
+                                                color: Colors.green,
+                                              ),
+                                              new Container(
+                                                width: 160.0,
+                                                color: Colors.yellow,
+                                              ),
+                                              new Container(
+                                                width: 160.0,
+                                                color: Colors.orange,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        new Container(
+                                          height: 100.0,
+                                          width: 600.0,
+                                          color: Colors.deepOrange,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  new Container(
+                                    height: 600.0,
+                                    width: 600.0,
+                                    color: Colors.white,
+                                    //decoration: new BoxDecoration(image:AssetImage(Image.asset('images/haha.png'),),
+                                  )
+                                ],
+                              ),
+                            )
+                          : new Text('haha'),
+        ),
+      ),
     );
   }
 }

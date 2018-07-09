@@ -53,7 +53,7 @@ class WidgetTextState extends State<WidgetText> {
                     ),
                   ],
                 ),
-                decoration: new BoxDecoration(color: Colors.teal),
+                decoration: new BoxDecoration(color: Colors.orangeAccent),
               ),
               margin: new EdgeInsets.all(1.0),
             ),

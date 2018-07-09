@@ -83,6 +83,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_swiper:
+    dependency: "direct main"
+    description:
+      name: flutter_swiper
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -137,6 +144,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.5"
+  infinity_page_view:
+    dependency: transitive
+    description:
+      name: infinity_page_view
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   io:
     dependency: transitive
     description:
@@ -345,6 +359,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.12.37"
+  transparent_image:
+    dependency: "direct main"
+    description:
+      name: transparent_image
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.0"
   typed_data:
     dependency: transitive
     description:

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/flutter_intent/NetDataPager.dart';
@@ -70,7 +71,11 @@ void main() {
   runApp(
     new MaterialApp(
       title: 'app',
-      theme: new ThemeData(primaryColor: Color(0xFF00796B)),
+      theme: new ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Color(0xFF00796B),
+        accentColor: Colors.deepOrangeAccent,
+      ),
       home: new MyHomePager(),
     ),
   );
@@ -571,7 +576,6 @@ class FragmentPagerSecond3State extends State<FrgmentPagerSecondWidget3> {
 
 //TODO -------------------------首页交互界面----------------------------END
 
-
 //动画
 class MyFadeTest extends StatefulWidget {
   MyFadeTest({Key key, this.title}) : super(key: key);
@@ -634,12 +638,32 @@ class MyHomePager extends StatefulWidget {
     return new _MyHomePageState();
   }
 }
+
+class Information {
+  IconData Item_Icon;
+  String name;
+  ColorSwatch color;
+
+  Information(this.Item_Icon, this.name, this.color);
+}
+
 class _MyHomePageState extends State<MyHomePager>
     with SingleTickerProviderStateMixin {
+  List<Information> inforData = new List<Information>();
+
+  List<String> images = [
+    'images/haha.png',
+    'images/long_wuman1.jpg',
+    'images/lonvn9.jpg',
+    'images/longnv5.jpeg',
+    'images/lonnv8.jpg'
+  ];
+  List<String> namesss = ['美食', '电影/演出', '酒店住宿', '休闲娱乐', '外卖'];
   bool preed_is = true;
   bool preed_is_second = false;
   bool preed_is_threed = false;
   int index = 0;
+  GlobalKey<FormState> _formstate = new GlobalKey();
 
   _pressedChangerd() {
     /*Navigator.of(context).push(
@@ -709,7 +733,7 @@ class _MyHomePageState extends State<MyHomePager>
     });
   }
 
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  /* Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   Future<String> _counter;
   String namess;
 
@@ -722,27 +746,172 @@ class _MyHomePageState extends State<MyHomePager>
         return counter;
       });
     });
-  }
+  }*/
 
   @override
   void initState() {
     super.initState();
-    _counter = _prefs.then((SharedPreferences prefs) {
-      namess = prefs.getString('counter');
+    initData();
+    /*_*/ /*counter = _prefs.then((SharedPreferences prefs) {
+      namess = prefs.getString('counter');*/ /*
       return (prefs.getString('counter') ?? 0);
+    });*/
+  }
+
+  void initData() async {
+    setState(() {
+      inforData
+          .add(new Information(Icons.account_balance, '超市/生鲜', Colors.blue));
+      inforData.add(new Information(Icons.home, '名宿/公寓', Colors.yellowAccent));
+      inforData.add(
+          new Information(Icons.beach_access, '周边/旅游', Colors.lightBlueAccent));
+      inforData.add(new Information(
+          Icons.card_membership, '机票/火车票', Colors.lightBlueAccent));
+      inforData.add(
+          new Information(Icons.accessible, '膜拜单车', Colors.lightBlueAccent));
+      inforData.add(new Information(Icons.camera_roll, '景点/门票', Colors.red));
+      inforData.add(new Information(Icons.local_play, '学习培训', Colors.blue));
+      inforData.add(
+          new Information(Icons.card_membership, '亲子/乐园', Colors.greenAccent));
+      inforData
+          .add(new Information(Icons.perm_media, '健身中心', Colors.redAccent));
+      inforData.add(new Information(Icons.widgets, '全部分类', Colors.blue));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Center(
-            child: new Text(index == 0
-                ? '三天搞定--Flutter'
-                : index == 1 ? 'Flutter-交互' : 'Flutter--系统调用'),
-          ),
-        ),
+        appBar: index == 0
+            ? new AppBar(
+                titleSpacing: 0.0,
+                automaticallyImplyLeading: false,
+                title: new Container(
+                  width: 600.0,
+                  child: index == 0
+                      ? new Container(
+                          child: new Card(
+                            child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  new Container(
+                                    child: Column(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.beach_access,
+                                          size: 20.0,
+                                        ),
+                                        Container(
+                                          child: Text(
+                                            '27*',
+                                            style: TextStyle(
+                                                fontSize: 11.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black45),
+                                          ),
+                                          margin:
+                                              new EdgeInsets.only(left: 4.0),
+                                        ),
+                                      ],
+                                    ),
+                                    margin: new EdgeInsets.only(
+                                        left: 15.0, top: 12.0, bottom: 2.0),
+                                  ),
+                                  new Container(
+                                    child: Container(
+                                      child: Text(
+                                        '天津',
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                      ),
+                                      margin: new EdgeInsets.only(left: 11.0),
+                                    ),
+                                  ),
+                                  new Container(
+                                      margin: new EdgeInsets.only(left: 10.0),
+                                      padding: new EdgeInsets.only(left: 10.0),
+                                      height: 30.0,
+                                      width: 200.0,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black12,
+                                          borderRadius: BorderRadius.all(
+                                              const Radius.circular(58.0))),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.search,
+                                            size: 20.0,
+                                            color: Colors.black54,
+                                          ),
+                                          Container(
+                                            child: Container(
+                                              padding: new EdgeInsets.only(
+                                                  left: 10.0),
+                                              child: Center(
+                                                child: Form(
+                                                  autovalidate: false,
+                                                  child: TextFormField(
+                                                    style: new TextStyle(
+                                                        color: Colors.teal),
+                                                    textAlign: TextAlign.start,
+                                                    decoration: InputDecoration
+                                                        .collapsed(
+                                                      fillColor: Colors.white,
+                                                      /*prefixIcon: Container(
+                                child: Icon(Icons.search),
+                                padding: new EdgeInsets.only(left: 5.0),
+                              ),*/
+                                                      hintText: '请输入喜好',
+                                                      hintStyle: TextStyle(
+                                                          color:
+                                                              Colors.black12),
+                                                      //contentPadding: new EdgeInsets.only(left: 1.0,top: 16.0),
+                                                      //isDense: false,
+                                                      filled: false,
+                                                      /*border: new OutlineInputBorder(
+
+                                borderRadius: BorderRadius.all(Radius.circular(44.0)),
+                                borderSide:  BorderSide(
+                                    color: Colors.white,
+                                    style: BorderStyle.none),
+                              ),*/
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            width: 130.0,
+                                            height: 35.0,
+                                          ),
+                                        ],
+                                      )),
+                                  new Container(
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 28.0,
+                                    ),
+                                    padding: new EdgeInsets.only(left: 10.0),
+                                  ),
+                                ],
+                              ),
+                              width: 600.0,
+                              height: 55.0,
+                            ),
+                            margin: new EdgeInsets.only(top: 1.0, bottom: 2.0),
+                          ),
+                        )
+                      : new Text(index == 1 ? 'Flutter-交互' : 'Flutter--系统调用'),
+                ),
+              )
+            : new AppBar(
+                title: new Center(
+                  child: index == 0
+                      ? new Container()
+                      : new Text(index == 1 ? 'Flutter-交互' : 'Flutter--系统调用'),
+                ),
+              ),
         body: new Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -752,161 +921,270 @@ class _MyHomePageState extends State<MyHomePager>
                 //所显示更具index判断点击的是那个按钮，然后做响应的内容小部件显示就可以了。下面用一个很长很长的三元计算写了出来，如果点击是第一个那么，替换为第一个内容小部件，如果是index=2第二个
                 //依次往右边走就可以。
                 child: index == 0
-                    ? new ListView(
-                        children: <Widget>[
-                          new ImageAnimal(),
-                          WidgetPagers(),
-                          new WidgetStudy(),
-                          new WidgetText(),
-                          /* 这是优化之前的代码很烦，index == 0
+                    ? new GestureDetector(
+                        onTap: () {
+                          FocusScope.of(context).requestFocus(new FocusNode());
+                        },
+                        child: new ListView(
+                          scrollDirection: Axis.vertical,
+                          children: <Widget>[
+                            // new ImageAnimal(),
+                            new SizedBox(
+                              width: 200.0,
+                              height: 100.0,
+                              child: new Swiper(
+                                pagination: SwiperPagination(),
+                                loop: true,
+                                autoplay: true,
+                                duration: 2000,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return new Image.asset(
+                                    images[index],
+                                    fit: BoxFit.cover,
+                                  );
+                                },
+                                itemCount: 5,
+                              ),
+                            ),
+                            new SizedBox(
+                              width: 600.0,
+                              height: 100.0,
+                              child: Container(
+                                color: Colors.white,
+                                child: new ListView.builder(
+                                  itemCount: 5,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return new Container(
+                                      color: Colors.white,
+                                      child: new Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+                                          new ClipOval(
+                                            //这个一般可以作为圆形的裁剪哦。
+                                            child: new SizedBox(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              child: Container(
+                                                child: new Image.asset(
+                                                  images[index],
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          new Text(
+                                            namesss[index],
+                                            style: TextStyle(
+                                                color: Color(0xFF757575),
+                                                fontSize: 13.0,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                      margin: new EdgeInsets.only(
+                                          left: 15.0, right: 6.0),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                            new Container(
+                              width: 600.0,
+                              height: 1.0,
+                              color: Colors.white,
+                              child: new Container(
+                                color: Colors.black12,
+                              ),
+                              padding:
+                                  new EdgeInsets.only(left: 10.0, right: 10.0),
+                            ),
+                            new SizedBox(
+                              width: 600.0,
+                              height: 140.0,
+                              child: Container(
+                                color: Colors.white,
+                                child: new ListView.builder(
+                                  itemCount: (inforData.length / 2).toInt(),
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return new Container(
+                                      color: Colors.white,
+                                      child: new Column(
+                                        children: <Widget>[
+                                          new Container(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: <Widget>[
+                                                Icon(
+                                                  inforData[index * 2]
+                                                      .Item_Icon,
+                                                  color: inforData[index * 2]
+                                                      .color,
+                                                ),
+                                                new Container(
+                                                  child: Text(
+                                                    inforData[index * 2].name,
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xFF757575),
+                                                        fontSize: 13.0,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  margin: new EdgeInsets.only(
+                                                      top: 5.0),
+                                                ),
+                                              ],
+                                            ),
+                                            margin: new EdgeInsets.only(
+                                                left: 10.0,
+                                                right: 4.0,
+                                                top: 14.0,
+                                                bottom: 14.0),
+                                          ),
+                                          new Container(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: <Widget>[
+                                                Icon(
+                                                  inforData[index * 2 + 1]
+                                                      .Item_Icon,
+                                                  color:
+                                                      inforData[index * 2 + 1]
+                                                          .color,
+                                                ),
+                                                new Container(
+                                                  child: Text(
+                                                    inforData[index * 2 + 1]
+                                                        .name,
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xFF757575),
+                                                        fontSize: 13.0,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  margin: new EdgeInsets.only(
+                                                      top: 3.0),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      margin: new EdgeInsets.only(
+                                          bottom: 10.0, left: 12.0, right: 6.0),
+                                    );
+                                  },
+                                ),
+                                margin: new EdgeInsets.all(4.0),
+                              ),
+                            ),
+                            WidgetPagers(),
+                            new WidgetStudy(),
+                            new WidgetText(),
+                            /* 这是优化之前的代码很烦，index == 0
                         ? new ImageAnimal()
                         : index == 1 ? WidgetStudy() : new MyFadeTest(),*/
-                        ],
+                          ],
+                        ),
                       )
                     : index == 1
                         ? new Container(
                             child: FragmentPagerSecond(),
                             color: Colors.black12,
                           )
-                        : new ListView(
-                            children: <Widget>[
-                              new Container(
-                                color: Colors.teal,
-                                child: new Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    new Container(
-                                      color: Colors.teal,
-                                      child: new ClipOval(
-                                        //这个一般可以作为圆形的裁剪哦。
-                                        child: new SizedBox(
-                                          width: 100.0,
-                                          height: 100.0,
-                                          child: _image == null
-                                              ? new Text('点击右边的按钮添加图片')
-                                              : new Image.file(
-                                                  _image,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                        ),
-                                      ),
-                                      /*
-                                      *
-                                      */ /*
-                                      child: _image == null
-                                          ? new Text('点击右边的按钮添加图片')
-                                          : new Image.file(
-                                              _image,
-                                              width: 300.0,
-                                              height: 200.0,
-                                              fit: BoxFit.fill,
-                                            ),*/
-                                    ),
-                                    new FloatingActionButton(
-                                      onPressed: getImage,
-                                      tooltip: 'Pick Image',
-                                      child: new Icon(Icons.add_a_photo),
-                                    ),
-                                  ],
-                                ),
-                                width: 600.0,
-                                height: 200.0,
-                              ),
-                              new MyFadeTest(),
-                              new GestureDetector(
-                                child: new RaisedButton(
-                                  onPressed: _incrementCounter,
-                                  child: new Text(
-                                    '点击我储存数据"Love You"到本地',
-                                    style: new TextStyle(color: Colors.white),
-                                  ),
-                                  color: Colors.teal,
-                                ),
-                              ),
-                              new Text(namess == null ? "没有储存成功" : namess),
-                            ],
-                          ),
+                        : new systemPager(),
                 width: 600.0,
                 height: 900.0,
-                decoration: new BoxDecoration(color: Colors.white),
               ),
             ),
-            new Container(
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  new GestureDetector(
-                    onTap: _pressedChangerd,
-                    child: new Container(
-                      child: new Column(
-                        children: <Widget>[
-                          new Icon(
-                            Icons.home,
-                            color:
-                                preed_is ? Colors.orangeAccent : Colors.white,
-                          ),
-                          new Text(
-                            '布局',
-                            style: new TextStyle(
-                                color: preed_is
-                                    ? Colors.orangeAccent
-                                    : Colors.white),
-                          ),
-                        ],
+            new Card(
+              child: Container(
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    new GestureDetector(
+                      onTap: _pressedChangerd,
+                      child: new Container(
+                        child: new Column(
+                          children: <Widget>[
+                            new Icon(
+                              Icons.home,
+                              color: preed_is
+                                  ? Colors.orangeAccent
+                                  : Colors.black45,
+                            ),
+                            new Text(
+                              '布局',
+                              style: new TextStyle(
+                                  color: preed_is
+                                      ? Colors.orangeAccent
+                                      : Colors.black45),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  new GestureDetector(
-                    onTap: _pressedChangerd_Second,
-                    child: new Container(
-                      child: new Column(
-                        children: <Widget>[
-                          new Icon(
-                            Icons.computer,
-                            color: preed_is_second
-                                ? Colors.orangeAccent
-                                : Colors.white,
-                          ),
-                          new Text(
-                            '交互',
-                            style: new TextStyle(
-                                color: preed_is_second
-                                    ? Colors.orangeAccent
-                                    : Colors.white),
-                          ),
-                        ],
+                    new GestureDetector(
+                      onTap: _pressedChangerd_Second,
+                      child: new Container(
+                        child: new Column(
+                          children: <Widget>[
+                            new Icon(
+                              Icons.computer,
+                              color: preed_is_second
+                                  ? Colors.orangeAccent
+                                  : Colors.black45,
+                            ),
+                            new Text(
+                              '交互',
+                              style: new TextStyle(
+                                  color: preed_is_second
+                                      ? Colors.orangeAccent
+                                      : Colors.black45),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  new GestureDetector(
-                    onTap: _pressedChangerd_Threed,
-                    child: new Container(
-                      child: new Column(
-                        children: <Widget>[
-                          new Icon(
-                            Icons.person,
-                            color: preed_is_threed
-                                ? Colors.orangeAccent
-                                : Colors.white,
-                          ),
-                          new Text(
-                            '系统',
-                            style: new TextStyle(
-                                color: preed_is_threed
-                                    ? Colors.orangeAccent
-                                    : Colors.white),
-                          ),
-                        ],
+                    new GestureDetector(
+                      onTap: _pressedChangerd_Threed,
+                      child: new Container(
+                        child: new Column(
+                          children: <Widget>[
+                            new Icon(
+                              Icons.person,
+                              color: preed_is_threed
+                                  ? Colors.orangeAccent
+                                  : Colors.black45,
+                            ),
+                            new Text(
+                              '系统',
+                              style: new TextStyle(
+                                  color: preed_is_threed
+                                      ? Colors.orangeAccent
+                                      : Colors.black45),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
+                width: 600.0,
+                height: 60.0,
+                color: Colors.white,
+                padding: new EdgeInsets.only(top: 5.0),
               ),
-              width: 600.0,
-              height: 60.0,
-              color: Color(0xFF00796B),
-              padding: new EdgeInsets.only(top: 5.0),
+              color: Colors.white,
+              margin: new EdgeInsets.only(top: 2.0, bottom: 2.0),
             ),
           ],
         ));

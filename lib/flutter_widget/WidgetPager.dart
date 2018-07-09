@@ -21,13 +21,11 @@ class AnimalWidgets extends AnimatedWidget {
   Widget build(BuildContext context) {
     final Animation<double> animation = listenable;
     return Container(
-      margin: new EdgeInsets.symmetric(vertical: 1.0),
-      height: (animation.value / 3) > 30.0 ? 150.0 : animation.value / 3,
       width: animation.value,
       child: Image.asset(
         'images/long_wuman1.jpg',
         width: 600.0,
-        height: 100.0,
+        height: 120.0,
         fit: BoxFit.cover,
       ),
     );
