@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/flutter_widget/WidgetPager.dart';
 import 'package:flutter_app/flutter_widget/WidgetText.dart';
-import 'package:flutter_app/flutter_widget/small_widget/BaseWidget.dart';
+import 'package:flutter_app/flutter_widget/view/BaseWidget.dart';
 
 //TODO 1.0------------列表动态部件-----------------
 class ListViewWidget extends StatefulWidget {

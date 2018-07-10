@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/flutter_intent/interactioPager.dart';
+import 'package:flutter_app/flutter_intent/view/interactioPager.dart';
 import 'package:flutter_app/flutter_system/systemPager.dart';
 import 'package:flutter_app/flutter_widget/WidgetPager.dart';
-import 'package:flutter_app/flutter_widget/small_widget/SmallWidget.dart';
+import 'package:flutter_app/flutter_widget/view/SmallWidget.dart';
 
 void main() {
   runApp(new MyApp());

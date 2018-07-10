@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/flutter_intent/SecondPagerFragment.dart';
+import 'package:flutter_app/flutter_intent/view/SecondPagerFragment.dart';
 import 'package:flutter_app/flutter_intent/modle/HotBean.dart';
 
 class SecondPager extends StatefulWidget {

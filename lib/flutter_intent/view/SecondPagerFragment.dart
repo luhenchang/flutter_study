@@ -8,8 +8,7 @@ class SecondPagerFragment extends StatefulWidget {
   SecondPagerFragment({Key key, this.tab_String}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() =>
-      SecondPagerFragmentState(tabString: tab_String);
+  State<StatefulWidget> createState() => SecondPagerFragmentState(tabString: tab_String);
 }
 
 class SecondPagerFragmentState extends State<SecondPagerFragment> {
@@ -62,40 +61,79 @@ class SecondPagerFragmentState extends State<SecondPagerFragment> {
         break;
       case '惠生活':
         setState(() {
-          hotData.add(HotBean('热门1', true));
-          hotData.add(HotBean('甜点饮食1', false));
-          hotData.add(HotBean('小吃快餐1', false));
-          hotData.add(HotBean('火锅烧烤1', false));
-          hotData.add(HotBean('外卖1', false));
-          hotData.add(HotBean('热汗料理1', false));
-          hotData.add(HotBean('川湘菜1', false));
-          hotData.add(HotBean('自助餐1', false));
+          hotData.add(HotBean('全部', true));
+          hotData.add(HotBean('鲜花', false));
+          hotData.add(HotBean('洗车出租', false));
+          hotData.add(HotBean('财务服务', false));
+          hotData.add(HotBean('口气服务', false));
+          hotData.add(HotBean('超市生鲜', false));
+          hotData.add(HotBean('家镇服务', false));
+          hotData.add(HotBean('居家维修', false));
+
+          //默认第一个界面是美食
+          hotListItemData.add(HotListItemBean('images/item1.png','好利(水晶城)',5,'7.0分','人均￥43','回头客多',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item4.png','泰山里(华山城)',4,'6.0分','人均￥63','好吃',Colors.blue,Icons.shop,'324元蛋糕5元送起，222元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item2.png','好网(土城)',3,'7.0分','人均￥13','难吃',Colors.deepOrangeAccent,Icons.share,'274元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item3.png','乌利(水立方)',2,'5.0分','人均￥33','开学',Colors.orangeAccent,Icons.shopping_cart,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/haha.png','鼓楼(天水城)',1,'6.0分','人均￥43','环境好',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic1.jpg','好利(水晶南)',3,'5.0分','人均￥13','态度好',Colors.green,Icons.shop,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic2.jpg','运泰利(奖成)',4,'4.0分','人均￥26','那首',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic7.jpg','古来(水城)',2,'5.0分','人均￥233','怀旧',Colors.lightGreen,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic8.jpg','好利东(无缘城)',3,'4.0分','人均￥63','景点',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic11.jpg','好利(土城)',2,'7.0分','人均￥43','谷歌',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+
         });
 
         break;
       case '爱玩乐':
         setState(() {
           hotData.add(HotBean('热门', true));
-          hotData.add(HotBean('甜点饮食', false));
-          hotData.add(HotBean('小吃快餐', false));
-          hotData.add(HotBean('火锅烧烤', false));
-          hotData.add(HotBean('外卖', false));
-          hotData.add(HotBean('热汗料理', false));
-          hotData.add(HotBean('川湘菜', false));
-          hotData.add(HotBean('自助餐', false));
+          hotData.add(HotBean('聚会完了', false));
+          hotData.add(HotBean('休闲放松', false));
+          hotData.add(HotBean('约炮场所', false));
+          hotData.add(HotBean('拐卖人口', false));
+          hotData.add(HotBean('演出赛事', false));
+          hotData.add(HotBean('晴子游乐', false));
+          hotData.add(HotBean('松松头发', false));
+
+          //默认第一个界面是美食
+          hotListItemData.add(HotListItemBean('images/item1.png','好利(水晶城)',5,'7.0分','人均￥43','回头客多',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item4.png','泰山里(华山城)',4,'6.0分','人均￥63','好吃',Colors.blue,Icons.shop,'324元蛋糕5元送起，222元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item2.png','好网(土城)',3,'7.0分','人均￥13','难吃',Colors.deepOrangeAccent,Icons.share,'274元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item3.png','乌利(水立方)',2,'5.0分','人均￥33','开学',Colors.orangeAccent,Icons.shopping_cart,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/haha.png','鼓楼(天水城)',1,'6.0分','人均￥43','环境好',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic1.jpg','好利(水晶南)',3,'5.0分','人均￥13','态度好',Colors.green,Icons.shop,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic2.jpg','运泰利(奖成)',4,'4.0分','人均￥26','那首',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic7.jpg','古来(水城)',2,'5.0分','人均￥233','怀旧',Colors.lightGreen,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic8.jpg','好利东(无缘城)',3,'4.0分','人均￥63','景点',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic11.jpg','好利(土城)',2,'7.0分','人均￥43','谷歌',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+
         });
 
         break;
       case '住酒店':
         setState(() {
           hotData.add(HotBean('热门', true));
-          hotData.add(HotBean('甜点饮食', false));
-          hotData.add(HotBean('小吃快餐', false));
-          hotData.add(HotBean('火锅烧烤', false));
+          hotData.add(HotBean('经济', false));
+          hotData.add(HotBean('高档', false));
+          hotData.add(HotBean('豪华', false));
           hotData.add(HotBean('外卖', false));
           hotData.add(HotBean('热汗料理', false));
           hotData.add(HotBean('川湘菜', false));
           hotData.add(HotBean('自助餐', false));
+
+          //默认第一个界面是美食
+          hotListItemData.add(HotListItemBean('images/item1.png','好利(水晶城)',5,'7.0分','人均￥43','回头客多',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item4.png','泰山里(华山城)',4,'6.0分','人均￥63','好吃',Colors.blue,Icons.shop,'324元蛋糕5元送起，222元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item2.png','好网(土城)',3,'7.0分','人均￥13','难吃',Colors.deepOrangeAccent,Icons.share,'274元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item3.png','乌利(水立方)',2,'5.0分','人均￥33','开学',Colors.orangeAccent,Icons.shopping_cart,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/haha.png','鼓楼(天水城)',1,'6.0分','人均￥43','环境好',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic1.jpg','好利(水晶南)',3,'5.0分','人均￥13','态度好',Colors.green,Icons.shop,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic2.jpg','运泰利(奖成)',4,'4.0分','人均￥26','那首',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic7.jpg','古来(水城)',2,'5.0分','人均￥233','怀旧',Colors.lightGreen,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic8.jpg','好利东(无缘城)',3,'4.0分','人均￥63','景点',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic11.jpg','好利(土城)',2,'7.0分','人均￥43','谷歌',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+
         });
 
         break;
@@ -109,6 +147,19 @@ class SecondPagerFragmentState extends State<SecondPagerFragment> {
           hotData.add(HotBean('热汗料理', false));
           hotData.add(HotBean('川湘菜', false));
           hotData.add(HotBean('自助餐', false));
+
+          //默认第一个界面是美食
+          hotListItemData.add(HotListItemBean('images/item1.png','好利(水晶城)',5,'7.0分','人均￥43','回头客多',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item4.png','泰山里(华山城)',4,'6.0分','人均￥63','好吃',Colors.blue,Icons.shop,'324元蛋糕5元送起，222元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item2.png','好网(土城)',3,'7.0分','人均￥13','难吃',Colors.deepOrangeAccent,Icons.share,'274元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/item3.png','乌利(水立方)',2,'5.0分','人均￥33','开学',Colors.orangeAccent,Icons.shopping_cart,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/haha.png','鼓楼(天水城)',1,'6.0分','人均￥43','环境好',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic1.jpg','好利(水晶南)',3,'5.0分','人均￥13','态度好',Colors.green,Icons.shop,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic2.jpg','运泰利(奖成)',4,'4.0分','人均￥26','那首',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic7.jpg','古来(水城)',2,'5.0分','人均￥233','怀旧',Colors.lightGreen,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic8.jpg','好利东(无缘城)',3,'4.0分','人均￥63','景点',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+          hotListItemData.add(HotListItemBean('images/pic11.jpg','好利(土城)',2,'7.0分','人均￥43','谷歌',Colors.deepOrangeAccent,Icons.shopping_basket,'174元蛋糕5元送起，122元蛋糕50元'));
+
         });
 
         break;

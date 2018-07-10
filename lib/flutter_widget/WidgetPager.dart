@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/flutter_widget/small_widget/RowAndColumWidget.dart';
-import 'package:flutter_app/flutter_widget/small_widget/SimpleWidgets.dart';
-import 'package:flutter_app/flutter_widget/small_widget/SmallWidget.dart';
+import 'package:flutter_app/flutter_widget/view/RowAndColumWidget.dart';
+import 'package:flutter_app/flutter_widget/view/SimpleWidgets.dart';
+import 'package:flutter_app/flutter_widget/view/SmallWidget.dart';
 import 'package:flutter_app/test/layout_study01.dart';
 
 //TODO 1.0--------------------开始------------------------------------
