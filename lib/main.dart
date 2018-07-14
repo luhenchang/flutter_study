@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter_app/showmain.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/widgets.dart';
+import './Widght_3D.dart';
 void main() {
   runApp(
     new MaterialApp(
@@ -66,11 +67,30 @@ class MyLoginWidget extends StatefulWidget {
 }
 
 class MyLoginState extends State<MyLoginWidget> {
+  AppLifecycleState _lastLifecycleState;
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   GlobalKey<FormState> _formKey1 = GlobalKey<FormState>();
   String _userPhone;
   String _passWold;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //WidgetsBinding.instance.addObserver(this);
 
+  }
+  @override
+  void dispose() {
+   // WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+
+  }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    setState(() {
+      _lastLifecycleState = state;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -183,12 +203,12 @@ class MyLoginState extends State<MyLoginWidget> {
                                 size: 15.0,
                                 color: Colors.black26,*/
                               ),
-                              contentPadding: new EdgeInsets.only(bottom: 7.4),
                               fillColor: Colors.blue,
                               border: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                       color: Colors.red, width: 300.0)),
                               hintText: '  请输入密码',
+                             // prefixIcon: Icon(Icons.add),
                               helperText: 'user Password',
                               helperStyle: new TextStyle(
                                 fontSize: 11.0,

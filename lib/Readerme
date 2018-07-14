@@ -1,0 +1,7 @@
+new Center(
+ child: new Object_3D(
+ size: const Size(400.0, 400.0),
+  path: "assets/NVpose1.obj",
+ asset:
+ true), //assets/file.obj为我们的本地obj文件，需要到pubspec.yaml中进行配置
+),

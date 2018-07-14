@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter_app/Widght_3D.dart';
 import 'package:flutter_app/flutter_intent/view/AppBar2.dart';
 import 'package:flutter_app/flutter_intent/view/SecondPager.dart';
 import 'package:flutter_app/flutter_person/PersonPager.dart';
+import 'package:flutter_app/flutter_system/SystemPage.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -75,11 +77,13 @@ void main() {
     new MaterialApp(
       title: 'app',
       theme: new ThemeData(
+        platform: TargetPlatform.android,
+        primarySwatch: Colors.amber,
         brightness: Brightness.light,
-        primaryColor: Color(0xFF00796B),
+        primaryColor: Colors.white,
         accentColor: Colors.deepOrangeAccent,
       ),
-      home: new MyHomePager(),
+      home: MyHomePager(),
     ),
   );
 }
@@ -729,6 +733,7 @@ class _MyHomePageState extends State<MyHomePager>
       }
     });
   }
+
   _pressedChangerd_four() {
     setState(() {
       if (index != 3) {
@@ -744,7 +749,6 @@ class _MyHomePageState extends State<MyHomePager>
       if (preed_is_threed) {
         preed_is_threed = !preed_is_threed;
       }
-
     });
   }
 
@@ -782,6 +786,7 @@ class _MyHomePageState extends State<MyHomePager>
   @override
   void initState() {
     super.initState();
+
     initData();
     /*_*/ /*counter = _prefs.then((SharedPreferences prefs) {
       namess = prefs.getString('counter');*/ /*
@@ -889,36 +894,39 @@ class _MyHomePageState extends State<MyHomePager>
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    return new Container(
-                                      color: Colors.white,
-                                      child: new Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: <Widget>[
-                                          new ClipOval(
-                                            //这个一般可以作为圆形的裁剪哦。
-                                            child: new SizedBox(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: Container(
-                                                child: new Image.asset(
-                                                  images[index],
-                                                  fit: BoxFit.fill,
+                                    return GestureDetector(
+                                      onTap: () {},
+                                      child: new Container(
+                                        color: Colors.white,
+                                        child: new Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: <Widget>[
+                                            new ClipOval(
+                                              //这个一般可以作为圆形的裁剪哦。
+                                              child: new SizedBox(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                child: Container(
+                                                  child: new Image.asset(
+                                                    images[index],
+                                                    fit: BoxFit.fill,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          new Text(
-                                            namesss[index],
-                                            style: TextStyle(
-                                                color: Color(0xFF757575),
-                                                fontSize: 13.0,
-                                                fontWeight: FontWeight.bold),
-                                          )
-                                        ],
+                                            new Text(
+                                              namesss[index],
+                                              style: TextStyle(
+                                                  color: Color(0xFF757575),
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
+                                        margin: new EdgeInsets.only(
+                                            left: 15.0, right: 6.0),
                                       ),
-                                      margin: new EdgeInsets.only(
-                                          left: 15.0, right: 6.0),
                                     );
                                   },
                                 ),
@@ -1037,6 +1045,7 @@ class _MyHomePageState extends State<MyHomePager>
                             WidgetPagers(),
                             new WidgetStudy(),
                             new WidgetText(),
+
                             /* 这是优化之前的代码很烦，index == 0
                         ? new ImageAnimal()
                         : index == 1 ? WidgetStudy() : new MyFadeTest(),*/
@@ -1048,7 +1057,7 @@ class _MyHomePageState extends State<MyHomePager>
                             child: SecondPager(),
                             color: Colors.black12,
                           )
-                        :index==2?new systemPager():new PersonPager(),
+                        : index == 2 ? new SystemPage() : new PersonPager(),
                 width: 600.0,
                 height: 900.0,
               ),

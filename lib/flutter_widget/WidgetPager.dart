@@ -277,7 +277,7 @@ class WidgetStudyState extends State<WidgetStudy> {
                       Navigator.of(context).push(new PageRouteBuilder(
                             opaque: false,
                             pageBuilder: (BuildContext context, _, __) {
-                              return new SimpleWidgets(index:5,title:'更新中..');
+                              return new SimpleWidgets(index:5,title:'3D实现');
 
                             },
                           )); //页面跳转

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/animation.dart';
+import 'package:flutter_app/Widght_3D.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class SimpleWidgets extends StatefulWidget {
@@ -200,7 +201,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
         
       ''',
             style: new TextStyle(
-              color: Colors.white,
+              color: Colors.teal,
             ),
           ),
           margin: new EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
@@ -382,7 +383,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
     );
         
         ''',
-            style: new TextStyle(color: Colors.white),
+            style: new TextStyle(color: Colors.teal),
           ),
           margin: new EdgeInsets.all(10.0),
         )
@@ -397,7 +398,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
           margin: new EdgeInsets.all(14.0),
           child: new Text(
             '这种布局我想在很多地方用过吧。如下图案例，当你需要在一个图标的上部或者小部件上部来显示出一层布局时候用Stack就可以搞定。我想你用了这两个案例分分钟搞定他。第一个布局会在底层，第二个布局位置由Alignment(x,y)其实x和y中间值（0.0,0.0），如果x为1代表第二个布局在低布局的右边，y为-1带边在上边，-1带边相反就可以，',
-            style: new TextStyle(color: Colors.white),
+            style: new TextStyle(color: Colors.teal),
           ),
         ),
         new Center(
@@ -415,7 +416,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
                   style: new TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Colors.teal),
                 ),
               ),
             ],
@@ -484,7 +485,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
             )
           ],
         ),
-            ''', style: new TextStyle(color: Colors.white)),
+            ''', style: new TextStyle(color: Colors.teal)),
       ],
     );
   }
@@ -504,7 +505,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
             child: new Row(
               children: <Widget>[
                 new Text('这个是图片排列',
-                    style: new TextStyle(fontSize: 14.0, color: Colors.white)),
+                    style: new TextStyle(fontSize: 14.0, color: Colors.teal)),
               ],
             ),
           ),
@@ -724,7 +725,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
           new Text(
             '170 Reviews',
             style: new TextStyle(
-              color: Colors.blueGrey,
+              color: Colors.teal,
               fontWeight: FontWeight.w800,
               fontFamily: 'Roboto',
               letterSpacing: 1.5,
@@ -867,7 +868,7 @@ class SimpleWidgetState extends State<SimpleWidgets> {
           margin: new EdgeInsets.all(14.0),
           child: new Text(
             ' 这里我们结合所学的基础东西可以写一个及其复杂的布局，我们要善于用Flutter的ListView控件去简化及其复杂的小部件，这样可以简化成很多个竖直方向排布的多个自定义小部件。',
-            style: new TextStyle(color: Colors.white),
+            style: new TextStyle(color: Colors.teal),
           ),
         ),
         new Center(
@@ -933,12 +934,12 @@ class SimpleWidgetState extends State<SimpleWidgets> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.teal,
-      theme: new ThemeData(primaryColor: Colors.teal),
+      color: Colors.white,
+      theme: new ThemeData(primaryColor: Colors.white),
       home: new Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.white,
         appBar: new AppBar(
-          backgroundColor: Colors.teal,
+          backgroundColor: Colors.white,
           title: new Center(
             child: new Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -968,56 +969,12 @@ class SimpleWidgetState extends State<SimpleWidgets> {
                       ? getSimple3()
                       : index == 5
                           ? new Container(
-                              child: ListView(
-                                children: <Widget>[
-                                  new Container(
-                                    height: 180.0,
-                                    child: new Column(
-                                      children: <Widget>[
-                                        Expanded(
-                                          child: ListView(
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.horizontal,
-                                            children: <Widget>[
-                                              new Container(
-                                                width: 160.0,
-                                                color: Colors.red,
-                                              ),
-                                              new Container(
-                                                width: 160.0,
-                                                color: Colors.blue,
-                                              ),
-                                              new Container(
-                                                width: 160.0,
-                                                color: Colors.green,
-                                              ),
-                                              new Container(
-                                                width: 160.0,
-                                                color: Colors.yellow,
-                                              ),
-                                              new Container(
-                                                width: 160.0,
-                                                color: Colors.orange,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        new Container(
-                                          height: 100.0,
-                                          width: 600.0,
-                                          color: Colors.deepOrange,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  new Container(
-                                    height: 600.0,
-                                    width: 600.0,
-                                    color: Colors.white,
-                                    //decoration: new BoxDecoration(image:AssetImage(Image.asset('images/haha.png'),),
-                                  )
-                                ],
-                              ),
+                              margin: new EdgeInsets.only(top: 100.0),
+                              child: new Widght_3D(
+                                  size: const Size(400.0, 400.0),
+                                  path: "assets/NVpose1.obj",
+                                  asset:
+                                      true), //assets/file.obj为我们的本地obj文件，需要到pubspec.yaml中进行配置
                             )
                           : new Text('haha'),
         ),

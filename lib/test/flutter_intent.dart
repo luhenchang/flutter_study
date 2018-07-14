@@ -12,7 +12,7 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('第一个页面'),
+        title: new Text('第一个页面',style: TextStyle(),overflow: TextOverflow.ellipsis,),
         backgroundColor: Colors.red,
       ),
       body: new Center(
