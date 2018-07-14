@@ -2,6 +2,34 @@
 
 Flutter学习三---一天搞定这个项目：一有时间后面会持续更新的哦
 
+**2018年，7月11日下班晚，搞定美团我的界面有自定义部分主要讲解了**
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/bbb.jpg?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/bba.jpg?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/bbc.jpg?raw=true)
+[博客地址](https://blog.csdn.net/m0_37667770/article/details/80993571).
+如何实现各种弧度或者自定义效果的窗体布局：
+class ArcClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height);
+    var firstControlPoint = Offset(size.width / 4, size.height - 30);
+    var firstPoint = Offset(size.width / 2, size.height - 30);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstPoint.dx, firstPoint.dy);
+
+    var secondControlPoint =
+        Offset(size.width - (size.width / 4), size.height - 30);
+    var secondPoint = Offset(size.width, size.height);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondPoint.dx, secondPoint.dy);
+
+    path.lineTo(size.width, 0.0);
+    path.close();
+
+    return path;
+  }
+
 **2018年，7月9日晚上更新**
 下班没事干，游戏就搁一边，写了一个多小时的界面，模仿美团，搞定了这两个界面，后面地图，定位这些会慢慢更新的。这个界面提供了如何用Dart创建类，然后给集合添加数据，并动态赋值给列表控件等。目录在flutter_intent->modle（这里面是类）->SecondPager和SecondPagerFragment是第二界面。ShopingListPager是二界面滑动的每个列表页面。
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/2323.png?raw=true)
