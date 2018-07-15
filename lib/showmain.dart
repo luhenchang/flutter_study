@@ -5,6 +5,7 @@ import 'package:flutter_app/flutter_intent/view/AppBar2.dart';
 import 'package:flutter_app/flutter_intent/view/SecondPager.dart';
 import 'package:flutter_app/flutter_person/PersonPager.dart';
 import 'package:flutter_app/flutter_system/SystemPage.dart';
+import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -895,7 +896,14 @@ class _MyHomePageState extends State<MyHomePager>
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return GestureDetector(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.of(context).push(new PageRouteBuilder(
+                                          opaque: false,
+                                          pageBuilder: (BuildContext context, _, __) {
+                                            return new NetWidget();
+                                          },
+                                        ));
+                                      },
                                       child: new Container(
                                         color: Colors.white,
                                         child: new Column(

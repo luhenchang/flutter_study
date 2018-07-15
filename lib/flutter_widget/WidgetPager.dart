@@ -3,7 +3,6 @@ import 'package:flutter_app/flutter_widget/view/RowAndColumWidget.dart';
 import 'package:flutter_app/flutter_widget/view/SimpleWidgets.dart';
 import 'package:flutter_app/flutter_widget/view/SmallWidget.dart';
 import 'package:flutter_app/test/layout_study01.dart';
-
 //TODO 1.0--------------------开始------------------------------------
 //这里是给第一个图片加一个动画。从00到它展开
 class ImageAnimal extends StatefulWidget {
@@ -98,6 +97,12 @@ class WidgetStudy extends StatefulWidget {
 }
 
 class WidgetStudyState extends State<WidgetStudy> {
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Container(

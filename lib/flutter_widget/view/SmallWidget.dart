@@ -94,6 +94,12 @@ class SmallWidget extends StatefulWidget {
 
 class SmallPagerState extends State<SmallWidget> {
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print('第三个界面');
+  }
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: new ThemeData(primaryColor: Color(0xFF00796B)),

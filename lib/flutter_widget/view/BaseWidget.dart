@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class TextWidget extends StatefulWidget {
@@ -148,10 +150,12 @@ material.google.com/layout/structure.html ''',
   }
 
   void loadData() {}
-
+  Future<bool>_requestPop(){
+     return new Future.value(true);
+  }
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return new WillPopScope(child: Scaffold(
       appBar: new AppBar(
         title: new Center(child: new Text(title)),
       ),
@@ -160,6 +164,6 @@ material.google.com/layout/structure.html ''',
         margin: new EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0),
       ),
       backgroundColor: Colors.teal,
-    );
+    ), onWillPop: _requestPop);
   }
 }
