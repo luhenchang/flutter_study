@@ -1,6 +1,19 @@
 # flutter_study
 
 Flutter学习三---一天搞定这个项目：一有时间后面会持续更新的哦
+**2018年，7月16没事干更新下Flutter对于3d的支持，我们自定义一个3d展示部件以及图标的绘制**
+之所以区别于二维空间，三维（3d）具有向量，位置，体积，在Flutter里面我们可以发现提供了Vector3这个三维向量类：表示它具有位置，方向，欧拉角信息，和某些向量函数等，大学学过3dmax这些建模，比较了解。我们知道一个三维物体，可以让人视觉产生不同于二维物体，是因为它具有体积（体积是由我们人的视觉所看到的），光线。而在手机这个二维界面里面我们能看出它的体积和三维这个就借助于Vector3可以创建一个摄像机提供给我们不同的视角。
+
+二，在Flutter提供的Vector3上面我们自定义我们自己的3d视角小部件。 
+准备实现的需求： 
+1.Vector3给我们提供了具有方向性的照相机和灯光.，用来不同的视角看3d。 
+2.CustomPaint提供了可以进行在Canvas画布上面进行绘制我们的显示。 
+3.GestureDetector提供我们在屏幕上的手势拖缀来给变和刷新我们3d图像。
+
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/3D.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/flutter_chart.gif?raw=true)
+
+[博客地址:](https://blog.csdn.net/m0_37667770/article/details/81042916).
 
 **2018年，7月11日下班晚，搞定美团我的界面有自定义部分主要讲解了**
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/bbb.jpg?raw=true)
