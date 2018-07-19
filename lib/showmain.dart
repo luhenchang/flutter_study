@@ -5,6 +5,7 @@ import 'package:flutter_app/flutter_intent/view/AppBar2.dart';
 import 'package:flutter_app/flutter_intent/view/SecondPager.dart';
 import 'package:flutter_app/flutter_person/PersonPager.dart';
 import 'package:flutter_app/flutter_system/SystemPage.dart';
+import 'package:flutter_app/flutter_widget/modle/HomePageBean.dart';
 import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +17,10 @@ import 'package:flutter_app/flutter_widget/WidgetPager.dart';
 import 'package:flutter_app/flutter_widget/view/SmallWidget.dart';
 import 'package:flutter_app/flutter_widget/WidgetText.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter_app/http_utils/HttpUtils.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class WidgetPagers extends StatefulWidget {
   @override
@@ -78,10 +83,8 @@ void main() {
     new MaterialApp(
       title: 'app',
       theme: new ThemeData(
-        platform: TargetPlatform.android,
         primarySwatch: Colors.amber,
-        brightness: Brightness.light,
-        primaryColor: Colors.white,
+        primaryColor: Colors.blue,
         accentColor: Colors.deepOrangeAccent,
       ),
       home: MyHomePager(),
@@ -210,11 +213,10 @@ class FragmentPagerSendcondWidgetState
             onTap: () {
               setState(() {
                 Navigator.of(context).push(new PageRouteBuilder(
-                      opaque: false,
-                      pageBuilder: (BuildContext context, _, __) {
-                        return new interactionPager();
-                      },
-                    ));
+                  pageBuilder: (BuildContext context, _, __) {
+                    return new interactionPager();
+                  },
+                ));
               });
             },
             child: Container(
@@ -338,11 +340,10 @@ class FragmentPagerSendcondWidgetState
             onTap: () {
               setState(() {
                 Navigator.of(context).push(new PageRouteBuilder(
-                      opaque: false,
-                      pageBuilder: (BuildContext context, _, __) {
-                        return new NetDataPager(index: 3);
-                      },
-                    ));
+                  pageBuilder: (BuildContext context, _, __) {
+                    return new NetDataPager(index: 3);
+                  },
+                ));
               });
             },
             child: new Container(
@@ -640,6 +641,7 @@ class _MyFadeTest extends State<MyFadeTest> with TickerProviderStateMixin {
   }
 }
 
+//TODO 第一个界面
 class MyHomePager extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -647,31 +649,39 @@ class MyHomePager extends StatefulWidget {
   }
 }
 
-class Information {
-  IconData Item_Icon;
-  String name;
-  ColorSwatch color;
-
-  Information(this.Item_Icon, this.name, this.color);
-}
+enum _RadioGroup { foo1, foo2 }
 
 class _MyHomePageState extends State<MyHomePager>
     with SingleTickerProviderStateMixin {
-  List<Information> inforData = new List<Information>();
-
-  List<String> images = [
-    'images/haha.png',
-    'images/long_wuman1.jpg',
-    'images/lonvn9.jpg',
-    'images/longnv5.jpeg',
-    'images/lonnv8.jpg'
-  ];
-  List<String> namesss = ['美食', '电影/演出', '酒店住宿', '休闲娱乐', '外卖'];
   bool preed_is = true;
   bool preed_is_second = false;
   bool preed_is_threed = false;
   bool preed_is_four = false;
   int index = 0;
+  _RadioGroup _itemType = _RadioGroup.foo1;
+  var BannerList;
+  List<Step> steplist = new List();
+
+  var step_index = 0;
+
+  Future<File> _getDirPath() async {
+    String paths = (await getApplicationDocumentsDirectory()).path;
+    return new File('$paths/login.txt');
+  }
+
+  Future<String> _readDataFromFile() async {
+    try {
+      File file = await _getDirPath();
+      String context = await file.readAsString();
+      return context;
+      /*_getDirPath().then((file){
+
+    });*/
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
   GlobalKey<FormState> _formstate = new GlobalKey();
 
   _pressedChangerd() {
@@ -788,7 +798,9 @@ class _MyHomePageState extends State<MyHomePager>
   void initState() {
     super.initState();
 
+    loadData();
     initData();
+
     /*_*/ /*counter = _prefs.then((SharedPreferences prefs) {
       namess = prefs.getString('counter');*/ /*
       return (prefs.getString('counter') ?? 0);
@@ -814,24 +826,21 @@ class _MyHomePageState extends State<MyHomePager>
   }
 
   void initData() async {
+    await HomePageBean.setData();
+    String tiltle = await _readDataFromFile();
+  }
+
+  void changeItemType(_RadioGroup type) {
     setState(() {
-      inforData
-          .add(new Information(Icons.account_balance, '超市/生鲜', Colors.blue));
-      inforData.add(new Information(Icons.home, '名宿/公寓', Colors.yellowAccent));
-      inforData.add(
-          new Information(Icons.beach_access, '周边/旅游', Colors.lightBlueAccent));
-      inforData.add(new Information(
-          Icons.card_membership, '机票/火车票', Colors.lightBlueAccent));
-      inforData.add(
-          new Information(Icons.accessible, '膜拜单车', Colors.lightBlueAccent));
-      inforData.add(new Information(Icons.camera_roll, '景点/门票', Colors.red));
-      inforData.add(new Information(Icons.local_play, '学习培训', Colors.blue));
-      inforData.add(
-          new Information(Icons.card_membership, '亲子/乐园', Colors.greenAccent));
-      inforData
-          .add(new Information(Icons.perm_media, '健身中心', Colors.redAccent));
-      inforData.add(new Information(Icons.widgets, '全部分类', Colors.blue));
+      _itemType = type;
     });
+  }
+
+  void showDemoDialog<T>({BuildContext context, Widget child}) {
+    showDialog<T>(
+      context: context,
+      child: child,
+    );
   }
 
   @override
@@ -841,7 +850,9 @@ class _MyHomePageState extends State<MyHomePager>
             ? new AppBar(
                 titleSpacing: 0.0,
                 automaticallyImplyLeading: false,
-                title: AppBar2(index1: 0))
+                title: AppBar2(
+                  index1: index,
+                ))
             : index == 1
                 ? AppBar(
                     titleSpacing: 0.0,
@@ -857,13 +868,14 @@ class _MyHomePageState extends State<MyHomePager>
               child: new Container(
                 //这里我们需要用index判断切换的界面内容显示哦！三元就行，真的说实话，百度这么强大没有一个人写出这种场见的android应用切换碎片场景。用TabBarView和bottomNavigationBar根本就没法去掉下面的导航栏。可能是我目前水平不够吧。这里我根据android fragment占用位置用Fragment去替换内容从而实现切换，思路一模一样。
                 //所显示更具index判断点击的是那个按钮，然后做响应的内容小部件显示就可以了。下面用一个很长很长的三元计算写了出来，如果点击是第一个那么，替换为第一个内容小部件，如果是index=2第二个
-                //依次往右边走就可以。
+                //依次往右边走就可以。first blood
                 child: index == 0
                     ? new GestureDetector(
                         onTap: () {
                           FocusScope.of(context).requestFocus(new FocusNode());
                         },
                         child: new ListView(
+                          physics: const AlwaysScrollableScrollPhysics(),
                           padding: new EdgeInsets.all(1.0),
                           scrollDirection: Axis.vertical,
                           children: <Widget>[
@@ -876,13 +888,18 @@ class _MyHomePageState extends State<MyHomePager>
                                 loop: true,
                                 autoplay: true,
                                 duration: 2000,
+                                control: new SwiperControl(
+                                    color: Colors.lightBlueAccent),
                                 itemBuilder: (BuildContext context, int index) {
-                                  return new Image.asset(
-                                    images[index],
-                                    fit: BoxFit.cover,
-                                  );
+                                  return BannerList.length > 0
+                                      ? new Image.network(
+                                          BannerList[index]['banner_url'],
+                                          fit: BoxFit.cover,
+                                        )
+                                      : new Container();
                                 },
-                                itemCount: 5,
+                                itemCount:
+                                    BannerList != null ? BannerList.length : 0,
                               ),
                             ),
                             new SizedBox(
@@ -897,12 +914,13 @@ class _MyHomePageState extends State<MyHomePager>
                                       (BuildContext context, int index) {
                                     return GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context).push(new PageRouteBuilder(
-                                          opaque: false,
-                                          pageBuilder: (BuildContext context, _, __) {
+                                        setState(() {
+                                          Navigator.of(context).push(
+                                              new PageRouteBuilder(pageBuilder:
+                                                  (BuildContext, _, __) {
                                             return new NetWidget();
-                                          },
-                                        ));
+                                          }));
+                                        });
                                       },
                                       child: new Container(
                                         color: Colors.white,
@@ -917,14 +935,14 @@ class _MyHomePageState extends State<MyHomePager>
                                                 height: 40.0,
                                                 child: Container(
                                                   child: new Image.asset(
-                                                    images[index],
+                                                    HomePageBean.images[index],
                                                     fit: BoxFit.fill,
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             new Text(
-                                              namesss[index],
+                                              HomePageBean.namesss[index],
                                               style: TextStyle(
                                                   color: Color(0xFF757575),
                                                   fontSize: 13.0,
@@ -956,7 +974,8 @@ class _MyHomePageState extends State<MyHomePager>
                               child: Container(
                                 color: Colors.white,
                                 child: new ListView.builder(
-                                  itemCount: (inforData.length / 2).toInt(),
+                                  itemCount: (HomePageBean.inforData.length / 2)
+                                      .toInt(),
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder:
                                       (BuildContext context, int index) {
@@ -964,37 +983,73 @@ class _MyHomePageState extends State<MyHomePager>
                                       color: Colors.white,
                                       child: new Column(
                                         children: <Widget>[
-                                          new Container(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: <Widget>[
-                                                Icon(
-                                                  inforData[index * 2]
-                                                      .Item_Icon,
-                                                  color: inforData[index * 2]
-                                                      .color,
-                                                ),
-                                                new Container(
-                                                  child: Text(
-                                                    inforData[index * 2].name,
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFF757575),
-                                                        fontSize: 13.0,
-                                                        fontWeight:
-                                                            FontWeight.bold),
+                                          new GestureDetector(
+                                            onTap: () {
+                                              getStep();
+                                              // showModalBottomSheet<T>：显示模态质感设计底部面板
+                                              showModalBottomSheet<Null>(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return new Container(
+                                                      color: Colors.transparent,
+                                                      child: new Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(32.0),
+                                                        child: steplist.length >
+                                                                0
+                                                            ? new Stepper(
+                                                                steps: steplist,
+                                                                currentStep:
+                                                                    step_index,
+                                                                onStepCancel:
+                                                                    () {},
+                                                                onStepContinue:
+                                                                    () {},
+                                                              )
+                                                            : new CircularProgressIndicator(),
+                                                      ),
+                                                    );
+                                                  });
+                                            },
+                                            child: Container(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: <Widget>[
+                                                  Icon(
+                                                    HomePageBean
+                                                        .inforData[index * 2]
+                                                        .Item_Icon,
+                                                    color: HomePageBean
+                                                        .inforData[index * 2]
+                                                        .color,
                                                   ),
-                                                  margin: new EdgeInsets.only(
-                                                      top: 5.0),
-                                                ),
-                                              ],
+                                                  new Container(
+                                                    child: Text(
+                                                      HomePageBean
+                                                          .inforData[index * 2]
+                                                          .name,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xFF757575),
+                                                          fontSize: 13.0,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    margin: new EdgeInsets.only(
+                                                        top: 5.0),
+                                                  ),
+                                                ],
+                                              ),
+                                              margin: new EdgeInsets.only(
+                                                  left: 10.0,
+                                                  right: 4.0,
+                                                  top: 14.0,
+                                                  bottom: 14.0),
                                             ),
-                                            margin: new EdgeInsets.only(
-                                                left: 10.0,
-                                                right: 4.0,
-                                                top: 14.0,
-                                                bottom: 14.0),
                                           ),
                                           new Container(
                                             child: Column(
@@ -1002,15 +1057,18 @@ class _MyHomePageState extends State<MyHomePager>
                                                   MainAxisAlignment.spaceEvenly,
                                               children: <Widget>[
                                                 Icon(
-                                                  inforData[index * 2 + 1]
+                                                  HomePageBean
+                                                      .inforData[index * 2 + 1]
                                                       .Item_Icon,
-                                                  color:
-                                                      inforData[index * 2 + 1]
-                                                          .color,
+                                                  color: HomePageBean
+                                                      .inforData[index * 2 + 1]
+                                                      .color,
                                                 ),
                                                 new Container(
                                                   child: Text(
-                                                    inforData[index * 2 + 1]
+                                                    HomePageBean
+                                                        .inforData[
+                                                            index * 2 + 1]
                                                         .name,
                                                     style: TextStyle(
                                                         color:
@@ -1175,5 +1233,84 @@ class _MyHomePageState extends State<MyHomePager>
             ),
           ],
         ));
+  }
+
+  void loadData() async {
+    //http://116.62.149.237:8080/USR000100002
+    await http
+        .get('http://116.62.149.237:8080/USR000100002')
+        .then((http.Response response) {
+      print(response.body);
+      var datas = JSON.decode(response.body);
+      String rescode = datas["rescode"];
+      var listData = datas["resobj"];
+      setState(() {
+        BannerList = listData;
+      });
+    });
+  }
+
+  void getStep() async {
+    steplist.clear();
+    steplist.add(new Step(
+        title: new Row(
+          children: <Widget>[
+            Text('水果'),
+            Icon(
+              Icons.input,
+              color: Colors.lightBlueAccent,
+            )
+          ],
+        ),
+        content: new Container(
+          child: new Text('这里的水果天下无敌！'),
+        )));
+    steplist.add(
+      new Step(
+        title: new Row(
+          children: <Widget>[
+            Text('小吃'),
+            Icon(
+              Icons.input,
+              color: Colors.lightBlueAccent,
+            )
+          ],
+        ),
+        content: new GestureDetector(
+          child: Container(
+            color: Colors.lightBlueAccent,
+            child: new Text('投吧'),
+          ),
+        ),
+      ),
+    );
+    steplist.add(new Step(
+        title: new Row(
+          children: <Widget>[
+            Text('肉肉'),
+            Icon(
+              Icons.input,
+              color: Colors.lightBlueAccent,
+            )
+          ],
+        ),
+        content: new Container(
+          color: Colors.lightBlueAccent,
+          child: new Text('蛋疼'),
+        )));
+    steplist.add(new Step(
+        title: new Row(
+          children: <Widget>[
+            Text('冷饮'),
+            Icon(
+              Icons.input,
+              color: Colors.lightBlueAccent,
+            )
+          ],
+        ),
+        content: new Container(
+          color: Colors.lightBlueAccent,
+          child: new Text('无语'),
+        )));
   }
 }

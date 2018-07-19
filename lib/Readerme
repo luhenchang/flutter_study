@@ -5,3 +5,54 @@ new Center(
  asset:
  true), //assets/file.obj为我们的本地obj文件，需要到pubspec.yaml中进行配置
 ),
+  showDemoDialog<String>(
+                                          context: context,
+                                          child: new SimpleDialog(
+                                            contentPadding: EdgeInsets.all(0.0),
+                                            titlePadding: new EdgeInsets.only(
+                                                left: 0.0, bottom: 0.0),
+                                            title: new Container(
+                                                padding:
+                                                    new EdgeInsets.all(10.0),
+                                                color: Color(0xFF00E5FF),
+                                                child: new Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: <Widget>[
+                                                    Text(
+                                                      '去购物',
+                                                      style: TextStyle(
+                                                          color:
+                                                              Colors.redAccent),
+                                                    ),
+                                                    IconButton(
+                                                      icon: Icon(Icons.clear),
+                                                      onPressed: () {
+                                                        Navigator.of(context).pop();
+                                                      },
+                                                      color: Colors.white,
+                                                    ),
+                                                  ],
+                                                )),
+                                            children: <Widget>[
+                                              new Container(
+                                                  height: MediaQuery
+                                                          .of(context)
+                                                          .size
+                                                          .height /
+                                                      10 *
+                                                      6,
+                                                  width: MediaQuery
+                                                          .of(context)
+                                                          .size
+                                                          .width /
+                                                      10 *
+                                                      7,
+                                                  child: Image.asset(
+                                                    'images/haha.png',
+                                                    fit: BoxFit.cover,
+                                                  )),
+                                            ],
+                                          ),
+                                        );

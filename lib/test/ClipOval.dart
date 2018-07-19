@@ -49,17 +49,39 @@ class _MyHomePageState extends State<MyHomePager>
   Widget build(BuildContext context) {
     return new Scaffold(
       body: ListView(children: <Widget>[
-        new ClipRect(
-          child: new Align(
-            alignment: Alignment.topLeft,
-            heightFactor: 0.9,
-            child: Image.asset('images/haha.png'),
-          ),
+        new CustomPaint(
+          foregroundPainter: new TextPaintCanves(),
+          size: new Size(MediaQuery.of(context).size.width, 160.0),
+          painter: new TextPaintCanves(),
         ),
-        new ClipOval(
-          child: new Image.asset('images/haha.png',width: 50.0,height: 50.0,),
-        ),
+        new Image.asset('images/haha.png'),
       ]),
     );
+  }
+}
+
+class TextPaintCanves extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = new Paint();
+    paint.color = Colors.yellow;
+    TextPainter painter = new TextPainter();
+    painter.textDirection = TextDirection.ltr;
+    painter.maxLines = 1;
+    painter.text = new TextSpan(
+        text: "123456",
+        style: TextStyle(fontSize: 16.0, color: Colors.redAccent));
+    painter.layout();
+    canvas.drawRect(
+        new Rect.fromLTRB(0.0, 0.0, size.width, size.height), paint);
+    canvas.clipRect(new Rect.fromLTRB(0.0, 0.0, size.width, size.height));
+    canvas.scale(1.0,0.9);
+    painter.paint(canvas, new Offset(size.width / 2,20.0));
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    return true;
   }
 }

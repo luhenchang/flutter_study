@@ -43,10 +43,17 @@ class PersonPagerState extends State<PersonPager> {
                           ),
                           Container(
                             margin: new EdgeInsets.only(top: 10.0),
-                            child: new Text(
-                              '请点击登录',
-                              style: TextStyle(
-                                  fontSize: 18.0, fontWeight: FontWeight.bold),
+                            child: Dismissible(
+                              key: Key('a'),
+                              direction: DismissDirection.vertical,
+                              resizeDuration: Duration(milliseconds: 200),
+                              child: new Text(
+                                '请点击登录',
+                                style: TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold),
+                                key: Key('a'),
+                              ),
                             ),
                           ),
                         ],
@@ -73,7 +80,10 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    child: Text('收藏',style: TextStyle(fontSize: 13.0),),
+                    child: Text(
+                      '收藏',
+                      style: TextStyle(fontSize: 13.0),
+                    ),
                   ),
                 ],
               ),
@@ -85,7 +95,7 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    child: Text('评价',style: TextStyle(fontSize: 13.0)),
+                    child: Text('评价', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -97,7 +107,7 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    child: Text('足迹',style: TextStyle(fontSize: 13.0)),
+                    child: Text('足迹', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -112,7 +122,10 @@ class PersonPagerState extends State<PersonPager> {
           margin: new EdgeInsets.only(left: 18.0, right: 18.0, top: 10.0),
         ),
         Container(
-          child: Text('Flutter红包',style: TextStyle(fontWeight:FontWeight.bold,fontSize: 13.0),),
+          child: Text(
+            'Flutter红包',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),
+          ),
           margin: new EdgeInsets.only(left: 15.0, top: 8.0),
         ),
         //第四个部分
@@ -130,8 +143,8 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('我的钱包',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('我的钱包', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -143,8 +156,11 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('红包/卡卷',style: TextStyle(fontSize: 13.0),),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text(
+                      '红包/卡卷',
+                      style: TextStyle(fontSize: 13.0),
+                    ),
                   ),
                 ],
               ),
@@ -156,8 +172,8 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('闪付',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('闪付', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -169,12 +185,11 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('手机充值',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('手机充值', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
-
             ],
           ),
         ),
@@ -188,12 +203,18 @@ class PersonPagerState extends State<PersonPager> {
         //第5个部分
         Container(
           margin: new EdgeInsets.all(15.0),
-          width:MediaQuery.of(context).size.width,
+          width: MediaQuery.of(context).size.width,
           height: 60.0,
-          child:Image.asset('images/haha.png',fit: BoxFit.cover,),
+          child: Image.asset(
+            'images/haha.png',
+            fit: BoxFit.cover,
+          ),
         ),
         Container(
-          child: Text('美团服务',style: TextStyle(fontWeight:FontWeight.bold,fontSize: 13.0),),
+          child: Text(
+            '美团服务',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),
+          ),
           margin: new EdgeInsets.only(left: 15.0, top: 8.0),
         ),
         Container(
@@ -217,8 +238,8 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('彩票',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('彩票', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -230,8 +251,11 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('会员中心',style: TextStyle(fontSize: 13.0),),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text(
+                      '会员中心',
+                      style: TextStyle(fontSize: 13.0),
+                    ),
                   ),
                 ],
               ),
@@ -243,8 +267,8 @@ class PersonPagerState extends State<PersonPager> {
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('客服',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('客服', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -252,16 +276,15 @@ class PersonPagerState extends State<PersonPager> {
                 children: <Widget>[
                   Icon(
                     Icons.phonelink,
-                    color:Color(0xFF4DD0E1),
+                    color: Color(0xFF4DD0E1),
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('好友去哪',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('好友去哪', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
-
             ],
           ),
         ),
@@ -275,12 +298,12 @@ class PersonPagerState extends State<PersonPager> {
                 children: <Widget>[
                   Icon(
                     Icons.wallpaper,
-                    color:Color(0xFF4DD0E1),
+                    color: Color(0xFF4DD0E1),
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('我的钱包',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('我的钱包', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -288,12 +311,15 @@ class PersonPagerState extends State<PersonPager> {
                 children: <Widget>[
                   Icon(
                     Icons.card_membership,
-                    color:Color(0xFF4DD0E1),
+                    color: Color(0xFF4DD0E1),
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('红包/卡卷',style: TextStyle(fontSize: 13.0),),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text(
+                      '红包/卡卷',
+                      style: TextStyle(fontSize: 13.0),
+                    ),
                   ),
                 ],
               ),
@@ -301,12 +327,12 @@ class PersonPagerState extends State<PersonPager> {
                 children: <Widget>[
                   Icon(
                     Icons.free_breakfast,
-                    color:Color(0xFF4DD0E1),
+                    color: Color(0xFF4DD0E1),
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('闪付',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('闪付', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
@@ -314,20 +340,18 @@ class PersonPagerState extends State<PersonPager> {
                 children: <Widget>[
                   Icon(
                     Icons.phonelink,
-                    color:Color(0xFF4DD0E1),
+                    color: Color(0xFF4DD0E1),
                     size: 25.0,
                   ),
                   Container(
-                    margin: new EdgeInsets.only(top:5.0),
-                    child: Text('手机充值',style: TextStyle(fontSize: 13.0)),
+                    margin: new EdgeInsets.only(top: 5.0),
+                    child: Text('手机充值', style: TextStyle(fontSize: 13.0)),
                   ),
                 ],
               ),
-
             ],
           ),
         ),
-
       ],
     );
   }

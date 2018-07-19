@@ -1,15 +1,25 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter_app/http_utils/HttpUtils.dart';
 import 'package:flutter_app/showmain.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './Widght_3D.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter_app/http_utils/HttpUtils.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 void main() {
   runApp(
     new MaterialApp(
       title: 'app',
-      theme: new ThemeData(primaryColor: Colors.white),
+      theme: new ThemeData(
+        primaryColor: Colors.white,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.orangeAccent[400],
+      ),
       home: new MyLoginWidget(),
     ),
   );
@@ -72,25 +82,93 @@ class MyLoginState extends State<MyLoginWidget> {
   GlobalKey<FormState> _formKey1 = GlobalKey<FormState>();
   String _userPhone;
   String _passWold;
+
+  //TODO 文件读取:通过文件来读取，如果第一次登陆成功那么就记住用户名
+  Future<File> _getLocalFile() async {
+    //获取应用程序的私有位置
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    return new File('$dir/login.txt');
+  }
+
+  //写数据
+  Future<Null> _writerDataToFile() async {
+    print(_userPhone);
+    // write the variable as a string to the file
+    await (await _getLocalFile()).writeAsString('$_userPhone');
+  }
+
+  //读数据
+  Future<String> _readData() async {
+    try {
+      File file = await _getLocalFile();
+      // read the variable as a string from the file.
+      String contents = await file.readAsString();
+      return contents;
+    } on FileSystemException {
+      return '123';
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     //WidgetsBinding.instance.addObserver(this);
-
+    print('进入了');
+    _readData().then((inputs) {
+      print('inputs=$inputs');
+      setState(() {
+        _userPhone = inputs;
+      });
+    });
   }
+
+  Future<bool> _Login(String userName, String password) async {
+    String url =
+        "http://116.62.149.237:8080/USR000100001?usrName=$userName&passwd=$password";
+    bool result;
+    //{"resobj":{"usrName":"haha","passwd":"123456"},"rescode":"000000"}
+    try {
+      result = await http.get(url).then((http.Response response) {
+        print(response.body);
+        var data = json.decode(response.body);
+        String rescode = data["rescode"];
+        print(rescode);
+        if (rescode == '999999') {
+          showDialog(
+              context: context,
+              builder: (ctx) => new AlertDialog(
+                    content: new Text('登录不成功'),
+                  ));
+        } else if(rescode=='000000'){
+          _writerDataToFile();
+          Navigator.of(context).push(new PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (BuildContext context, _, __) {
+                  return new MyHomePager();
+                },
+              ));
+        }
+      });
+    } catch (e) {
+      return result;
+    }
+    return result;
+  }
+
   @override
   void dispose() {
-   // WidgetsBinding.instance.removeObserver(this);
+    // WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-
   }
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     setState(() {
       _lastLifecycleState = state;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -139,8 +217,9 @@ class MyLoginState extends State<MyLoginWidget> {
                               key: _formKey,
                               child: new Container(
                                 child: TextFormField(
-                                  validator: (v) =>
-                                      (v == null || v.isEmpty) ? "请填写手机号" : null,
+                                  validator: (v) => (v == null || v.isEmpty)
+                                      ? "请填写手机号"
+                                      : null,
                                   onSaved: (value) => this._userPhone = value,
                                   obscureText: false,
                                   keyboardType: TextInputType.number,
@@ -153,7 +232,9 @@ class MyLoginState extends State<MyLoginWidget> {
                                       border: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Colors.red, width: 300.0)),
-                                      hintText: '  请输入手机号',
+                                      hintText: _userPhone == null
+                                          ? '请输入手机号'
+                                          : _userPhone,
                                       helperText: 'user Phone',
                                       helperStyle: new TextStyle(
                                         fontSize: 11.0,
@@ -208,7 +289,7 @@ class MyLoginState extends State<MyLoginWidget> {
                                   borderSide: BorderSide(
                                       color: Colors.red, width: 300.0)),
                               hintText: '  请输入密码',
-                             // prefixIcon: Icon(Icons.add),
+                              // prefixIcon: Icon(Icons.add),
                               helperText: 'user Password',
                               helperStyle: new TextStyle(
                                 fontSize: 11.0,
@@ -239,26 +320,8 @@ class MyLoginState extends State<MyLoginWidget> {
                       if (form1.validate()) {
                         form1.save();
                       }
-                      if (this._userPhone != '123456' ||
-                          this._passWold != '123456') {
-                        showDialog(
-                            context: context,
-                            builder: (ctx) => new AlertDialog(
-                                  content: new Text('登录不成功'),
-                                ));
-                      } else {
-                        Navigator.of(context).push(new PageRouteBuilder(
-                          opaque: false,
-                          pageBuilder: (BuildContext context, _, __) {
-                            return new MyHomePager();
-                          },
-                        ));
-                        /*showDialog(
-                            context: context,
-                            builder: (ctx) => new AlertDialog(
-                                  content: new Text('登录成功'),
-                                ));*/
-                      }
+                      //登陆
+                      _Login(this._userPhone, this._passWold);
                     },
                     child: new Text(
                       '登陆',
