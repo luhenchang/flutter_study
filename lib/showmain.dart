@@ -6,6 +6,7 @@ import 'package:flutter_app/flutter_intent/view/SecondPager.dart';
 import 'package:flutter_app/flutter_person/PersonPager.dart';
 import 'package:flutter_app/flutter_system/SystemPage.dart';
 import 'package:flutter_app/flutter_widget/modle/HomePageBean.dart';
+import 'package:flutter_app/flutter_widget/view/MyDrawer.dart';
 import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -846,229 +847,187 @@ class _MyHomePageState extends State<MyHomePager>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: index == 0
-            ? new AppBar(
-                titleSpacing: 0.0,
-                automaticallyImplyLeading: false,
-                title: AppBar2(
-                  index1: index,
-                ))
-            : index == 1
-                ? AppBar(
-                    titleSpacing: 0.0,
-                    automaticallyImplyLeading: false,
-                    title: AppBar2(
-                      index1: index,
-                    ))
-                : null,
-        body: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            new Expanded(
-              child: new Container(
-                //这里我们需要用index判断切换的界面内容显示哦！三元就行，真的说实话，百度这么强大没有一个人写出这种场见的android应用切换碎片场景。用TabBarView和bottomNavigationBar根本就没法去掉下面的导航栏。可能是我目前水平不够吧。这里我根据android fragment占用位置用Fragment去替换内容从而实现切换，思路一模一样。
-                //所显示更具index判断点击的是那个按钮，然后做响应的内容小部件显示就可以了。下面用一个很长很长的三元计算写了出来，如果点击是第一个那么，替换为第一个内容小部件，如果是index=2第二个
-                //依次往右边走就可以。first blood
-                child: index == 0
-                    ? new GestureDetector(
-                        onTap: () {
-                          FocusScope.of(context).requestFocus(new FocusNode());
-                        },
-                        child: new ListView(
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          padding: new EdgeInsets.all(1.0),
-                          scrollDirection: Axis.vertical,
-                          children: <Widget>[
-                            // new ImageAnimal(),
-                            new SizedBox(
-                              width: 200.0,
-                              height: 100.0,
-                              child: new Swiper(
-                                pagination: SwiperPagination(),
-                                loop: true,
-                                autoplay: true,
-                                duration: 2000,
-                                control: new SwiperControl(
-                                    color: Colors.lightBlueAccent),
-                                itemBuilder: (BuildContext context, int index) {
-                                  return BannerList.length > 0
-                                      ? new Image.network(
-                                          BannerList[index]['banner_url'],
-                                          fit: BoxFit.cover,
-                                        )
-                                      : new Container();
-                                },
-                                itemCount:
-                                    BannerList != null ? BannerList.length : 0,
-                              ),
+      appBar: index == 0
+          ? new AppBar(
+              titleSpacing: 0.0,
+              automaticallyImplyLeading: false,
+              title: AppBar2(
+                index1: index,
+              ))
+          : index == 1
+              ? AppBar(
+                  titleSpacing: 0.0,
+                  automaticallyImplyLeading: false,
+                  title: AppBar2(
+                    index1: index,
+                  ))
+              : null,
+      body: new Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          new Expanded(
+            child: new Container(
+              //这里我们需要用index判断切换的界面内容显示哦！三元就行，真的说实话，百度这么强大没有一个人写出这种场见的android应用切换碎片场景。用TabBarView和bottomNavigationBar根本就没法去掉下面的导航栏。可能是我目前水平不够吧。这里我根据android fragment占用位置用Fragment去替换内容从而实现切换，思路一模一样。
+              //所显示更具index判断点击的是那个按钮，然后做响应的内容小部件显示就可以了。下面用一个很长很长的三元计算写了出来，如果点击是第一个那么，替换为第一个内容小部件，如果是index=2第二个
+              //依次往右边走就可以。first blood
+              child: index == 0
+                  ? new GestureDetector(
+                      onTap: () {
+                        FocusScope.of(context).requestFocus(new FocusNode());
+                      },
+                      child: new ListView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        padding: new EdgeInsets.all(1.0),
+                        scrollDirection: Axis.vertical,
+                        children: <Widget>[
+                          // new ImageAnimal(),
+                          new SizedBox(
+                            width: 200.0,
+                            height: 100.0,
+                            child: new Swiper(
+                              pagination: SwiperPagination(),
+                              loop: true,
+                              autoplay: true,
+                              duration: 2000,
+                              control: new SwiperControl(
+                                  color: Colors.lightBlueAccent),
+                              itemBuilder: (BuildContext context, int index) {
+                                return BannerList.length > 0
+                                    ? new Image.network(
+                                        BannerList[index]['banner_url'],
+                                        fit: BoxFit.cover,
+                                      )
+                                    : new Container();
+                              },
+                              itemCount:
+                                  BannerList != null ? BannerList.length : 0,
                             ),
-                            new SizedBox(
-                              width: 600.0,
-                              height: 100.0,
-                              child: Container(
-                                color: Colors.white,
-                                child: new ListView.builder(
-                                  itemCount: 5,
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          Navigator.of(context).push(
-                                              new PageRouteBuilder(pageBuilder:
-                                                  (BuildContext, _, __) {
-                                            return new NetWidget();
-                                          }));
-                                        });
-                                      },
-                                      child: new Container(
-                                        color: Colors.white,
-                                        child: new Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: <Widget>[
-                                            new ClipOval(
-                                              //这个一般可以作为圆形的裁剪哦。
-                                              child: new SizedBox(
-                                                width: 40.0,
-                                                height: 40.0,
-                                                child: Container(
-                                                  child: new Image.asset(
-                                                    HomePageBean.images[index],
-                                                    fit: BoxFit.fill,
-                                                  ),
+                          ),
+                          new SizedBox(
+                            width: 600.0,
+                            height: 100.0,
+                            child: Container(
+                              color: Colors.white,
+                              child: new ListView.builder(
+                                itemCount: 5,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        Navigator.of(context).push(
+                                            new PageRouteBuilder(pageBuilder:
+                                                (BuildContext, _, __) {
+                                          return new NetWidget();
+                                        }));
+                                      });
+                                    },
+                                    child: new Container(
+                                      color: Colors.white,
+                                      child: new Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+                                          new ClipOval(
+                                            //这个一般可以作为圆形的裁剪哦。
+                                            child: new SizedBox(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              child: Container(
+                                                child: new Image.asset(
+                                                  HomePageBean.images[index],
+                                                  fit: BoxFit.fill,
                                                 ),
                                               ),
                                             ),
-                                            new Text(
-                                              HomePageBean.namesss[index],
-                                              style: TextStyle(
-                                                  color: Color(0xFF757575),
-                                                  fontSize: 13.0,
-                                                  fontWeight: FontWeight.bold),
-                                            )
-                                          ],
-                                        ),
-                                        margin: new EdgeInsets.only(
-                                            left: 15.0, right: 6.0),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                            new Container(
-                              width: 600.0,
-                              height: 1.0,
-                              color: Colors.white,
-                              child: new Container(
-                                color: Colors.black12,
-                              ),
-                              padding:
-                                  new EdgeInsets.only(left: 10.0, right: 10.0),
-                            ),
-                            new SizedBox(
-                              width: 600.0,
-                              height: 140.0,
-                              child: Container(
-                                color: Colors.white,
-                                child: new ListView.builder(
-                                  itemCount: (HomePageBean.inforData.length / 2)
-                                      .toInt(),
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return new Container(
-                                      color: Colors.white,
-                                      child: new Column(
-                                        children: <Widget>[
-                                          new GestureDetector(
-                                            onTap: () {
-                                              getStep();
-                                              // showModalBottomSheet<T>：显示模态质感设计底部面板
-                                              showModalBottomSheet<Null>(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return new Container(
-                                                      color: Colors.transparent,
-                                                      child: new Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(32.0),
-                                                        child: steplist.length >
-                                                                0
-                                                            ? new Stepper(
-                                                                steps: steplist,
-                                                                currentStep:
-                                                                    step_index,
-                                                                onStepCancel:
-                                                                    () {},
-                                                                onStepContinue:
-                                                                    () {},
-                                                              )
-                                                            : new CircularProgressIndicator(),
-                                                      ),
-                                                    );
-                                                  });
-                                            },
-                                            child: Container(
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: <Widget>[
-                                                  Icon(
-                                                    HomePageBean
-                                                        .inforData[index * 2]
-                                                        .Item_Icon,
-                                                    color: HomePageBean
-                                                        .inforData[index * 2]
-                                                        .color,
-                                                  ),
-                                                  new Container(
-                                                    child: Text(
-                                                      HomePageBean
-                                                          .inforData[index * 2]
-                                                          .name,
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xFF757575),
-                                                          fontSize: 13.0,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                    margin: new EdgeInsets.only(
-                                                        top: 5.0),
-                                                  ),
-                                                ],
-                                              ),
-                                              margin: new EdgeInsets.only(
-                                                  left: 10.0,
-                                                  right: 4.0,
-                                                  top: 14.0,
-                                                  bottom: 14.0),
-                                            ),
                                           ),
-                                          new Container(
+                                          new Text(
+                                            HomePageBean.namesss[index],
+                                            style: TextStyle(
+                                                color: Color(0xFF757575),
+                                                fontSize: 13.0,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                      margin: new EdgeInsets.only(
+                                          left: 15.0, right: 6.0),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          new Container(
+                            width: 600.0,
+                            height: 1.0,
+                            color: Colors.white,
+                            child: new Container(
+                              color: Colors.black12,
+                            ),
+                            padding:
+                                new EdgeInsets.only(left: 10.0, right: 10.0),
+                          ),
+                          new SizedBox(
+                            width: 600.0,
+                            height: 140.0,
+                            child: Container(
+                              color: Colors.white,
+                              child: new ListView.builder(
+                                itemCount:
+                                    (HomePageBean.inforData.length / 2).toInt(),
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return new Container(
+                                    color: Colors.white,
+                                    child: new Column(
+                                      children: <Widget>[
+                                        new GestureDetector(
+                                          onTap: () {
+                                            getStep();
+                                            // showModalBottomSheet<T>：显示模态质感设计底部面板
+                                            showModalBottomSheet<Null>(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return new Container(
+                                                    color: Colors.transparent,
+                                                    child: new Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              32.0),
+                                                      child: steplist.length > 0
+                                                          ? new Stepper(
+                                                              steps: steplist,
+                                                              currentStep:
+                                                                  step_index,
+                                                              onStepCancel:
+                                                                  () {},
+                                                              onStepContinue:
+                                                                  () {},
+                                                            )
+                                                          : new CircularProgressIndicator(),
+                                                    ),
+                                                  );
+                                                });
+                                          },
+                                          child: Container(
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceEvenly,
                                               children: <Widget>[
                                                 Icon(
                                                   HomePageBean
-                                                      .inforData[index * 2 + 1]
+                                                      .inforData[index * 2]
                                                       .Item_Icon,
                                                   color: HomePageBean
-                                                      .inforData[index * 2 + 1]
+                                                      .inforData[index * 2]
                                                       .color,
                                                 ),
                                                 new Container(
                                                   child: Text(
                                                     HomePageBean
-                                                        .inforData[
-                                                            index * 2 + 1]
+                                                        .inforData[index * 2]
                                                         .name,
                                                     style: TextStyle(
                                                         color:
@@ -1078,161 +1037,198 @@ class _MyHomePageState extends State<MyHomePager>
                                                             FontWeight.bold),
                                                   ),
                                                   margin: new EdgeInsets.only(
-                                                      top: 3.0),
+                                                      top: 5.0),
                                                 ),
                                               ],
                                             ),
+                                            margin: new EdgeInsets.only(
+                                                left: 10.0,
+                                                right: 4.0,
+                                                top: 14.0,
+                                                bottom: 14.0),
                                           ),
-                                        ],
-                                      ),
-                                      margin: new EdgeInsets.only(
-                                          bottom: 10.0, left: 12.0, right: 6.0),
-                                    );
-                                  },
-                                ),
-                                margin: new EdgeInsets.all(4.0),
+                                        ),
+                                        new Container(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: <Widget>[
+                                              Icon(
+                                                HomePageBean
+                                                    .inforData[index * 2 + 1]
+                                                    .Item_Icon,
+                                                color: HomePageBean
+                                                    .inforData[index * 2 + 1]
+                                                    .color,
+                                              ),
+                                              new Container(
+                                                child: Text(
+                                                  HomePageBean
+                                                      .inforData[index * 2 + 1]
+                                                      .name,
+                                                  style: TextStyle(
+                                                      color: Color(0xFF757575),
+                                                      fontSize: 13.0,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                margin: new EdgeInsets.only(
+                                                    top: 3.0),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    margin: new EdgeInsets.only(
+                                        bottom: 10.0, left: 12.0, right: 6.0),
+                                  );
+                                },
                               ),
+                              margin: new EdgeInsets.all(4.0),
                             ),
-                            //网格布局
-                            new Container(
-                                color: Colors.white,
-                                height:
-                                    MediaQuery.of(context).size.width / 2 + 15,
-                                width: MediaQuery.of(context).size.width,
-                                child: new GridView.count(
-                                  childAspectRatio: 2.0,
-                                  primary: false,
-                                  padding: const EdgeInsets.all(10.0),
-                                  crossAxisSpacing: 10.0,
-                                  crossAxisCount: 2,
-                                  mainAxisSpacing: 6.0,
-                                  children: _ItemList(),
-                                )),
-                            WidgetPagers(),
-                            new WidgetStudy(),
-                            new WidgetText(),
+                          ),
+                          //网格布局
+                          new Container(
+                              color: Colors.white,
+                              height:
+                                  MediaQuery.of(context).size.width / 2 + 15,
+                              width: MediaQuery.of(context).size.width,
+                              child: new GridView.count(
+                                childAspectRatio: 2.0,
+                                primary: false,
+                                padding: const EdgeInsets.all(10.0),
+                                crossAxisSpacing: 10.0,
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 6.0,
+                                children: _ItemList(),
+                              )),
+                          WidgetPagers(),
+                          new WidgetStudy(),
+                          new WidgetText(),
 
-                            /* 这是优化之前的代码很烦，index == 0
+                          /* 这是优化之前的代码很烦，index == 0
                         ? new ImageAnimal()
                         : index == 1 ? WidgetStudy() : new MyFadeTest(),*/
-                          ],
-                        ),
-                      )
-                    : index == 1
-                        ? new Container(
-                            child: SecondPager(),
-                            color: Colors.black12,
-                          )
-                        : index == 2 ? new SystemPage() : new PersonPager(),
-                width: 600.0,
-                height: 900.0,
-              ),
+                        ],
+                      ),
+                    )
+                  : index == 1
+                      ? new Container(
+                          child: SecondPager(),
+                          color: Colors.black12,
+                        )
+                      : index == 2 ? new SystemPage() : new PersonPager(),
+              width: 600.0,
+              height: 900.0,
             ),
-            new Card(
-              child: Container(
-                child: new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    new GestureDetector(
-                      onTap: _pressedChangerd,
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Icon(
-                              Icons.home,
-                              color: preed_is
-                                  ? Colors.orangeAccent
-                                  : Colors.black45,
-                            ),
-                            new Text(
-                              '布局',
-                              style: new TextStyle(
-                                  color: preed_is
-                                      ? Colors.orangeAccent
-                                      : Colors.black45),
-                            ),
-                          ],
-                        ),
+          ),
+          new Card(
+            child: Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  new GestureDetector(
+                    onTap: _pressedChangerd,
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.home,
+                            color:
+                                preed_is ? Colors.orangeAccent : Colors.black45,
+                          ),
+                          new Text(
+                            '布局',
+                            style: new TextStyle(
+                                color: preed_is
+                                    ? Colors.orangeAccent
+                                    : Colors.black45),
+                          ),
+                        ],
                       ),
                     ),
-                    new GestureDetector(
-                      onTap: _pressedChangerd_Second,
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Icon(
-                              Icons.computer,
-                              color: preed_is_second
-                                  ? Colors.orangeAccent
-                                  : Colors.black45,
-                            ),
-                            new Text(
-                              '交互',
-                              style: new TextStyle(
-                                  color: preed_is_second
-                                      ? Colors.orangeAccent
-                                      : Colors.black45),
-                            ),
-                          ],
-                        ),
+                  ),
+                  new GestureDetector(
+                    onTap: _pressedChangerd_Second,
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.computer,
+                            color: preed_is_second
+                                ? Colors.orangeAccent
+                                : Colors.black45,
+                          ),
+                          new Text(
+                            '交互',
+                            style: new TextStyle(
+                                color: preed_is_second
+                                    ? Colors.orangeAccent
+                                    : Colors.black45),
+                          ),
+                        ],
                       ),
                     ),
-                    new GestureDetector(
-                      onTap: _pressedChangerd_Threed,
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Icon(
-                              Icons.settings_system_daydream,
-                              color: preed_is_threed
-                                  ? Colors.orangeAccent
-                                  : Colors.black45,
-                            ),
-                            new Text(
-                              '系统',
-                              style: new TextStyle(
-                                  color: preed_is_threed
-                                      ? Colors.orangeAccent
-                                      : Colors.black45),
-                            ),
-                          ],
-                        ),
+                  ),
+                  new GestureDetector(
+                    onTap: _pressedChangerd_Threed,
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.settings_system_daydream,
+                            color: preed_is_threed
+                                ? Colors.orangeAccent
+                                : Colors.black45,
+                          ),
+                          new Text(
+                            '系统',
+                            style: new TextStyle(
+                                color: preed_is_threed
+                                    ? Colors.orangeAccent
+                                    : Colors.black45),
+                          ),
+                        ],
                       ),
                     ),
-                    new GestureDetector(
-                      onTap: _pressedChangerd_four,
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Icon(
-                              Icons.person,
-                              color: preed_is_four
-                                  ? Colors.orangeAccent
-                                  : Colors.black45,
-                            ),
-                            new Text(
-                              '我的',
-                              style: new TextStyle(
-                                  color: preed_is_four
-                                      ? Colors.orangeAccent
-                                      : Colors.black45),
-                            ),
-                          ],
-                        ),
+                  ),
+                  new GestureDetector(
+                    onTap: _pressedChangerd_four,
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.person,
+                            color: preed_is_four
+                                ? Colors.orangeAccent
+                                : Colors.black45,
+                          ),
+                          new Text(
+                            '我的',
+                            style: new TextStyle(
+                                color: preed_is_four
+                                    ? Colors.orangeAccent
+                                    : Colors.black45),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                width: 600.0,
-                height: 60.0,
-                color: Colors.white,
-                padding: new EdgeInsets.only(top: 5.0),
+                  ),
+                ],
               ),
+              width: 600.0,
+              height: 60.0,
               color: Colors.white,
-              margin: new EdgeInsets.only(top: 2.0, bottom: 2.0),
+              padding: new EdgeInsets.only(top: 5.0),
             ),
-          ],
-        ));
+            color: Colors.white,
+            margin: new EdgeInsets.only(top: 2.0, bottom: 2.0),
+          ),
+        ],
+      ),
+      drawer: new MyDrawer(),
+    );
   }
 
   void loadData() async {

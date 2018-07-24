@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter_app/http_utils/HttpUtils.dart';
 import 'package:flutter_app/showmain.dart';
+import 'package:flutter_app/test/SqlUtils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 import './Widght_3D.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_app/http_utils/HttpUtils.dart';
@@ -77,6 +80,7 @@ class MyLoginWidget extends StatefulWidget {
 }
 
 class MyLoginState extends State<MyLoginWidget> {
+  TodoProvider todoProvider = new TodoProvider();
   AppLifecycleState _lastLifecycleState;
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   GlobalKey<FormState> _formKey1 = GlobalKey<FormState>();
@@ -115,6 +119,8 @@ class MyLoginState extends State<MyLoginWidget> {
     super.initState();
     //WidgetsBinding.instance.addObserver(this);
     print('进入了');
+    iniSqlite();
+    getDataForSql();
     _readData().then((inputs) {
       print('inputs=$inputs');
       setState(() {
@@ -123,7 +129,37 @@ class MyLoginState extends State<MyLoginWidget> {
     });
   }
 
-  Future<bool> _Login(String userName, String password) async {
+  void getDataForSql()async{
+    if(todoProvider.db!=null) {
+      var data = await todoProvider.getTodo(1);
+      /*
+    * final String tableTodo = "todo";
+final String columnId = "_id";
+final String columnTitle = "title";
+final String columnDone = "done";*/
+      if (data != null) {
+        Map map = data as Map;
+        print(map['title']);
+      } else {
+        print('null');
+      }
+    }
+  }
+  //实例化数据库
+  void iniSqlite() async {
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, "demo.db");
+    todoProvider.open(path);
+  }
+
+  Future<bool> _Login(
+      String userName, String password, BuildContext context) async {
+    /*//数据库插入语句：
+    Todo todo = new Todo();
+    todo.title =userName;
+    todo.done = true;
+     todoProvider.insert(todo);
+*/
     String url =
         "http://116.62.149.237:8080/USR000100001?usrName=$userName&passwd=$password";
     bool result;
@@ -140,7 +176,7 @@ class MyLoginState extends State<MyLoginWidget> {
               builder: (ctx) => new AlertDialog(
                     content: new Text('登录不成功'),
                   ));
-        } else if(rescode=='000000'){
+        } else if (rescode == '000000') {
           _writerDataToFile();
           Navigator.of(context).push(new PageRouteBuilder(
                 opaque: false,
@@ -222,7 +258,7 @@ class MyLoginState extends State<MyLoginWidget> {
                                       : null,
                                   onSaved: (value) => this._userPhone = value,
                                   obscureText: false,
-                                  keyboardType: TextInputType.number,
+                                  keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                       labelStyle: theme.textTheme.caption
                                           .copyWith(color: theme.primaryColor),
@@ -321,7 +357,7 @@ class MyLoginState extends State<MyLoginWidget> {
                         form1.save();
                       }
                       //登陆
-                      _Login(this._userPhone, this._passWold);
+                      _Login(this._userPhone, this._passWold, context);
                     },
                     child: new Text(
                       '登陆',
@@ -411,4 +447,5 @@ class MyLoginState extends State<MyLoginWidget> {
       ),
     );
   }
+
 }
