@@ -6,8 +6,10 @@ import 'package:flutter_app/flutter_intent/view/SecondPager.dart';
 import 'package:flutter_app/flutter_person/PersonPager.dart';
 import 'package:flutter_app/flutter_system/SystemPage.dart';
 import 'package:flutter_app/flutter_widget/modle/HomePageBean.dart';
+import 'package:flutter_app/flutter_widget/view/DouyinPager.dart';
 import 'package:flutter_app/flutter_widget/view/MyDrawer.dart';
 import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
+import 'package:flutter_app/test/video_demo.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_app/http_utils/HttpUtils.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import "package:pull_to_refresh/pull_to_refresh.dart";
 
 class WidgetPagers extends StatefulWidget {
   @override
@@ -85,7 +88,7 @@ void main() {
       title: 'app',
       theme: new ThemeData(
         primarySwatch: Colors.amber,
-        primaryColor: Colors.blue,
+        primaryColor: Colors.white,
         accentColor: Colors.deepOrangeAccent,
       ),
       home: MyHomePager(),
@@ -654,6 +657,7 @@ enum _RadioGroup { foo1, foo2 }
 
 class _MyHomePageState extends State<MyHomePager>
     with SingleTickerProviderStateMixin {
+  RefreshController _refreshController;
   bool preed_is = true;
   bool preed_is_second = false;
   bool preed_is_threed = false;
@@ -682,7 +686,13 @@ class _MyHomePageState extends State<MyHomePager>
       return e.toString();
     }
   }
+  void enterRefresh() {
+    _refreshController.requestRefresh(true);
+  }
 
+  void _onOffsetCallback(bool isUp, double offset) {
+    // if you want change some widgets state ,you should rewrite the callback
+  }
   GlobalKey<FormState> _formstate = new GlobalKey();
 
   _pressedChangerd() {
@@ -798,7 +808,7 @@ class _MyHomePageState extends State<MyHomePager>
   @override
   void initState() {
     super.initState();
-
+    _refreshController = new RefreshController();
     loadData();
     initData();
 
@@ -807,7 +817,14 @@ class _MyHomePageState extends State<MyHomePager>
       return (prefs.getString('counter') ?? 0);
     });*/
   }
-
+  Widget _headerCreate(BuildContext context, int mode) {
+    return new ClassicIndicator(
+      mode: mode,
+      refreshingText: "",
+      idleIcon: new Container(),
+      idleText: "Load more...",
+    );
+  }
   Widget getItemWidget(String url) {
     return new Image.asset(
       url,
@@ -875,159 +892,231 @@ class _MyHomePageState extends State<MyHomePager>
                       onTap: () {
                         FocusScope.of(context).requestFocus(new FocusNode());
                       },
-                      child: new ListView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        padding: new EdgeInsets.all(1.0),
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          // new ImageAnimal(),
-                          new SizedBox(
-                            width: 200.0,
-                            height: 100.0,
-                            child: new Swiper(
-                              pagination: SwiperPagination(),
-                              loop: true,
-                              autoplay: true,
-                              duration: 2000,
-                              control: new SwiperControl(
-                                  color: Colors.lightBlueAccent),
-                              itemBuilder: (BuildContext context, int index) {
-                                return BannerList.length > 0
-                                    ? new Image.network(
-                                        BannerList[index]['banner_url'],
-                                        fit: BoxFit.cover,
-                                      )
-                                    : new Container();
-                              },
-                              itemCount:
-                                  BannerList != null ? BannerList.length : 0,
-                            ),
-                          ),
-                          new SizedBox(
-                            width: 600.0,
-                            height: 100.0,
-                            child: Container(
-                              color: Colors.white,
-                              child: new ListView.builder(
-                                itemCount: 5,
-                                scrollDirection: Axis.horizontal,
+                      child: new SmartRefresher(
+                        enablePullDown: true,
+                        enablePullUp: true,
+                        controller: _refreshController,
+                        onRefresh: (up) {
+                          if (up)
+                            new Future.delayed(const Duration(milliseconds: 2009))
+                                .then((val) {
+
+                              _refreshController.scrollTo(_refreshController.scrollController.offset+100.0);
+                              _refreshController.sendBack(true, RefreshStatus.idle);
+                              setState(() {});
+//                refresher.sendStatus(RefreshStatus.completed);
+                            });
+                          else {
+                            new Future.delayed(const Duration(milliseconds: 2009))
+                                .then((val) {
+                              setState(() {});
+                              _refreshController.sendBack(false, RefreshStatus.idle);
+                            });
+                          }
+                        },
+                        onOffsetChange: _onOffsetCallback,
+                        child: new ListView(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          padding: new EdgeInsets.all(1.0),
+                          scrollDirection: Axis.vertical,
+                          children: <Widget>[
+                            // new ImageAnimal(),
+                            new SizedBox(
+                              width: 200.0,
+                              height: 100.0,
+                              child: new Swiper(
+                                pagination: SwiperPagination(),
+                                loop: true,
+                                autoplay: true,
+                                duration: 2000,
+                                control: new SwiperControl(
+                                    color: Colors.lightBlueAccent),
                                 itemBuilder: (BuildContext context, int index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        Navigator.of(context).push(
-                                            new PageRouteBuilder(pageBuilder:
-                                                (BuildContext, _, __) {
-                                          return new NetWidget();
-                                        }));
-                                      });
-                                    },
-                                    child: new Container(
-                                      color: Colors.white,
-                                      child: new Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: <Widget>[
-                                          new ClipOval(
-                                            //这个一般可以作为圆形的裁剪哦。
-                                            child: new SizedBox(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: Container(
-                                                child: new Image.asset(
-                                                  HomePageBean.images[index],
-                                                  fit: BoxFit.fill,
+                                  return BannerList.length > 0
+                                      ? new Image.network(
+                                          BannerList[index]['banner_url'],
+                                          fit: BoxFit.cover,
+                                        )
+                                      : new Container();
+                                },
+                                itemCount:
+                                    BannerList != null ? BannerList.length : 0,
+                              ),
+                            ),
+                            new SizedBox(
+                              width: 600.0,
+                              height: 100.0,
+                              child: Container(
+                                color: Colors.white,
+                                child: new ListView.builder(
+                                  itemCount: 5,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          Navigator.of(context).push(
+                                              new PageRouteBuilder(pageBuilder:
+                                                  (BuildContext, _, __) {
+                                            return new MaterialApp(
+                                              theme: new ThemeData(
+                                                primarySwatch: Colors.amber,
+                                                primaryColor: Colors.blue,
+                                                accentColor: Colors.deepOrangeAccent,
+                                              ),
+                                              home: new VideoDemo(),
+                                            ); ;
+                                          }));
+                                        });
+                                      },
+                                      child: new Container(
+                                        color: Colors.white,
+                                        child: new Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: <Widget>[
+                                            new ClipOval(
+                                              //这个一般可以作为圆形的裁剪哦。
+                                              child: new SizedBox(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                child: Container(
+                                                  child: new Image.asset(
+                                                    HomePageBean.images[index],
+                                                    fit: BoxFit.fill,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          new Text(
-                                            HomePageBean.namesss[index],
-                                            style: TextStyle(
-                                                color: Color(0xFF757575),
-                                                fontSize: 13.0,
-                                                fontWeight: FontWeight.bold),
-                                          )
-                                        ],
+                                            new Text(
+                                              HomePageBean.namesss[index],
+                                              style: TextStyle(
+                                                  color: Color(0xFF757575),
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
+                                        margin: new EdgeInsets.only(
+                                            left: 15.0, right: 6.0),
                                       ),
-                                      margin: new EdgeInsets.only(
-                                          left: 15.0, right: 6.0),
-                                    ),
-                                  );
-                                },
+                                    );
+                                  },
+                                ),
                               ),
                             ),
-                          ),
-                          new Container(
-                            width: 600.0,
-                            height: 1.0,
-                            color: Colors.white,
-                            child: new Container(
-                              color: Colors.black12,
-                            ),
-                            padding:
-                                new EdgeInsets.only(left: 10.0, right: 10.0),
-                          ),
-                          new SizedBox(
-                            width: 600.0,
-                            height: 140.0,
-                            child: Container(
+                            new Container(
+                              width: 600.0,
+                              height: 1.0,
                               color: Colors.white,
-                              child: new ListView.builder(
-                                itemCount:
-                                    (HomePageBean.inforData.length / 2).toInt(),
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return new Container(
-                                    color: Colors.white,
-                                    child: new Column(
-                                      children: <Widget>[
-                                        new GestureDetector(
-                                          onTap: () {
-                                            getStep();
-                                            // showModalBottomSheet<T>：显示模态质感设计底部面板
-                                            showModalBottomSheet<Null>(
-                                                context: context,
-                                                builder:
-                                                    (BuildContext context) {
-                                                  return new Container(
-                                                    color: Colors.transparent,
-                                                    child: new Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              32.0),
-                                                      child: steplist.length > 0
-                                                          ? new Stepper(
-                                                              steps: steplist,
-                                                              currentStep:
-                                                                  step_index,
-                                                              onStepCancel:
-                                                                  () {},
-                                                              onStepContinue:
-                                                                  () {},
-                                                            )
-                                                          : new CircularProgressIndicator(),
+                              child: new Container(
+                                color: Colors.black12,
+                              ),
+                              padding:
+                                  new EdgeInsets.only(left: 10.0, right: 10.0),
+                            ),
+                            new SizedBox(
+                              width: 600.0,
+                              height: 140.0,
+                              child: Container(
+                                color: Colors.white,
+                                child: new ListView.builder(
+                                  itemCount: (HomePageBean.inforData.length / 2)
+                                      .toInt(),
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return new Container(
+                                      color: Colors.white,
+                                      child: new Column(
+                                        children: <Widget>[
+                                          new GestureDetector(
+                                            onTap: () {
+                                              getStep();
+                                              // showModalBottomSheet<T>：显示模态质感设计底部面板
+                                              showModalBottomSheet<Null>(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return new Container(
+                                                      color: Colors.transparent,
+                                                      child: new Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(32.0),
+                                                        child: steplist.length >
+                                                                0
+                                                            ? new Stepper(
+                                                                steps: steplist,
+                                                                currentStep:
+                                                                    step_index,
+                                                                onStepCancel:
+                                                                    () {},
+                                                                onStepContinue:
+                                                                    () {},
+                                                              )
+                                                            : new CircularProgressIndicator(),
+                                                      ),
+                                                    );
+                                                  });
+                                            },
+                                            child: Container(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: <Widget>[
+                                                  Icon(
+                                                    HomePageBean
+                                                        .inforData[index * 2]
+                                                        .Item_Icon,
+                                                    color: HomePageBean
+                                                        .inforData[index * 2]
+                                                        .color,
+                                                  ),
+                                                  new Container(
+                                                    child: Text(
+                                                      HomePageBean
+                                                          .inforData[index * 2]
+                                                          .name,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xFF757575),
+                                                          fontSize: 13.0,
+                                                          fontWeight:
+                                                              FontWeight.bold),
                                                     ),
-                                                  );
-                                                });
-                                          },
-                                          child: Container(
+                                                    margin: new EdgeInsets.only(
+                                                        top: 5.0),
+                                                  ),
+                                                ],
+                                              ),
+                                              margin: new EdgeInsets.only(
+                                                  left: 10.0,
+                                                  right: 4.0,
+                                                  top: 14.0,
+                                                  bottom: 14.0),
+                                            ),
+                                          ),
+                                          new Container(
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceEvenly,
                                               children: <Widget>[
                                                 Icon(
                                                   HomePageBean
-                                                      .inforData[index * 2]
+                                                      .inforData[index * 2 + 1]
                                                       .Item_Icon,
                                                   color: HomePageBean
-                                                      .inforData[index * 2]
+                                                      .inforData[index * 2 + 1]
                                                       .color,
                                                 ),
                                                 new Container(
                                                   child: Text(
                                                     HomePageBean
-                                                        .inforData[index * 2]
+                                                        .inforData[
+                                                            index * 2 + 1]
                                                         .name,
                                                     style: TextStyle(
                                                         color:
@@ -1037,80 +1126,45 @@ class _MyHomePageState extends State<MyHomePager>
                                                             FontWeight.bold),
                                                   ),
                                                   margin: new EdgeInsets.only(
-                                                      top: 5.0),
+                                                      top: 3.0),
                                                 ),
                                               ],
                                             ),
-                                            margin: new EdgeInsets.only(
-                                                left: 10.0,
-                                                right: 4.0,
-                                                top: 14.0,
-                                                bottom: 14.0),
                                           ),
-                                        ),
-                                        new Container(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: <Widget>[
-                                              Icon(
-                                                HomePageBean
-                                                    .inforData[index * 2 + 1]
-                                                    .Item_Icon,
-                                                color: HomePageBean
-                                                    .inforData[index * 2 + 1]
-                                                    .color,
-                                              ),
-                                              new Container(
-                                                child: Text(
-                                                  HomePageBean
-                                                      .inforData[index * 2 + 1]
-                                                      .name,
-                                                  style: TextStyle(
-                                                      color: Color(0xFF757575),
-                                                      fontSize: 13.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                margin: new EdgeInsets.only(
-                                                    top: 3.0),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    margin: new EdgeInsets.only(
-                                        bottom: 10.0, left: 12.0, right: 6.0),
-                                  );
-                                },
+                                        ],
+                                      ),
+                                      margin: new EdgeInsets.only(
+                                          bottom: 10.0, left: 12.0, right: 6.0),
+                                    );
+                                  },
+                                ),
+                                margin: new EdgeInsets.all(4.0),
                               ),
-                              margin: new EdgeInsets.all(4.0),
                             ),
-                          ),
-                          //网格布局
-                          new Container(
-                              color: Colors.white,
-                              height:
-                                  MediaQuery.of(context).size.width / 2 + 15,
-                              width: MediaQuery.of(context).size.width,
-                              child: new GridView.count(
-                                childAspectRatio: 2.0,
-                                primary: false,
-                                padding: const EdgeInsets.all(10.0),
-                                crossAxisSpacing: 10.0,
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 6.0,
-                                children: _ItemList(),
-                              )),
-                          WidgetPagers(),
-                          new WidgetStudy(),
-                          new WidgetText(),
+                            //网格布局
+                            new Container(
+                                color: Colors.white,
+                                height:
+                                    MediaQuery.of(context).size.width / 2 + 15,
+                                width: MediaQuery.of(context).size.width,
+                                child: new GridView.count(
+                                  childAspectRatio: 2.0,
+                                  primary: false,
+                                  padding: const EdgeInsets.all(10.0),
+                                  crossAxisSpacing: 10.0,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 6.0,
+                                  children: _ItemList(),
+                                )),
+                            WidgetPagers(),
+                            new WidgetStudy(),
+                            new WidgetText(),
 
-                          /* 这是优化之前的代码很烦，index == 0
+                            /* 这是优化之前的代码很烦，index == 0
                         ? new ImageAnimal()
                         : index == 1 ? WidgetStudy() : new MyFadeTest(),*/
-                        ],
+                          ],
+                        ),
                       ),
                     )
                   : index == 1
@@ -1309,4 +1363,19 @@ class _MyHomePageState extends State<MyHomePager>
           child: new Text('无语'),
         )));
   }
+
+  void _onRefresh(bool up){
+    if(up){
+      //headerIndicator callback
+      new Future.delayed(const Duration(milliseconds: 2009))
+          .then((val) {
+        _refreshController.sendBack(true, RefreshStatus.failed);
+      });
+
+    }
+    else{
+      //footerIndicator Callback
+    }
+  }
+
 }

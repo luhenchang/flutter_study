@@ -18,6 +18,12 @@ dependencies:
   path_provider: "^0.4.1"
   cached_network_image: "0.4.1"
   sqflite: "^0.11.0+1"
+  pull_to_refresh: "^1.1.5"
+  video_player: "0.6.1"
+  collection: 1.14.6
+  device_info: 0.2.1
+  intl: 0.15.6
+  connectivity: 0.3.1
 dev_dependencies:
 
   flutter_test:
