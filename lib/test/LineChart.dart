@@ -22,6 +22,7 @@ class SimpleTimeSeriesChart extends StatelessWidget {
     );
   }
 
+
   /// Create one series with sample hard coded data.
   static List<charts.Series<TimeSeriesSales, DateTime>> _createSampleData() {
     final data = [
