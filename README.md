@@ -7,6 +7,12 @@
 
 如下图：
 
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying1.png?raw=true)
+
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying2.png?raw=true)
+
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying3.gif?raw=true)
+
 
 **2018年，7月24看着qq模仿了抽屉部件**
 
