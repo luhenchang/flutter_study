@@ -6,18 +6,16 @@
 在目录-view--->Video_demo文件里面。
 
 如下图：
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying3.gif?raw=true)![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying1.png?raw=true)
 
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying3.gif?raw=true)!
 
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying2.png?raw=true)
-
-
-
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying2.png?raw=true)[image](https://github.com/luhenchang/flutter_study/blob/master/images/douying1.png?raw=true)
 
 **2018年，7月24看着qq模仿了抽屉部件**
 
 如图
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/%5D_2NQ%7D11H2ULR22S52LN0@R.png?raw=true)
+
 在lib->flutter_view->view->MyDrawer里面，这里包裹如何将一个背景图片颜色通过设置color来调节亮度，以及圆型图边框，和stack的使用等，我相信看看我的代码就可以了。希望有所帮助。
 
 **2018年，7月16没事干更新下Flutter对于3d的支持，我们自定义一个3d展示部件以及图标的绘制**
