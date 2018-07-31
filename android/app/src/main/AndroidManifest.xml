@@ -15,7 +15,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="flutter_study"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/lunch_yasuo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

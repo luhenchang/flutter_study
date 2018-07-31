@@ -35,7 +35,6 @@ class WidgetPagers extends StatefulWidget {
 
 class FirstPageState extends State<WidgetPagers> {
   @override
-
   Widget build(BuildContext context) {
     //TODO 第二个布局
     return new Container(
@@ -687,6 +686,7 @@ class _MyHomePageState extends State<MyHomePager>
       return e.toString();
     }
   }
+
   void enterRefresh() {
     _refreshController.requestRefresh(true);
   }
@@ -694,6 +694,7 @@ class _MyHomePageState extends State<MyHomePager>
   void _onOffsetCallback(bool isUp, double offset) {
     // if you want change some widgets state ,you should rewrite the callback
   }
+
   GlobalKey<FormState> _formstate = new GlobalKey();
 
   _pressedChangerd() {
@@ -756,7 +757,6 @@ class _MyHomePageState extends State<MyHomePager>
       }
     });
   }
-
   _pressedChangerd_four() {
     setState(() {
       if (index != 3) {
@@ -818,6 +818,7 @@ class _MyHomePageState extends State<MyHomePager>
       return (prefs.getString('counter') ?? 0);
     });*/
   }
+
   Widget _headerCreate(BuildContext context, int mode) {
     return new ClassicIndicator(
       mode: mode,
@@ -826,6 +827,7 @@ class _MyHomePageState extends State<MyHomePager>
       idleText: "Load more...",
     );
   }
+
   Widget getItemWidget(String url) {
     return new Image.asset(
       url,
@@ -899,19 +901,22 @@ class _MyHomePageState extends State<MyHomePager>
                         controller: _refreshController,
                         onRefresh: (up) {
                           if (up)
-                            new Future.delayed(const Duration(milliseconds: 2009))
-                                .then((val) {
-
-                              _refreshController.scrollTo(_refreshController.scrollController.offset+100.0);
-                              _refreshController.sendBack(true, RefreshStatus.idle);
+                            new Future.delayed(
+                                const Duration(milliseconds: 2009)).then((val) {
+                              _refreshController.scrollTo(
+                                  _refreshController.scrollController.offset +
+                                      100.0);
+                              _refreshController.sendBack(
+                                  true, RefreshStatus.idle);
                               setState(() {});
 //                refresher.sendStatus(RefreshStatus.completed);
                             });
                           else {
-                            new Future.delayed(const Duration(milliseconds: 2009))
-                                .then((val) {
+                            new Future.delayed(
+                                const Duration(milliseconds: 2009)).then((val) {
                               setState(() {});
-                              _refreshController.sendBack(false, RefreshStatus.idle);
+                              _refreshController.sendBack(
+                                  false, RefreshStatus.idle);
                             });
                           }
                         },
@@ -964,10 +969,12 @@ class _MyHomePageState extends State<MyHomePager>
                                               theme: new ThemeData(
                                                 primarySwatch: Colors.amber,
                                                 primaryColor: Colors.blue,
-                                                accentColor: Colors.deepOrangeAccent,
+                                                accentColor:
+                                                    Colors.deepOrangeAccent,
                                               ),
                                               home: new VideoDemo(),
-                                            ); ;
+                                            );
+                                            ;
                                           }));
                                         });
                                       },
@@ -1173,7 +1180,25 @@ class _MyHomePageState extends State<MyHomePager>
                           child: SecondPager(),
                           color: Colors.black12,
                         )
-                      : index == 2 ? new SystemPage() : new PersonPager(),
+                      : index == 2
+                          ? new SystemPage()
+                          : new MaterialApp(
+                              theme: new ThemeData(
+                                primarySwatch: Colors.amber,
+                                primaryColor: Colors.blue,
+                                accentColor: Colors.deepOrangeAccent,
+                              ),
+                              home: new PersonPager(),
+                            ),
+              /*new MaterialApp(
+      title: 'app',
+      theme: new ThemeData(
+        primarySwatch: Colors.amber,
+        primaryColor: Colors.white,
+        accentColor: Colors.deepOrangeAccent,
+      ),
+      home: MyHomePager(),
+    ),*/
               width: 600.0,
               height: 900.0,
             ),
@@ -1365,18 +1390,14 @@ class _MyHomePageState extends State<MyHomePager>
         )));
   }
 
-  void _onRefresh(bool up){
-    if(up){
+  void _onRefresh(bool up) {
+    if (up) {
       //headerIndicator callback
-      new Future.delayed(const Duration(milliseconds: 2009))
-          .then((val) {
+      new Future.delayed(const Duration(milliseconds: 2009)).then((val) {
         _refreshController.sendBack(true, RefreshStatus.failed);
       });
-
-    }
-    else{
+    } else {
       //footerIndicator Callback
     }
   }
-
 }

@@ -15,7 +15,8 @@ class PersonPager extends StatefulWidget {
 class PersonPagerState extends State<PersonPager> {
   @override
   Widget build(BuildContext context) {
-    return new ListView(
+    return new Scaffold(
+      body:ListView(
       children: <Widget>[
         new Container(
           child: Stack(
@@ -353,6 +354,6 @@ class PersonPagerState extends State<PersonPager> {
           ),
         ),
       ],
-    );
+    ),);
   }
 }

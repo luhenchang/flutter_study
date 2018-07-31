@@ -197,7 +197,10 @@ class _ItemState extends State<Item> {
 
 
 
+new Stack(
+          children: <Widget>[new MyContainUtils(""),Card(child:new GestureDetector(),)],
 
+        )
 
 
 
