@@ -1,7 +1,7 @@
 # flutter_study
 **Flutter学习三---一天写完Demo：一有时间后面会持续更新的哦**
 **2018年，7月31没事干写了个比较好看的登录注册：
-![image](https://user-gold-cdn.xitu.io/2018/7/31/164ee4f7f72a9d59?imageslim)!
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av1.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av2.png?raw=true)!
 
 
 **2018年，7月25看着qq模仿抖音视频**
