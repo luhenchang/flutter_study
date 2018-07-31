@@ -109,6 +109,7 @@ class RegistPagerState extends State<RegistPager>
                                       fontSize: 13.0),
                                   hintStyle: TextStyle(fontSize: 12.0)),
                             ),
+
                             new SizedBox(
                               height: 10.0,
                             ),
