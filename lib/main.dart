@@ -29,8 +29,6 @@ void main() {
     ),
   );
 }
-
-
 //登录按钮
 class LoginButton extends StatelessWidget {
   final String userName;
