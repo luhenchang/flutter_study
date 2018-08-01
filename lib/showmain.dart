@@ -8,7 +8,9 @@ import 'package:flutter_app/flutter_system/SystemPage.dart';
 import 'package:flutter_app/flutter_widget/modle/HomePageBean.dart';
 import 'package:flutter_app/flutter_widget/view/DouyinPager.dart';
 import 'package:flutter_app/flutter_widget/view/MyDrawer.dart';
+import 'package:flutter_app/flutter_widget/view/MyWell_Screen.dart';
 import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
+import 'package:flutter_app/flutter_widget/view/XuankuPager.dart';
 import 'package:flutter_app/test/video_demo.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -829,12 +831,22 @@ class _MyHomePageState extends State<MyHomePager>
   }
 
   Widget getItemWidget(String url) {
-    return new Image.asset(
+    return new InkWell(
+      onTap:(){
+        Navigator.of(context).push(
+          new MaterialPageRoute(
+            builder: (context) {
+             return new MyWell_Screen();
+            },
+          ),
+        );
+      },
+      child:Image.asset(
       url,
       fit: BoxFit.cover,
       width: 80.0,
       height: 80.0,
-    );
+    ),);
   }
 
   List<Widget> _ItemList() {
@@ -1041,33 +1053,12 @@ class _MyHomePageState extends State<MyHomePager>
                                         children: <Widget>[
                                           new GestureDetector(
                                             onTap: () {
-                                              getStep();
-                                              // showModalBottomSheet<T>：显示模态质感设计底部面板
-                                              showModalBottomSheet<Null>(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return new Container(
-                                                      color: Colors.transparent,
-                                                      child: new Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(32.0),
-                                                        child: steplist.length >
-                                                                0
-                                                            ? new Stepper(
-                                                                steps: steplist,
-                                                                currentStep:
-                                                                    step_index,
-                                                                onStepCancel:
-                                                                    () {},
-                                                                onStepContinue:
-                                                                    () {},
-                                                              )
-                                                            : new CircularProgressIndicator(),
-                                                      ),
-                                                    );
-                                                  });
+
+                                                  Navigator.of(context).push(new PageRouteBuilder(
+                                                    pageBuilder: (BuildContext context, _, __) {
+                                                      return new XuankuPage();
+                                                    },
+                                                  ));
                                             },
                                             child: Container(
                                               child: Column(

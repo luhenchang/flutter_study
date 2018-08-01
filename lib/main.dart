@@ -21,7 +21,7 @@ void main() {
     new MaterialApp(
       title: 'app',
       theme: new ThemeData(
-        primaryColor: Colors.blue,
+        primaryColor: Color(0xFF00838F),
         primarySwatch: Colors.purple,
         accentColor: Colors.orangeAccent[400],
       ),
@@ -81,7 +81,7 @@ class MyLoginWidget extends StatefulWidget {
   State<StatefulWidget> createState() => MyLoginState();
 }
 
-class MyLoginState extends State<MyLoginWidget> {
+class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
   final scaffoldState = GlobalKey<ScaffoldState>();
   TodoProvider todoProvider = new TodoProvider();
   AppLifecycleState _lastLifecycleState;
@@ -103,6 +103,7 @@ class MyLoginState extends State<MyLoginWidget> {
     // write the variable as a string to the file
     await (await _getLocalFile()).writeAsString('$_userPhone');
   }
+   AnimationController animationController;
 
   //读数据
   Future<String> _readData() async {
@@ -120,6 +121,7 @@ class MyLoginState extends State<MyLoginWidget> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    animationController=new AnimationController(vsync:this,duration:Duration(milliseconds: 2000));
     //WidgetsBinding.instance.addObserver(this);
     print('进入了');
     iniSqlite();

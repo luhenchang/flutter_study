@@ -125,6 +125,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.1"
+  flutter_staggered_grid_view:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_grid_view
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.2"
   flutter_swiper:
     dependency: "direct main"
     description:
