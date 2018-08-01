@@ -7,9 +7,6 @@
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss1.gif?raw=true)!
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss2.gif?raw=true)!
 
-
-
-
 **2018年，7月31没事干写了个比较好看的登录注册：
 
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/av1.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av2.png?raw=true)!
