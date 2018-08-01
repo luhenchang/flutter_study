@@ -1,6 +1,9 @@
 # flutter_study
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
+**2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
+
+
 **2018年，7月31没事干写了个比较好看的登录注册：
 
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/av1.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av2.png?raw=true)!
