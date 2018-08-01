@@ -1,8 +1,13 @@
 # flutter_study
-**Flutter学习三---一天写完Demo：一有时间后面会持续更新的哦**
-**2018年，7月31没事干写了个比较好看的登录注册：
-![image](https://user-gold-cdn.xitu.io/2018/7/31/164ee4f7f72a9d59?imageslim)!
+**Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
+**2018年，7月31没事干写了个比较好看的登录注册：
+
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av1.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av2.png?raw=true)!
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av3.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av4.png?raw=true)!
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av5.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av6.png?raw=true)!
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av7.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av8.png?raw=true)!
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av9.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av11.png?raw=true)!
 
 **2018年，7月25看着qq模仿抖音视频**
 今天没事干下午，搞了搞视频方面的希望可以帮助到大家。
@@ -12,7 +17,7 @@
 
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying3.gif?raw=true)!
 
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying2.png?raw=true)[image](https://github.com/luhenchang/flutter_study/blob/master/images/douying1.png?raw=true)
+![image](https://github.com/luhenchang/flutter_study/blob/master/images/av7.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av9.png?raw=true)!
 
 **2018年，7月24看着qq模仿了抽屉部件**
 
