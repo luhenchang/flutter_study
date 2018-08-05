@@ -11,6 +11,7 @@ import 'package:flutter_app/flutter_widget/view/MyDrawer.dart';
 import 'package:flutter_app/flutter_widget/view/MyWell_Screen.dart';
 import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
 import 'package:flutter_app/flutter_widget/view/XuankuPager.dart';
+import 'package:flutter_app/test/SlivScrollListViewTabLayout.dart';
 import 'package:flutter_app/test/video_demo.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,6 +28,64 @@ import 'package:flutter_app/http_utils/HttpUtils.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import "package:pull_to_refresh/pull_to_refresh.dart";
+
+class WidgetPagerss extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new FirstPageStates();
+  }
+}
+
+class FirstPageStates extends State<WidgetPagerss> {
+  @override
+  Widget build(BuildContext context) {
+    //TODO 第二个布局
+    return new Container(
+      //距离每个边缘四周32像素
+      color: Colors.white30,
+      margin: EdgeInsets.all(3.0),
+      child: new Container(
+        color: Colors.white,
+        //最外层为一行包裹里面的
+        child: new Row(
+          //里面包含三个大布局子控件控件【两行文字,文字,五角星】
+          children: <Widget>[
+            //TODO 第一个子控件里面两行字体,让其占用多余的控件，这样右边的控件所占之外的所有控件都被他所占用这样展开的更长不然右边控件会往左边跑。
+            new Container(
+              margin: new EdgeInsets.only(
+                  left: 9.0, top: 8.0, right: 45.0, bottom: 5.0),
+              //这个列里面装两行文字
+              child: new Column(
+                //文字从这个左边开始
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new Container(
+                    //距离下面一个文字8像素
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: new Text(
+                      '2018年度好看电视剧',
+                      style: new TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  //第二行灰色的文字标题,当然了这里可以直接去掉new Container因为不需要修改
+                  new Container(
+                      //这里不需要距离上下边距。所以new Container是可以不用写的哦
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: new Text(
+                        '冰与火之歌',
+                        style: new TextStyle(color: Colors.grey[500]),
+                      )),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class WidgetPagers extends StatefulWidget {
   @override
@@ -658,7 +717,8 @@ class MyHomePager extends StatefulWidget {
 enum _RadioGroup { foo1, foo2 }
 
 class _MyHomePageState extends State<MyHomePager>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
+  List mImagesAdate;
   RefreshController _refreshController;
   bool preed_is = true;
   bool preed_is_second = false;
@@ -759,6 +819,7 @@ class _MyHomePageState extends State<MyHomePager>
       }
     });
   }
+
   _pressedChangerd_four() {
     setState(() {
       if (index != 3) {
@@ -811,6 +872,28 @@ class _MyHomePageState extends State<MyHomePager>
   @override
   void initState() {
     super.initState();
+    /*/* https://github.com/luhenchang/flutter_study/blob/master/images/longnv5.jpeg?raw=true
+*  https://github.com/luhenchang/flutter_study/blob/master/images/long_wuman.jpeg?raw=true
+*  https://github.com/luhenchang/flutter_study/blob/master/images/longwuman3.jpg?raw=true
+* https://github.com/luhenchang/flutter_study/blob/master/images/lonnv6.jpg?raw=true
+* https://github.com/luhenchang/flutter_study/blob/master/images/lonnv10.jpg?raw=true
+*  https://github.com/luhenchang/flutter_study/blob/master/images/longnv5.jpeg?raw=true
+*  https://github.com/luhenchang/flutter_study/blob/master/images/long_wuman.jpeg?raw=true
+*  https://github.com/luhenchang/flutter_study/blob/master/images/longwuman3.jpg?raw=true
+* https://github.com/luhenchang/flutter_study/blob/master/images/lonnv6.jpg?raw=true
+* https://github.com/luhenchang/flutter_study/blob/master/images/lonnv10.jpg?raw=true
+* */
+    * */
+    mImagesAdate = List<String>();
+    mImagesAdate.clear();
+    mImagesAdate.add(
+        "https://github.com/luhenchang/flutter_study/blob/master/images/longnv5.jpeg?raw=true");
+    mImagesAdate.add(
+        "https://github.com/luhenchang/flutter_study/blob/master/images/long_wuman.jpeg?raw=true");
+    mImagesAdate.add(
+        "https://github.com/luhenchang/flutter_study/blob/master/images/longwuman3.jpg?raw=true");
+    mImagesAdate.add(
+        "https://github.com/luhenchang/flutter_study/blob/master/images/lonvn9.jpg?raw=true");
     _refreshController = new RefreshController();
     loadData();
     initData();
@@ -831,22 +914,25 @@ class _MyHomePageState extends State<MyHomePager>
   }
 
   Widget getItemWidget(String url) {
-    return new InkWell(
-      onTap:(){
-        Navigator.of(context).push(
-          new MaterialPageRoute(
-            builder: (context) {
-             return new MyWell_Screen();
-            },
-          ),
-        );
-      },
-      child:Image.asset(
-      url,
-      fit: BoxFit.cover,
-      width: 80.0,
-      height: 80.0,
-    ),);
+    return Material(
+      child: new InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            new MaterialPageRoute(
+              builder: (context) {
+                return new MyWell_Screen();
+              },
+            ),
+          );
+        },
+        child: Image.asset(
+          url,
+          fit: BoxFit.cover,
+          width: 80.0,
+          height: 80.0,
+        ),
+      ),
+    );
   }
 
   List<Widget> _ItemList() {
@@ -1053,12 +1139,15 @@ class _MyHomePageState extends State<MyHomePager>
                                         children: <Widget>[
                                           new GestureDetector(
                                             onTap: () {
-
-                                                  Navigator.of(context).push(new PageRouteBuilder(
-                                                    pageBuilder: (BuildContext context, _, __) {
-                                                      return new XuankuPage();
-                                                    },
-                                                  ));
+                                              Navigator
+                                                  .of(context)
+                                                  .push(new PageRouteBuilder(
+                                                pageBuilder:
+                                                    (BuildContext context, _,
+                                                        __) {
+                                                  return new XuankuPage();
+                                                },
+                                              ));
                                             },
                                             child: Container(
                                               child: Column(
@@ -1155,6 +1244,59 @@ class _MyHomePageState extends State<MyHomePager>
                                   mainAxisSpacing: 6.0,
                                   children: _ItemList(),
                                 )),
+                            WidgetPagerss(),
+                            new Container(
+                                color: Colors.white,
+                                height:
+                                    MediaQuery.of(context).size.width / 2 + 15,
+                                width: MediaQuery.of(context).size.width,
+                                child: new GridView.builder(
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          crossAxisSpacing: 11.0,
+                                          mainAxisSpacing: 11.0,
+                                          childAspectRatio: 2.0),
+                                  primary: false,
+                                  itemCount: mImagesAdate.length,
+                                  padding: const EdgeInsets.all(10.0),
+                                  itemBuilder: (BuildContext context, int i) {
+                                    return Container(
+                                      height: 400.0,
+                                      width: MediaQuery.of(context).size.width,
+                                      color: Colors.teal,
+                                      child: Hero(
+                                        tag: mImagesAdate[i],
+                                        child: Material(
+                                          child: InkWell(
+                                            child: new FadeInImage(
+                                              image: new NetworkImage(
+                                                  mImagesAdate[i]),
+                                              fit: BoxFit.cover,
+                                              placeholder: new AssetImage(
+                                                  'images/wallfy.png'),
+                                            ),
+                                            onTap: () {
+                                              Navigator
+                                                  .of(context)
+                                                  .push(new PageRouteBuilder(
+                                                    opaque: false,
+                                                    pageBuilder:
+                                                        (BuildContext context,
+                                                            _, __) {
+                                                      return new MyAppsss(
+                                                          mImagesAdate[i],
+                                                          mImagesAdate[i]);
+                                                    },
+                                                  ));
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                )),
+
                             WidgetPagers(),
                             new WidgetStudy(),
                             new WidgetText(),

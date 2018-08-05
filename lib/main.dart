@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/RegistPager.dart';
 import 'package:flutter_app/flutter_WidghtUtils/MyContainUtils.dart';
 import 'package:flutter_app/http_utils/HttpUtils.dart';
+import 'package:flutter_app/http_utils/Toasty.dart';
 import 'package:flutter_app/showmain.dart';
 import 'package:flutter_app/test/SqlUtils.dart';
 import 'package:image_picker/image_picker.dart';
@@ -15,15 +17,13 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_app/http_utils/HttpUtils.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:fluttertoast/fluttertoast.dart';
 void main() {
   runApp(
     new MaterialApp(
       title: 'app',
       theme: new ThemeData(
-        primaryColor: Color(0xFF00838F),
-        primarySwatch: Colors.purple,
-        accentColor: Colors.orangeAccent[400],
+        primaryColor:Colors.white,
       ),
       home: new MyLoginWidget(),
     ),
@@ -81,6 +81,8 @@ class MyLoginWidget extends StatefulWidget {
 
 class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
   final scaffoldState = GlobalKey<ScaffoldState>();
+  var demonPlugin=new MethodChannel('demo.plugin');
+
   TodoProvider todoProvider = new TodoProvider();
   AppLifecycleState _lastLifecycleState;
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -169,11 +171,19 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
         String rescode = data["rescode"];
         print(rescode);
         if (rescode == '999999') {
-          showDialog(
+         /* showDialog(
               context: context,
               builder: (ctx) => new AlertDialog(
                     content: new Text('登录不成功'),
-                  ));
+                  ));*/
+          Fluttertoast.showToast(
+              msg: "登录失败",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIos:1,
+              bgcolor: "#499292",
+              textcolor: '#ffffff'
+          );
         } else if (rescode == '000000') {
           _writerDataToFile();
           Navigator.of(context).push(new PageRouteBuilder(
@@ -182,11 +192,20 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
                   return new MyHomePager();
                 },
               ));
+          Fluttertoast.showToast(
+              msg: "登录成功！",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIos:1,
+              bgcolor: "#499292",
+              textcolor: '#ffffff'
+          );
         }
       });
     } catch (e) {
       return result;
     }
+
     return result;
   }
 
@@ -313,7 +332,9 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                demonPlugin.invokeMethod('interaction');
+                              },
                               child: Text(
                                 'Forget pd',
                                 style: TextStyle(

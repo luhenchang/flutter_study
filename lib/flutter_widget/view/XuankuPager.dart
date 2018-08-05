@@ -3,16 +3,7 @@ import 'package:flutter_app/flutter_widget/view/XunkuPager2.dart';
 
 void main() => runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: new ThemeData(primaryColor:Color(0xFF00838F)),/*decoration: BoxDecoration(
-                  gradient: new LinearGradient(
-                    begin:Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: <Color>[
-                      Color(0xFF00838F),
-                      Color(0xFF4DD0E1)
-                    ],
-                  ),
-                ),*/
+      theme: new ThemeData(primaryColor:Color(0xFF00838F)),
       home: new XuankuPage(),
     ));
 
@@ -56,7 +47,8 @@ class _XuankuPageState extends State<XuankuPage>
         elevation: 0.0,
         leading: new IconButton(
           onPressed: () {
-            animationController.fling(velocity: isPanelVisible ? -1.0 : 1.0);
+            //这里给滑动的速度来设置一个阻尼速度的大小。-1.0如果动画完成了或者在开始前往运行过程时候阻尼速度为-1.0向下运行，当动画消失或者返回是速度为1.0正方形向上，
+            animationController.fling(velocity: isPanelVisible ?-1.0 :1.0);
           },
           icon: new AnimatedIcon(
             icon: AnimatedIcons.close_menu,
@@ -64,9 +56,12 @@ class _XuankuPageState extends State<XuankuPage>
           ),
         ),
       ),
-      body: new XuankuPage2(
-        controller: animationController,
+      body:new XuankuPage2(
+        controllers: animationController,
       ),
     );
   }
 }
+/*new XuankuPage2(
+        controllers: animationController,
+      ),*/

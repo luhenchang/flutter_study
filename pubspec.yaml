@@ -24,6 +24,7 @@ dependencies:
   device_info: 0.2.1
   intl: 0.15.6
   connectivity: 0.3.1
+  fluttertoast: ^2.0.7
   flutter_staggered_grid_view:
 dev_dependencies:
 
@@ -117,6 +118,8 @@ flutter:
       - images/lunch_yasuo.png
       - images/bbbb.png
       - images/wallfy.png
+
+    # To add assets to your plugin package, add an assets section, like this:
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

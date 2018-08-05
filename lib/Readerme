@@ -1,10 +1,14 @@
-new Center(
- child: new Object_3D(
- size: const Size(400.0, 400.0),
-  path: "assets/NVpose1.obj",
- asset:
- true), //assets/file.obj为我们的本地obj文件，需要到pubspec.yaml中进行配置
-),
+渐变:
+decoration: BoxDecoration(
+                   gradient: new LinearGradient(
+                     begin:Alignment.bottomCenter,
+                     end: Alignment.topCenter,
+                     colors: <Color>[
+                       Color(0xFF00838F),
+                       Color(0xFF4DD0E1)
+                     ],
+                   ),
+                 ),
   showDemoDialog<String>(
                                           context: context,
                                           child: new SimpleDialog(
@@ -196,11 +200,6 @@ class _ItemState extends State<Item> {
 }
 
 
-
-new Stack(
-          children: <Widget>[new MyContainUtils(""),Card(child:new GestureDetector(),)],
-
-        )
 
 
 

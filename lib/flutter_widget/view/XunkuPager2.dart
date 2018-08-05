@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class XuankuPage2 extends StatefulWidget {
-  final AnimationController controller;
+  final AnimationController controllers;
 
-  XuankuPage2({this.controller});
+  XuankuPage2({this.controllers});
 
   @override
   State<StatefulWidget> createState() {
@@ -19,13 +19,13 @@ class _XuankuPageState2 extends State<XuankuPage2>
     final height = constai.biggest.height;
     final backPaneHeight = height - header_height;
     final fromPanelHeight = -header_height;
-
+    //TODO 3.0相对矩形直接的动画：
     return new RelativeRectTween(
       begin:
-          new RelativeRect.fromLTRB(0.0, backPaneHeight, 0.0, fromPanelHeight),
+          new RelativeRect.fromLTRB(0.0, backPaneHeight, 0.0, fromPanelHeight),//TODO 当然了这里的设置是从上面开始向下，可以设置从左向右，从右边想左面。等
       end: new RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
     ).animate(
-      new CurvedAnimation(parent: widget.controller, curve: Curves.linear),
+      new CurvedAnimation(parent: widget.controllers, curve: Curves.bounceInOut),//TODO 这里可以设置动画延伸效果。例如回弹等。
     );
   }
 
@@ -34,6 +34,7 @@ class _XuankuPageState2 extends State<XuankuPage2>
     return new Container(
       child: new Stack(
         children: <Widget>[
+          //TODO 1.0 背景 '炫酷Flutter'
           new Container(
             color: theme.primaryColor,
             child: new Center(
@@ -46,8 +47,8 @@ class _XuankuPageState2 extends State<XuankuPage2>
                     begin:Alignment.bottomCenter,
                     end: Alignment.topCenter,
                     colors: <Color>[
-                      Color(0xFFFFCDD2),
-                      Color(0xFF00838F)
+                      Color(0xFF4DD0E1),
+                      Colors.white
                     ],
                   ),
                 ),
@@ -58,6 +59,8 @@ class _XuankuPageState2 extends State<XuankuPage2>
               ),
             ),
           ),
+
+          //TODO 2.0 背景 上面的动画以及圆形图片
           new PositionedTransition(
             rect: getPaneLanimation(constraints),
             child: Padding(

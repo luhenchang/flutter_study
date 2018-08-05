@@ -5,6 +5,7 @@ import 'package:flutter_app/flutter_WidghtUtils/MyContainUtils.dart';
 import 'package:flutter_app/http_utils/HttpUtils.dart';
 import 'package:flutter_app/showmain.dart';
 import 'package:flutter_app/test/SqlUtils.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -39,17 +40,23 @@ class RegistPagerState extends State<RegistPager>
         String rescode = data["rescode"];
         print(rescode);
         if (rescode == '999999') {
-          showDialog(
-              context: context,
-              builder: (ctx) => new AlertDialog(
-                    content: new Text('注册不成功'),
-                  ));
+          Fluttertoast.showToast(
+              msg: "注册失败",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIos:1,
+              bgcolor: "#499292",
+              textcolor: '#ffffff'
+          );
         } else if (rescode == '000000') {
-          showDialog(
-              context: context,
-              builder: (ctx) => new AlertDialog(
-                    content: new Text('注册成功，去登陆'),
-                  ));
+          Fluttertoast.showToast(
+              msg: "注册正确",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIos:1,
+              bgcolor: "#499292",
+              textcolor: '#ffffff'
+          );
         }
       });
     } catch (e) {

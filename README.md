@@ -4,7 +4,7 @@
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
 
 
-**2018年，7月31没事干写了个比较好看的登录注册：
+**2018年，7月31没事干写了个比较好看的登录注册：**
 
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/av1.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av2.png?raw=true)!
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/av3.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av4.png?raw=true)!
