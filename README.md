@@ -5,6 +5,7 @@
 **2018年，8.5没事干，花了一小时实现了大家比较期待的吸附效果**
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
 
+![image](https://img-blog.csdn.net/20180805223604504?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3NjY3Nzcw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)!
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/finlassswww.gif?raw=true)!
 
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
