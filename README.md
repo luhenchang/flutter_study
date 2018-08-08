@@ -2,7 +2,7 @@
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
 
-**2018年，8.5没事干，花了一小时实现了大家比较期待的吸附效果**
+**2018年，8.5没事干，花了一小时实现了大家比较期待的吸附效果和视频播放，希望对你有所帮助**
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
 
 ![image](https://github.com/luhenchang/MyImage/blob/3991fffcbf74b98b19ba143f887bc70241d51a40/app/images/flutter_image/eseeyss11.gif?raw=true)!
