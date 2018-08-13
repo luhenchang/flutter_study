@@ -5,7 +5,7 @@
 **2018年，8.5没事干，花了一小时实现了大家比较期待的吸附效果和视频播放，希望对你有所帮助**
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
 
-![image](https://github.com/luhenchang/MyImage/blob/3991fffcbf74b98b19ba143f887bc70241d51a40/app/images/flutter_image/eseeyss11.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/eseeyss1112.gif?raw=true)!
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/finlassswww.gif?raw=true)!
 
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
