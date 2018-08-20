@@ -241,7 +241,7 @@ class _ObjectPainter extends CustomPainter {
   }
 
   double _degreeToRadian(double degree) {
-    return degree * (Math.PI / 180.0);
+    return degree * (Math.pi / 180.0);
   }
 
   List<dynamic> _drawFace(List<Vector3> verticesToDraw, List face) {

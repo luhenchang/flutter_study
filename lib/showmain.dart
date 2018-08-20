@@ -7,6 +7,7 @@ import 'package:flutter_app/flutter_person/PersonPager.dart';
 import 'package:flutter_app/flutter_system/SystemPage.dart';
 import 'package:flutter_app/flutter_widget/modle/HomePageBean.dart';
 import 'package:flutter_app/flutter_widget/view/DouyinPager.dart';
+import 'package:flutter_app/flutter_widget/view/MainSearchPager.dart';
 import 'package:flutter_app/flutter_widget/view/MyDrawer.dart';
 import 'package:flutter_app/flutter_widget/view/MyWell_Screen.dart';
 import 'package:flutter_app/flutter_widget/view/NetWidget.dart';
@@ -969,9 +970,20 @@ class _MyHomePageState extends State<MyHomePager>
           ? new AppBar(
               titleSpacing: 0.0,
               automaticallyImplyLeading: false,
-              title: AppBar2(
-                index1: index,
-              ))
+              title: GestureDetector(
+                onTap:(){
+                  Navigator.of(context).push(new PageRouteBuilder(
+                    opaque: false,
+                    pageBuilder: (BuildContext context, _, __) {
+                      return new MainSearchPager();
+                    },
+                  ));
+                },
+                child: AppBar2(
+                  index1: index,
+                ),
+              ),
+            )
           : index == 1
               ? AppBar(
                   titleSpacing: 0.0,
@@ -1450,7 +1462,7 @@ class _MyHomePageState extends State<MyHomePager>
         .get('http://116.62.149.237:8080/USR000100002')
         .then((http.Response response) {
       print(response.body);
-      var datas = JSON.decode(response.body);
+      var datas = json.decode(response.body);
       String rescode = datas["rescode"];
       var listData = datas["resobj"];
       setState(() {

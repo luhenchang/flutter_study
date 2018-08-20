@@ -1,14 +1,15 @@
 渐变:
 decoration: BoxDecoration(
-                   gradient: new LinearGradient(
-                     begin:Alignment.bottomCenter,
-                     end: Alignment.topCenter,
-                     colors: <Color>[
-                       Color(0xFF00838F),
-                       Color(0xFF4DD0E1)
-                     ],
-                   ),
-                 ),
+  gradient: new LinearGradient(
+    begin:Alignment.bottomCenter,
+    end: Alignment.topCenter,
+    colors: <Color>[
+      Color(0xFF00838F),
+      Color(0xFF4DD0E1)
+    ],
+  ),
+),
+
   showDemoDialog<String>(
                                           context: context,
                                           child: new SimpleDialog(
@@ -124,7 +125,7 @@ class _Example1State extends State<Example1> {
 //  Widget _footerCreate(BuildContext context,int mode){
 //    return new ClassicIndicator(mode: mode);
 //  }
-
+File-->Setting->Editor->Live Templates
   @override
   Widget build(BuildContext context) {
     return new Container(

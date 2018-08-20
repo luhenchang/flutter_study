@@ -25,6 +25,7 @@ dependencies:
   intl: 0.15.6
   connectivity: 0.3.1
   fluttertoast: ^2.0.7
+  shimmer: ^0.0.4
   flutter_staggered_grid_view:
 dev_dependencies:
 
@@ -86,7 +87,6 @@ flutter:
       - images/row.png
       - images/jpejej.png
       - images/aaaaa.png
-      - images/app_background.png
       - images/qq.png
       - images/weixing.png
       - images/backgroud.jpg

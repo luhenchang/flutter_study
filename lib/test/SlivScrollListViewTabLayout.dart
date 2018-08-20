@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:ui' as ui;
 
 import 'package:flutter_app/test/TitleBar.dart';
+import 'package:shimmer/shimmer.dart';
 
 class Entry {
   Entry(this.title, [this.children = const <Entry>[]]);
@@ -77,6 +79,7 @@ class MyAppState extends State<MyAppsss> with TickerProviderStateMixin {
                   child: Icon(
                     Icons.chevron_left,
                     size: 29.0,
+                    color: Colors.white,
                   )),
               expandedHeight: 300.0,
               actions: <Widget>[
@@ -87,23 +90,35 @@ class MyAppState extends State<MyAppsss> with TickerProviderStateMixin {
                         Icon(
                           Icons.favorite_border,
                           size: 25.0,
+                          color: Colors.white,
                         ),
-                        Padding(child:Icon(
-                          Icons.refresh,
-                          size: 25.0,
+                        Padding(
+                          child: Icon(
+                            Icons.refresh,
+                            size: 25.0,
+                            color: Colors.white,
+                          ),
+                          padding: new EdgeInsets.only(left: 20.0),
                         ),
-                        padding: new EdgeInsets.only(left:20.0),),
                       ],
                     )),
               ],
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                title: Text("王者:冰与火之歌",
+                title: new Shimmer.fromColors(
+                  direction: ShimmerDirection.ltr,
+                  period: new Duration(milliseconds:3000),
+                  baseColor: Colors.white,
+                  highlightColor: Colors.grey,
+                  child: Text(
+                    "王者:冰与火之歌",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14.0,
-                    )),
+                    ),
+                  ),
+                ),
                 background: Container(
                   decoration: new BoxDecoration(
                       image: new DecorationImage(
@@ -242,6 +257,7 @@ class EntryItem extends StatefulWidget {
 }
 
 class EntryItemState extends State<EntryItem> {
+  var demonPlugin = new MethodChannel('demo.plugin');
   ListItem listItem;
   Entry entry;
   var colortitle = false;
@@ -251,12 +267,18 @@ class EntryItemState extends State<EntryItem> {
   Widget _buildTiles(Entry root) {
     if (root.children.isEmpty)
       return new ListTile(
-        leading: Padding(
-          padding: new EdgeInsets.only(left: 20.0),
-          child: new Icon(
-            Icons.play_circle_outline,
-            color: Colors.black,
-            size: 23.0,
+        leading: InkWell(
+          onTap: () {
+            demonPlugin.invokeMethod(
+                'http://jzvd.nathen.cn/d525f756aabf4b0588c2152fb94e07f5/d9f59bef829a472a9ca066620d9b871a-5287d2089db37e62345123a1be272f8b.mp4');
+          },
+          child: Padding(
+            padding: new EdgeInsets.only(left: 20.0),
+            child: new Icon(
+              Icons.play_circle_outline,
+              color: Colors.black,
+              size: 23.0,
+            ),
           ),
         ),
         title: new Text(

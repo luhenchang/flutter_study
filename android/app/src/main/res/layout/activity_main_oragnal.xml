@@ -5,12 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivityOragnal">
-    <TextView
-        android:id="@+id/tv"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:text="我是原生activity"
+
+    <com.hx.ijkplayer_demo.widget.media.IjkVideoView
+        android:id="@+id/video_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"/>
 </LinearLayout>

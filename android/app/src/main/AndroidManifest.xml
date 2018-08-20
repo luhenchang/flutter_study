@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flutterstudy">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!--
          The INTERNET permission is required for development. Specifically,
          flutter needs it to communicate with the running application
@@ -44,7 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivityOragnal" android:theme="@style/Theme.AppCompat.Light"></activity>
+        <activity android:screenOrientation="landscape" android:name=".MainActivityOragnal" android:theme="@style/Theme.AppCompat.Light"></activity>
     </application>
 
 </manifest>

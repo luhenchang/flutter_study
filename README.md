@@ -3,6 +3,8 @@
 
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
 
+
+
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss.gif?raw=true)!
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss1.gif?raw=true)!
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss2.gif?raw=true)!
@@ -53,27 +55,28 @@
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/bbc.jpg?raw=true)
 [博客地址](https://blog.csdn.net/m0_37667770/article/details/80993571).
 如何实现各种弧度或者自定义效果的窗体布局：
-class ArcClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0.0, size.height);
-    var firstControlPoint = Offset(size.width / 4, size.height - 30);
-    var firstPoint = Offset(size.width / 2, size.height - 30);
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+
+    class ArcClipper extends CustomClipper<Path> {
+     @override
+     Path getClip(Size size) {
+      var path = Path();
+      path.lineTo(0.0, size.height);
+      var firstControlPoint = Offset(size.width / 4, size.height - 30);
+      var firstPoint = Offset(size.width / 2, size.height - 30);
+      path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstPoint.dx, firstPoint.dy);
 
-    var secondControlPoint =
+      var secondControlPoint =
         Offset(size.width - (size.width / 4), size.height - 30);
-    var secondPoint = Offset(size.width, size.height);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+      var secondPoint = Offset(size.width, size.height);
+      path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
         secondPoint.dx, secondPoint.dy);
 
-    path.lineTo(size.width, 0.0);
-    path.close();
+      path.lineTo(size.width, 0.0);
+      path.close();
 
-    return path;
-  }
+      return path;
+    }
 
 **2018年，7月9日晚上更新**
 下班没事干，游戏就搁一边，写了一个多小时的界面，模仿美团，搞定了这两个界面，后面地图，定位这些会慢慢更新的。这个界面提供了如何用Dart创建类，然后给集合添加数据，并动态赋值给列表控件等。目录在flutter_intent->modle（这里面是类）->SecondPager和SecondPagerFragment是第二界面。ShopingListPager是二界面滑动的每个列表页面。

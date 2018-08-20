@@ -23,7 +23,7 @@ void main() {
     new MaterialApp(
       title: 'app',
       theme: new ThemeData(
-        primaryColor:Colors.white,
+        primaryColor:Colors.lightBlueAccent,
       ),
       home: new MyLoginWidget(),
     ),
@@ -59,6 +59,7 @@ class LoginButton extends StatelessWidget {
               Scaffold.of(context).showSnackBar(snackBar);
             }
           },
+
           child: new Text(
             '登陆',
             style: TextStyle(color: Colors.white, fontSize: 16.0),
@@ -160,6 +161,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
     todo.title =userName;
     todo.done = true;
      todoProvider.insert(todo);
+
 */
     String url =
         "http://116.62.149.237:8080/USR000100001?usrName=$userName&passwd=$password";
@@ -177,7 +179,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
                     content: new Text('登录不成功'),
                   ));*/
           Fluttertoast.showToast(
-              msg: "登录失败",
+              msg: " 登录失败 ",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIos:1,
@@ -193,7 +195,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
                 },
               ));
           Fluttertoast.showToast(
-              msg: "登录成功！",
+              msg: "  登录成功！ ",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER,
               timeInSecForIos:1,
@@ -228,6 +230,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
     final height_screen = MediaQuery.of(context).size.height;
     final width_srcreen = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomPadding:false,
       key: scaffoldState,
       backgroundColor: Colors.white,
       body: new GestureDetector(
@@ -333,7 +336,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
                           children: <Widget>[
                             InkWell(
                               onTap: () {
-                                demonPlugin.invokeMethod('interaction');
+                                demonPlugin.invokeMethod('http://jzvd.nathen.cn/d525f756aabf4b0588c2152fb94e07f5/d9f59bef829a472a9ca066620d9b871a-5287d2089db37e62345123a1be272f8b.mp4');
                               },
                               child: Text(
                                 'Forget pd',
