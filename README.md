@@ -1,6 +1,9 @@
 # flutter_study
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
+**2018年，8.20好久没写Flutter了，写了个各大点餐平台的类表滑动炫酷界面，希望对你有所帮助**
+项目下面->lib->test->MeiTuanShopping.dart
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/shoopper.gif?raw=true)!
 
 **2018年，8.5没事干，花了一小时实现了大家比较期待的吸附效果和视频播放，希望对你有所帮助**
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
