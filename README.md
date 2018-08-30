@@ -9,9 +9,7 @@
 **2018年，8.5没事干，花了一小时实现了大家比较期待的吸附效果和视频播放，希望对你有所帮助**
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
 
-![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/eseeyss1112.gif?raw=true)!
-
-![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/%E9%A6%96%E9%A1%B5%E4%B8%80%E9%83%A8%E5%88%86.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/eseeyss1112.gif?raw=true)!![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/%E9%A6%96%E9%A1%B5%E4%B8%80%E9%83%A8%E5%88%86.gif?raw=true)!
 
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
 
@@ -36,9 +34,7 @@
 2.CustomPaint提供了可以进行在Canvas画布上面进行绘制我们的显示。 
 3.GestureDetector提供我们在屏幕上的手势拖缀来给变和刷新我们3d图像。
 
-![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/3D.png?raw=true)
-
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/flutter_chart.gif?raw=true)
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/3D.png?raw=true)![image](https://github.com/luhenchang/flutter_study/blob/master/images/flutter_chart.gif?raw=true)
 
 [博客地址:](https://blog.csdn.net/m0_37667770/article/details/81042916).
 
