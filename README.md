@@ -15,13 +15,12 @@
 
 **2018年，7月31没事干写了个比较好看的登录注册：**
 
+
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/%E7%99%BB%E5%BD%951.gif?raw=true)!
 
 **2018年，7月24看着qq模仿了抽屉部件**
-![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/qq%E8%85%BE%E8%AE%AF.gif?raw=true)
 
-如图
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/%5D_2NQ%7D11H2ULR22S52LN0@R.png?raw=true)
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/qq%E8%85%BE%E8%AE%AF.gif?raw=true)![image](https://github.com/luhenchang/flutter_study/blob/master/images/%5D_2NQ%7D11H2ULR22S52LN0@R.png?raw=true)
 
 在lib->flutter_view->view->MyDrawer里面，这里包裹如何将一个背景图片颜色通过设置color来调节亮度，以及圆型图边框，和stack的使用等，我相信看看我的代码就可以了。希望有所帮助。
 
