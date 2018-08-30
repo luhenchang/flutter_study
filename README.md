@@ -10,7 +10,7 @@
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
 
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/eseeyss1112.gif?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/finlassswww.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/%E9%A6%96%E9%A1%B5%E4%B8%80%E9%83%A8%E5%88%86.gif?raw=true)!
 
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
 
@@ -22,23 +22,10 @@
 
 **2018年，7月31没事干写了个比较好看的登录注册：**
 
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/av1.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av2.png?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/av3.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av4.png?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/av5.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av6.png?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/av7.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av8.png?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/av9.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av11.png?raw=true)!
-
-**2018年，7月25看着qq模仿抖音视频**
-今天没事干下午，搞了搞视频方面的希望可以帮助到大家。
-在目录-view--->Video_demo文件里面。
-
-如下图：
-
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/douying3.gif?raw=true)!
-
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/av7.png?raw=true)!![image](https://github.com/luhenchang/flutter_study/blob/master/images/av9.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/%E7%99%BB%E5%BD%951.gif?raw=true)!
 
 **2018年，7月24看着qq模仿了抽屉部件**
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/qq%E8%85%BE%E8%AE%AF.gif?raw=true)
 
 如图
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/%5D_2NQ%7D11H2ULR22S52LN0@R.png?raw=true)
@@ -54,7 +41,7 @@
 2.CustomPaint提供了可以进行在Canvas画布上面进行绘制我们的显示。 
 3.GestureDetector提供我们在屏幕上的手势拖缀来给变和刷新我们3d图像。
 
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/3D.png?raw=true)
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/3D.png?raw=true)
 
 ![image](https://github.com/luhenchang/flutter_study/blob/master/images/flutter_chart.gif?raw=true)
 
@@ -118,16 +105,7 @@ Flutter和“ReactNative”，我想很多作为android和前端或者ios开发�
 写了一天半Demon如下图所示： 
 当我注重看Flutter框架设计时候，官方网站提供了bottomNavigationBar但是发现设置路由进入子页面之后它没法消失，百度了很多至今没有一个人写个原始的Flutter应用程序框架。这里只好自己写了，当然了思路都一样，用下面点击事件去记录index然后替换显示三个对应的页面就可以了。对于生命传值路由我希望大家可以去看官方网站比较需要理解，而且很好理解的，动态和静态如果设置路由，如何传值这些都是分分钟的事情。Flutter官网连接.
 这里写图片描述
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/Flutter_1234556.gif?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/1.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/3.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/4.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/5.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/6.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/7.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/8.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/9.png?raw=true)
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/10.png?raw=true)
+
 项目会一直完善的，我github上传失败了，改天上传希望可以帮助你学习。有什么意见和建议的多多留言，我会尽自己最大的可能提供帮助。
 哇哦这个会更新么？
 ## Getting Started
