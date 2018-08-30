@@ -10,15 +10,10 @@
 项目下面->lib->test->SlivScrollListViewTabLayout.dart
 
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/eseeyss1112.gif?raw=true)!
+
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/%E9%A6%96%E9%A1%B5%E4%B8%80%E9%83%A8%E5%88%86.gif?raw=true)!
 
 **2018年，8.1下班没事干，花了一小时实现了比较炫酷的界面**
-
-
-
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss.gif?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss1.gif?raw=true)!
-![image](https://github.com/luhenchang/flutter_study/blob/master/images/xuankuss2.gif?raw=true)!
 
 **2018年，7月31没事干写了个比较好看的登录注册：**
 
