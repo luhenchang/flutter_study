@@ -1,5 +1,10 @@
 # flutter_study
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
+
+
+
+
+
 **2018年，9.03最近没时间玩flutter了，今天在mac安装好了环境，并在iphone运行了**
 
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios1.gif?raw=true)!
