@@ -1,6 +1,12 @@
 # flutter_study
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
-
+**2018年，9.03最近没时间玩flutter了，今天在mac安装好了环境，并在iphone运行了**
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios1.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios2.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios3.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios4.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios5.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios6.gif?raw=true)!
 **2018年，8.20好久没写Flutter了，写了个各大点餐平台的类表滑动炫酷界面，希望对你有所帮助**
 项目下面->lib->test->MeiTuanShopping.dart
 
