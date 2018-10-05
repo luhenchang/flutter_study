@@ -13,6 +13,7 @@
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios4.gif?raw=true)!
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios5.gif?raw=true)!
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios6.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/android10.gif?raw=true)!
 
 
 **2018年，9.03下面是部分android模拟器上面的gif图片
@@ -26,7 +27,7 @@
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/android7.gif?raw=true)!
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/android8.gif?raw=true)!
 ![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/android9.gif?raw=true)!
-
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/android10.gif?raw=true)!
 **2018年，8.20好久没写Flutter了，写了个各大点餐平台的类表滑动炫酷界面，希望对你有所帮助**
 项目下面->lib->test->MeiTuanShopping.dart
 
