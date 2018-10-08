@@ -1,7 +1,10 @@
 # flutter_study
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
+**2018年，10.08日对于滑动控制监听滑动高度和结束开始等。来进行效果的实现。**
 
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios_scrollLisenner.gif?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/app/src/main/res/drawable/ios_scrollnotify.gif?raw=true)!
 
 
 
