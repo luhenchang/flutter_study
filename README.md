@@ -2,6 +2,7 @@
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
 **2018年，10.10日最近接了一个项目可以提供相关页面，遇到困难的萌新可以一起谈论交流。**
+![image](https://github.com/luhenchang/IMAGE/blob/master/program_ios1.gif?raw=true)!
 
 
 
