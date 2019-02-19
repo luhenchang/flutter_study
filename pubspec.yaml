@@ -9,24 +9,25 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.0
   english_words: ^3.1.0
-  http: ^0.11.3+16
+  http: ^0.12.0+1
   image_picker: "^0.4.5"
   shared_preferences: "^0.4.2"
   transparent_image: "^0.1.0"
   flutter_swiper : "^1.0.2"
-  charts_flutter: "^0.3.0"
-  path_provider: "^0.4.1"
-  cached_network_image: "0.4.1"
-  sqflite: "^0.11.0+1"
+  charts_flutter: "^0.4.0"
+  path_provider: ^0.5.0+1
+  cached_network_image: "0.6.0"
+  sqflite: ^1.1.0
   pull_to_refresh: "^1.1.5"
   video_player: "0.6.1"
-  collection: 1.14.6
+  collection: 1.14.11
   device_info: 0.2.1
-  intl: 0.15.6
+  intl: 0.15.7
   connectivity: 0.3.1
-  fluttertoast: ^2.0.7
+  fluttertoast: ^3.0.0
   shimmer: ^0.0.4
   flutter_staggered_grid_view:
+  flutter_slidable: "^0.4.9"
 dev_dependencies:
 
   flutter_test:
@@ -43,83 +44,83 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-      - assets/NVpose1.obj
-      - assets/bb.obj
-      - images/lake.jpg
-      - images/long_wuman1.jpg
-      - images/pic1.jpg
-      - images/pic2.jpg
-      - images/pic3.jpg
-      - images/pic4.jpg
-      - images/pic5.jpg
-      - images/pic6.jpg
-      - images/pic7.jpg
-      - images/pic8.jpg
-      - images/pic9.jpg
-      - images/pic10.jpg
-      - images/pic11.jpg
-      - images/pic12.jpg
-      - images/pic13.jpg
-      - images/pic14.jpg
-      - images/pic15.jpg
-      - images/pic16.jpg
-      - images/pic17.jpg
-      - images/pic18.jpg
-      - images/pic19.jpg
-      - images/pic20.jpg
-      - images/pic21.jpg
-      - images/pic22.jpg
-      - images/pic23.jpg
-      - images/pic24.jpg
-      - images/pic25.jpg
-      - images/pic26.jpg
-      - images/pic27.jpg
-      - images/pic28.jpg
-      - images/pic29.jpg
-      - images/pic30.jpg
-      - images/longnv5.jpeg
-      - images/longwuman3.jpg
-      - images/lonnv6.jpg
-      - images/lonvn9.jpg
-      - images/lonnv8.jpg
-      - images/lonnv10.jpg
-      - images/haha.png
-      - images/row.png
-      - images/jpejej.png
-      - images/aaaaa.png
-      - images/qq.png
-      - images/weixing.png
-      - images/backgroud.jpg
-      - images/backgroud2.jpg
-      - images/backgroud4.jpg
-      - images/backgroud6.jpg
-      - images/background1.jpg
-      - images/item1.png
-      - images/1.png
-      - images/2.png
-      - images/3.png
-      - images/4.png
-      - images/poster.png
-      - images/item1.png
-      - images/item2.png
-      - images/item3.png
-      - images/item4.png
-      - images/ellie.png
-      - images/eric.png
-      - images/jenny.png
-      - images/kevin.png
-      - images/louis.png
-      - images/banner.png
-      - images/header_my.png
-      - images/myheader.png
-      - images/my_header.png
-      - images/drawbg.png
-      - images/erweima.png
-      - images/lunch_yasuo.png
-      - images/bbbb.png
-      - images/wallfy.png
+  - assets/NVpose1.obj
+  - assets/bb.obj
+  - images/lake.jpg
+  - images/long_wuman1.jpg
+  - images/pic1.jpg
+  - images/pic2.jpg
+  - images/pic3.jpg
+  - images/pic4.jpg
+  - images/pic5.jpg
+  - images/pic6.jpg
+  - images/pic7.jpg
+  - images/pic8.jpg
+  - images/pic9.jpg
+  - images/pic10.jpg
+  - images/pic11.jpg
+  - images/pic12.jpg
+  - images/pic13.jpg
+  - images/pic14.jpg
+  - images/pic15.jpg
+  - images/pic16.jpg
+  - images/pic17.jpg
+  - images/pic18.jpg
+  - images/pic19.jpg
+  - images/pic20.jpg
+  - images/pic21.jpg
+  - images/pic22.jpg
+  - images/pic23.jpg
+  - images/pic24.jpg
+  - images/pic25.jpg
+  - images/pic26.jpg
+  - images/pic27.jpg
+  - images/pic28.jpg
+  - images/pic29.jpg
+  - images/pic30.jpg
+  - images/longnv5.jpeg
+  - images/longwuman3.jpg
+  - images/lonnv6.jpg
+  - images/lonvn9.jpg
+  - images/lonnv8.jpg
+  - images/lonnv10.jpg
+  - images/haha.png
+  - images/row.png
+  - images/jpejej.png
+  - images/aaaaa.png
+  - images/qq.png
+  - images/weixing.png
+  - images/backgroud.jpg
+  - images/backgroud2.jpg
+  - images/backgroud4.jpg
+  - images/backgroud6.jpg
+  - images/background1.jpg
+  - images/item1.png
+  - images/1.png
+  - images/2.png
+  - images/3.png
+  - images/4.png
+  - images/poster.png
+  - images/item1.png
+  - images/item2.png
+  - images/item3.png
+  - images/item4.png
+  - images/ellie.png
+  - images/eric.png
+  - images/jenny.png
+  - images/kevin.png
+  - images/louis.png
+  - images/banner.png
+  - images/header_my.png
+  - images/myheader.png
+  - images/my_header.png
+  - images/drawbg.png
+  - images/erweima.png
+  - images/lunch_yasuo.png
+  - images/bbbb.png
+  - images/wallfy.png
 
-    # To add assets to your plugin package, add an assets section, like this:
+  # To add assets to your plugin package, add an assets section, like this:
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

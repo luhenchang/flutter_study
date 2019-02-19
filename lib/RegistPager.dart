@@ -45,8 +45,6 @@ class RegistPagerState extends State<RegistPager>
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIos:1,
-              bgcolor: "#499292",
-              textcolor: '#ffffff'
           );
         } else if (rescode == '000000') {
           Fluttertoast.showToast(
@@ -54,8 +52,6 @@ class RegistPagerState extends State<RegistPager>
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIos:1,
-              bgcolor: "#499292",
-              textcolor: '#ffffff'
           );
         }
       });

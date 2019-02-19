@@ -183,8 +183,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIos:1,
-              bgcolor: "#499292",
-              textcolor: '#ffffff'
+
           );
         } else if (rescode == '000000') {
           _writerDataToFile();
@@ -199,8 +198,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER,
               timeInSecForIos:1,
-              bgcolor: "#499292",
-              textcolor: '#ffffff'
+
           );
         }
       });

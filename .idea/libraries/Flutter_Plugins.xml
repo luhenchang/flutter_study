@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.4.5" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/device_info-0.2.1" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.0.0" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-0.5.0+1" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/connectivity-0.3.1" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.1.0" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.4.2" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player-0.6.1" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
