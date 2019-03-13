@@ -61,7 +61,7 @@
         <entry key="convert">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.0.2/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.1.1/lib" />
             </list>
           </value>
         </entry>
@@ -103,7 +103,14 @@
         <entry key="flutter_cache_manager">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_cache_manager-0.3.0/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_cache_manager-0.3.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_page_indicator">
+          <value>
+            <list>
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_page_indicator-0.0.3/lib" />
             </list>
           </value>
         </entry>
@@ -117,14 +124,14 @@
         <entry key="flutter_staggered_grid_view">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_staggered_grid_view-0.2.2/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_staggered_grid_view-0.2.7/lib" />
             </list>
           </value>
         </entry>
         <entry key="flutter_swiper">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_swiper-1.0.2/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_swiper-1.1.5/lib" />
             </list>
           </value>
         </entry>
@@ -138,7 +145,7 @@
         <entry key="fluttertoast">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.0.0/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.0.3/lib" />
             </list>
           </value>
         </entry>
@@ -159,7 +166,7 @@
         <entry key="image_picker">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.4.5/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.4.12+1/lib" />
             </list>
           </value>
         </entry>
@@ -208,14 +215,14 @@
         <entry key="pedantic">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pedantic-1.4.0/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pedantic-1.5.0/lib" />
             </list>
           </value>
         </entry>
         <entry key="pull_to_refresh">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pull_to_refresh-1.1.5/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pull_to_refresh-1.1.6/lib" />
             </list>
           </value>
         </entry>
@@ -229,7 +236,7 @@
         <entry key="shared_preferences">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.4.2/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.4.3/lib" />
             </list>
           </value>
         </entry>
@@ -250,14 +257,14 @@
         <entry key="source_span">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.5.4/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.5.5/lib" />
             </list>
           </value>
         </entry>
         <entry key="sqflite">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.1.0/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.1.3/lib" />
             </list>
           </value>
         </entry>
@@ -285,7 +292,7 @@
         <entry key="synchronized">
           <value>
             <list>
-              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/synchronized-2.0.2+1/lib" />
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/synchronized-2.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -300,6 +307,13 @@
           <value>
             <list>
               <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/test_api-0.2.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="transformer_page_view">
+          <value>
+            <list>
+              <option value="/soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/transformer_page_view-0.1.5/lib" />
             </list>
           </value>
         </entry>
@@ -349,38 +363,40 @@
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/charts_flutter-0.4.0/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/collection-1.14.11/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/connectivity-0.3.1/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.0.2/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.1.1/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/crypto-2.0.6/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.2/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/device_info-0.2.1/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/english_words-3.1.5/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_cache_manager-0.3.0/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_cache_manager-0.3.2/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_page_indicator-0.0.3/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_slidable-0.4.9/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_staggered_grid_view-0.2.2/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_swiper-1.0.2/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.0.0/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_staggered_grid_view-0.2.7/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_swiper-1.1.5/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.0.3/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/http-0.12.0+1/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/http_parser-3.1.3/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.4.5/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.4.12+1/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/intl-0.15.7/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/logging-0.11.3+2/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/matcher-0.12.3+1/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/meta-1.1.6/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/path-1.6.2/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-0.5.0+1/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pedantic-1.4.0/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pull_to_refresh-1.1.5/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pedantic-1.5.0/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/pull_to_refresh-1.1.6/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/quiver-2.0.1/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.4.2/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.4.3/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/shimmer-0.0.6/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.5.4/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.1.0/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.5.5/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.1.3/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/stack_trace-1.9.3/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/stream_channel-1.6.8/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/string_scanner-1.0.4/lib" />
-      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/synchronized-2.0.2+1/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/synchronized-2.1.0/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/term_glyph-1.1.0/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/test_api-0.2.2/lib" />
+      <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/transformer_page_view-0.1.5/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/transparent_image-0.1.0/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/typed_data-1.1.6/lib" />
       <root url="file:///soft/android/android_flutter/flutter/.pub-cache/hosted/pub.flutter-io.cn/uuid-2.0.0/lib" />

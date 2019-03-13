@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.flutterstudy">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -21,7 +22,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/lunch_yasuo"
         android:label="flutter_study"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
@@ -46,7 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:screenOrientation="landscape" android:name=".MainActivityOragnal" android:theme="@style/Theme.AppCompat.Light"></activity>
     </application>
 
 </manifest>

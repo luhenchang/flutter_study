@@ -17,10 +17,10 @@ class MainActivity() : FlutterActivity() {
         MethodChannel(flutterView, CHANNEL).setMethodCallHandler(object : MethodCallHandler {
             override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
              //   if (call.method == "interaction") {
-                    val intent = Intent(this@MainActivity, MainActivityOragnal::class.java)
-                    intent.putExtra("putstr",call.method);
-                    this@MainActivity.startActivity(intent)
-                    result.success("success")
+//                    val intent = Intent(this@MainActivity, MainActivityOragnal::class.java)
+//                    intent.putExtra("putstr",call.method);
+//                    this@MainActivity.startActivity(intent)
+//                    result.success("success")
               /*  } else {
                     result.notImplemented()
                 }*/

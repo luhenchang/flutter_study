@@ -154,8 +154,7 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
     todoProvider.open(path);
   }
 
-  Future<bool> _Login(
-      String userName, String password, BuildContext context) async {
+  Future<bool> _Login(String userName, String password, BuildContext context) async {
     /*//数据库插入语句：
     Todo todo = new Todo();
     todo.title =userName;
@@ -163,6 +162,12 @@ class MyLoginState extends State<MyLoginWidget>  with TickerProviderStateMixin{
      todoProvider.insert(todo);
 
 */
+    Navigator.of(context).push(new PageRouteBuilder(
+      opaque: false,
+      pageBuilder: (BuildContext context, _, __) {
+        return new MyHomePager();
+      },
+    ));
     String url =
         "http://116.62.149.237:8080/USR000100001?usrName=$userName&passwd=$password";
     bool result;

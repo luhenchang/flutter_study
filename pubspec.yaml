@@ -15,10 +15,9 @@ dependencies:
   transparent_image: "^0.1.0"
   flutter_swiper : "^1.0.2"
   charts_flutter: "^0.4.0"
-  path_provider: ^0.5.0+1
   cached_network_image: "0.6.0"
   sqflite: ^1.1.0
-  pull_to_refresh: "^1.1.5"
+  pull_to_refresh: ^1.1.6
   video_player: "0.6.1"
   collection: 1.14.11
   device_info: 0.2.1
