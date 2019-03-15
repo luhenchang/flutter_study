@@ -1,15 +1,15 @@
 # flutter_study
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 **2019年，3月份写了一周多了，也就下班写，这个项目按小时计费:效果图如下。如果有需求带同学可以加我qq一起探讨**
-![image](https://github.com/luhenchang/IMAGE/blob/master/home01.png?raw=true)! 
-![image](https://github.com/luhenchang/IMAGE/blob/master/home02.png?raw=true)! 
-![image](https://github.com/luhenchang/IMAGE/blob/master/home03.png?raw=true)! 
-![image](https://github.com/luhenchang/IMAGE/blob/master/home04.png?raw=true)! 
-![image](https://github.com/luhenchang/IMAGE/blob/master/home05.png?raw=true)! 
-![image](https://github.com/luhenchang/IMAGE/blob/master/home06.png?raw=true)!
-![image](https://github.com/luhenchang/IMAGE/blob/master/home07.png?raw=true)!
-![image](https://github.com/luhenchang/IMAGE/blob/master/home08.png?raw=true)!
-![image](https://github.com/luhenchang/IMAGE/blob/master/home09.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home11.png?raw=true)! 
+![image](https://github.com/luhenchang/IMAGE/blob/master/home12.png?raw=true)! 
+![image](https://github.com/luhenchang/IMAGE/blob/master/home13.png?raw=true)! 
+![image](https://github.com/luhenchang/IMAGE/blob/master/home14.png?raw=true)! 
+![image](https://github.com/luhenchang/IMAGE/blob/master/home15.png?raw=true)! 
+![image](https://github.com/luhenchang/IMAGE/blob/master/home16.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home17.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home18.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home19.png?raw=true)!
 
 **2018年，10.10日最近接了一个项目可以提供相关页面，遇到困难的萌新可以一起谈论交流。**
 
