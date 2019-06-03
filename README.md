@@ -1,4 +1,12 @@
 # flutter_study
+**Flutter免费教学，自己出的良心免费教程，希望你三天可以自己脱离一切视频搞定flutter。**
+1.包括Dart基础
+2.包括Flutter基础
+3.用Flutter手写b站App涉及到封装网络请求，全局状态管理，自定义，滑动监听，3d支持和使用，购物车等各种需要的。
+[视频地址](http://space.bilibili.com/265453330?share_medium=android&share_source=qq&bbid=XY0878202754C3B308DBDBBE7B67B7B5A694E&ts=1557479970694).
+![image](https://github.com/luhenchang/IMAGE/blob/master/img_bizhan/WeChat3d4501c5ea03165d48b5270ac7944463.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/img_bizhan/appbizhan.jpg?raw=true)!
+
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
 
 **2019年，3月份写了一周多了，也就下班写，这个项目按小时计费:效果图如下。如果有需求带同学可以加我qq一起探讨**
