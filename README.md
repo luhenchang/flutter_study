@@ -1,5 +1,25 @@
 # flutter_study
+**Flutter免费教学，自己出的良心免费教程，希望你三天可以自己脱离一切视频搞定flutter。**<br/>
+1.包括Dart基础<br/>
+2.包括Flutter基础<br/>
+3.用Flutter手写b站App涉及到封装网络请求，全局状态管理，自定义，滑动监听，3d支持和使用，购物车等各种需要的。<br/>
+[视频地址](http://space.bilibili.com/265453330?share_medium=android&share_source=qq&bbid=XY0878202754C3B308DBDBBE7B67B7B5A694E&ts=1557479970694).<br/>
+![image](https://github.com/luhenchang/IMAGE/blob/master/img_bizhan/WeChat3d4501c5ea03165d48b5270ac7944463.png?raw=true)!<br/>
+![image](https://github.com/luhenchang/IMAGE/blob/master/img_bizhan/appbizhan.jpg?raw=true)!<br/>
+
 **Flutter学习三天,一天写完Demo：一有时间后面会持续更新的哦**
+
+**2019年，3月份写了一周多了，也就下班写，这个项目按小时计费:效果图如下。如果有需求带同学可以加我qq一起探讨**
+
+![image](https://github.com/luhenchang/IMAGE/blob/master/home11.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home12.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home13.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home14.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home15.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home16.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home17.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home18.png?raw=true)!
+![image](https://github.com/luhenchang/IMAGE/blob/master/home19.png?raw=true)!
 
 **2018年，10.10日最近接了一个项目可以提供相关页面，遇到困难的萌新可以一起谈论交流。**
 
