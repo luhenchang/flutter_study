@@ -27,6 +27,7 @@ dependencies:
   shimmer: ^0.0.4
   flutter_staggered_grid_view:
   flutter_slidable: "^0.4.9"
+
 dev_dependencies:
 
   flutter_test:
